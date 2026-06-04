@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>第14-18章 激素·信号转导·生物膜·生物能学·生物氧化·光合作用</title>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\(', '\)']],
+    displayMath: [['$$', '$$'], ['\[', '\]']]
+  }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"></script>
+<style>
+/* === ExamPass Shared Styles === */
+/* Paper-like warm background, clean typography, responsive */
+
+:root {
+  --paper: #fdf6e3;
+  --paper-dark: #f5ecd7;
+  --ink: #2c2c2c;
+  --ink-light: #555;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --divider: #d6c8a8;
+  --card-bg: #fef9ef;
+  --card-border: #e8dcc8;
+  --correct: #22c55e;
+  --correct-bg: #f0fdf4;
+  --wrong: #ef4444;
+  --wrong-bg: #fef2f2;
+  --tag-bg: #fef3c7;
+  --tag-text: #92400e;
+  --radius: 6px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Microsoft YaHei", "Noto Sans SC", "SimSun", sans-serif;
+  font-size: 12pt; line-height: 1.75; color: var(--ink);
+  max-width: 860px; margin: auto; padding: 24px 20px 60px;
+  background: var(--paper);
+}
+
+@media print {
+  body { font-size: 10.5pt; background: #fff; }
+  .no-print { display: none !important; }
+  h1, h2, h3 { page-break-after: avoid; }
+}
+
+/* ── Header ── */
+#exampass-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 6px 0; margin-bottom: 0;
+}
+.header-brand { font-size: 1.2em; font-weight: 700; color: #1a1a2e; letter-spacing: 0.3px; }
+.header-url  { font-size: 0.78em; color: #999; }
+.header-divider { border: none; border-top: 2px solid var(--divider); margin: 4px 0 20px 0; }
+
+/* ── Typography ── */
+h1 { font-size: 1.55em; text-align: center; border-bottom: 2px solid var(--divider); padding-bottom: 8px; margin-top: 0; }
+h2 { font-size: 1.25em; border-bottom: 1px solid var(--divider); padding-bottom: 4px; margin-top: 28px; }
+h3 { font-size: 1.08em; margin-top: 20px; color: var(--ink); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Tables ── */
+table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 0.95em; }
+td, th { border: 1px solid var(--card-border); padding: 5px 9px; text-align: left; }
+th { background: var(--paper-dark); font-weight: 700; }
+
+/* ── Knowledge point vs explanation ── */
+.kp { font-weight: 700; color: var(--ink); }           /* key point: bold dark */
+.exp { font-weight: 400; color: var(--ink-light); }    /* explanation: lighter */
+.exp em, .exp strong { color: var(--ink); }             /* emphasis inside explanation */
+
+/* ── Block elements ── */
+blockquote {
+  border-left: 3px solid #c0392b; background: #fef9ef;
+  padding: 6px 14px; margin: 10px 0; font-size: 0.95em;
+}
+code { background: #f0ede0; padding: 2px 5px; border-radius: 3px; font-size: 0.92em; }
+pre { background: #f0ede0; padding: 10px; border-radius: var(--radius); overflow-x: auto; }
+
+/* ── TOC ── */
+div.toc {
+  background: var(--card-bg); padding: 14px 18px;
+  border: 1px solid var(--card-border); border-radius: var(--radius); margin-bottom: 22px;
+}
+div.toc ul { padding-left: 18px; }
+div.toc li { margin: 3px 0; font-size: 0.95em; }
+
+/* ── Priority tags ── */
+.tag-must   { background: #fee2e2; color: #991b1b; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-key    { background: #fef3c7; color: #92400e; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-freq   { background: #dbeafe; color: #1e40af; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-info   { background: #f0fdf4; color: #166534; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+
+/* === Interactive Test Styles === */
+
+/* ── Score box ── */
+#score-box {
+  display: none; background: var(--paper-dark); color: var(--ink);
+  padding: 16px 20px; border-radius: var(--radius); margin: 14px 0;
+  text-align: center; border: 1px solid var(--card-border);
+}
+#score-box .score-num { font-size: 2.2em; font-weight: 700; }
+#score-box .score-label { font-size: 0.85em; color: var(--ink-light); }
+
+/* ── Question card ── */
+.q-card {
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: var(--radius); padding: 12px 14px; margin: 10px 0;
+  transition: all 0.15s;
+}
+.q-card.correct { border-left: 3px solid var(--correct); background: #f7fdf4; }
+.q-card.wrong   { border-left: 3px solid var(--wrong); background: #fef9f9; }
+
+.q-num  { font-weight: 700; font-size: 0.98em; margin-bottom: 4px; }
+.q-text { margin-bottom: 8px; font-size: 0.98em; }
+
+/* ── Options (compact) ── */
+.option {
+  display: block; padding: 4px 10px; margin: 3px 0;
+  border: 1px solid var(--card-border); border-radius: 4px;
+  cursor: pointer; transition: all 0.12s; font-size: 0.93em;
+  background: #fefcf5;
+}
+.option:hover            { background: #f0ede0; }
+.option input            { margin-right: 6px; }
+.option.selected         { border-color: var(--accent); background: #eff6ff; }
+.option.correct-answer   { border-color: var(--correct); background: var(--correct-bg); }
+.option.wrong-answer     { border-color: var(--wrong); background: var(--wrong-bg); }
+
+/* ── Textareas (compact) ── */
+.q-textarea {
+  width: 100%; min-height: 56px; border: 1px solid var(--card-border);
+  border-radius: 4px; padding: 6px 10px; font-family: inherit;
+  font-size: 0.93em; background: #fefcf5; resize: vertical;
+}
+.q-textarea:focus { outline: none; border-color: var(--accent); }
+.q-code {
+  font-family: "Consolas", "Monaco", "Courier New", monospace;
+  font-size: 0.88em; line-height: 1.5; background: #1e1e2e; color: #e0e0e0;
+  tab-size: 4; white-space: pre;
+}
+.q-code:focus { border-color: var(--accent); }
+
+/* ── Partial-credit badge ── */
+.badge-partial { background: #fef3c7; color: #92400e; }
+.q-card.partial { border-color: #f59e0b; }
+
+/* ── Result after grading ── */
+.result {
+  display: none; margin-top: 8px; padding: 8px 12px;
+  background: #fefcf5; border: 1px solid var(--card-border);
+  border-radius: 4px; font-size: 0.9em; line-height: 1.6;
+}
+.result .badge {
+  display: inline-block; padding: 1px 9px; border-radius: 3px;
+  font-weight: 700; font-size: 0.82em; margin-right: 6px;
+}
+.badge-ok  { background: var(--correct-bg); color: #166534; }
+.badge-no  { background: var(--wrong-bg); color: #991b1b; }
+.badge-ref { background: #dbeafe; color: #1e40af; }
+
+.result .explanation { margin-top: 4px; color: var(--ink); }
+.result .pitfall { color: #b45309; margin-top: 3px; font-size: 0.9em; }
+
+/* ── Grading button ── */
+.grading-bar { text-align: center; margin: 20px 0; }
+.grading-bar button {
+  font-size: 1em; padding: 8px 32px; background: var(--accent);
+  color: #fff; border: none; border-radius: var(--radius);
+  cursor: pointer; font-weight: 600; letter-spacing: 0.3px;
+}
+.grading-bar button:hover     { background: var(--accent-hover); }
+.grading-bar button:disabled  { background: #bbb; cursor: not-allowed; }
+
+</style>
+</head>
+<body>
+
+<header id="exampass-header">
+  <div class="header-left"><span class="header-brand">ExamPass Assistant</span></div>
+  <div class="header-right"><span class="header-url">github.com/WUBING2023/ExamPass-Assistant</span></div>
+</header>
+<hr class="header-divider">
+
+<h1>第14-18章 激素·信号转导·生物膜·生物能学·生物氧化·光合作用</h1>
+<h2 style="text-align:center">章节测试</h2>
+<p style="text-align:center;color:var(--ink-light);font-size:0.95em">生物化学原理第四版 · 深度学习模式 · 满分100分</p>
+
+<div id="score-box"><div class="score-num" id="score-num">0</div><div class="score-label">总分</div></div>
+<div id="questions-container"></div>
+<div class="grading-bar no-print"><button onclick="gradeAll()" id="grade-btn">提交批改</button></div>
+
+<script>
+var Q = [{"type": "choice", "points": 3, "question": "关于水溶性与脂溶性激素，以下描述正确的是？", "options": ["水溶性激素的受体位于胞内，脂溶性激素的受体位于膜上", "水溶性激素需要第二信使，脂溶性激素直接调控基因转录", "甲状腺激素是水溶性激素", "脂溶性激素的响应速度比水溶性激素快"], "answer": 1, "explanation": "水溶性激素不能穿越质膜，受体在膜上，需要第二信使传递信号，响应快（秒-分钟）。脂溶性激素穿越质膜与胞内受体（核受体）结合，直接调控基因转录，响应慢（小时-天）。甲状腺激素虽然来自氨基酸（酪氨酸衍生物），但碘原子的引入使其具有脂溶性。", "pitfall": "甲状腺激素T₃/T₄虽然和肾上腺素一样是酪氨酸衍生物，但它是脂溶性的——因为碘原子的引入显著增加了疏水性。这是一个经典混淆点。"}, {"type": "choice", "points": 3, "question": "异三聚体G蛋白激活后，Gα亚基上结合的是哪一分子的核苷酸？", "options": ["GDP", "GTP", "ATP", "cAMP"], "answer": 1, "explanation": "激活态Gα结合GTP（Gα·GTP）。静息态结合GDP（Gα·GDP）。激活过程是GDP被GTP置换。Gα的固有GTP酶活性将GTP水解为GDP，使G蛋白回到静息态——这是GPCR信号终止的基本机制。", "pitfall": "注意区分：Gα·GTP=激活态，Gα·GDP=静息态。不要与G蛋白的类型(Gαs/Gαi/Gαq)混淆。激活/静息取决于结合的核苷酸是GTP还是GDP。"}, {"type": "multi", "points": 3, "question": "以下哪些属于第二信使？（多选）", "options": ["cAMP", "肾上腺素", "IP₃", "DAG"], "answer": [0, 2, 3], "explanation": "cAMP、IP₃和DAG都是第二信使（胞内信号分子）。肾上腺素是第一信使（胞外信号分子/激素），作用于细胞膜表面的GPCR。", "pitfall": "第一信使=胞外的信号分子（激素、神经递质等）；第二信使=胞内信号分子（cAMP、cGMP、IP₃、DAG、Ca²⁺）。区分的关键是看它们在胞外还是胞内发挥作用。"}, {"type": "choice", "points": 3, "question": "cAMP信号通路中，PKA的激活机制是？", "options": ["cAMP直接磷酸化PKA", "cAMP结合调节亚基(R)→R₂C₂解离→催化亚基(C)释放", "cAMP使PKA从胞质转移到细胞核", "cAMP被PKA水解产生激活效应"], "answer": 1, "explanation": "静息态PKA是四聚体R₂C₂，两个调节亚基(R)抑制两个催化亚基(C)。cAMP与R亚基结合→R亚基构象变化→R₂C₂解离→C亚基游离并磷酸化下游靶蛋白。这是一个别构激活的经典机制，不是共价修饰。", "pitfall": "PKA的激活是「别构激活」（cAMP结合R→R-C解离），不是「磷酸化激活」。PKA本身以去磷酸化状态就有活性，只是被R亚基挡住了活性位点。"}, {"type": "choice", "points": 3, "question": "IP₃/DAG双信使通路中，IP₃和DAG的来源是？", "options": ["ATP的水解产物", "磷脂酶C(PLC)水解PIP₂", "腺苷酸环化酶催化ATP", "磷脂酶A₂水解磷脂"], "answer": 1, "explanation": "Gαq激活磷脂酶C(PLC)，PLC水解质膜内层的磷脂酰肌醇-4,5-二磷酸(PIP₂)，产生IP₃（水溶性，释放Ca²⁺）和DAG（脂溶性，激活PKC）。", "pitfall": "PIP₂→IP₃+DAG（PLC催化），ATP→cAMP（AC催化），GTP→cGMP（GC催化）。三对信使、三种来源、三种合成酶，容易混淆，需要分开记忆。"}, {"type": "choice", "points": 3, "question": "RTK→Ras→MAPK级联的正确顺序是？", "options": ["RTK二聚化→Ras→Raf→MEK→ERK", "RTK二聚化→自磷酸化→Grb2/SOS→Ras→Raf→MEK→ERK", "RTK→PLC→Ras→Raf→ERK", "RTK→Gα→AC→Ras→MAPK"], "answer": 1, "explanation": "完整顺序：配体诱导RTK二聚化→自磷酸化→Grb2(SH2)识别磷酸酪氨酸，Grb2(SH3)招募SOS→SOS(GEF)促进Ras释放GDP结合GTP→Ras·GTP激活Raf→Raf激活MEK→MEK激活ERK→ERK入核磷酸化转录因子。", "pitfall": "RTK不经过G蛋白（那是GPCR的通路）！RTK通过接头蛋白(Grb2/SOS)直接激活Ras（小G蛋白）。Ras→Raf→MEK→ERK是MAPK级联，各级命名规则：MAPKKK→MAPKK→MAPK。"}, {"type": "short", "points": 5, "question": "简述G蛋白偶联受体(GPCR)信号转导中G蛋白的GTP/GDP循环过程。", "answer": -1, "explanation": "<strong>参考答案：</strong><br><br>(1) <strong>静息态</strong>：Gα·GDP与Gβγ形成异三聚体（Gαβγ），信号关闭。(2分)<br><br>(2) <strong>激活</strong>：配体结合GPCR→GPCR构象变化→GPCR作为GEF促进Gα释放GDP→GTP结合到Gα→Gα·GTP与Gβγ解离→Gα·GTP和Gβγ各自激活下游效应器。(2分)<br><br>(3) <strong>终止</strong>：Gα的固有GTP酶活性将GTP水解为GDP→Gα·GDP重新与Gβγ结合→恢复静息三聚体状态。(2分)<br><br>霍乱毒素抑制Gαs的GTP酶活性→Gαs·GTP持续激活→cAMP持续升高。百日咳毒素阻止Gαi被受体激活→Gαi无法抑制AC→cAMP升高。", "pitfall": "常见丢分点：(1) 混淆GDP和GTP谁在静息态谁在激活态；(2) 遗漏Gβγ在信号转导中也发挥作用（不仅Gα）；(3) 遗漏G蛋白循环的终止环节——GTP水解是信号终止的关键。"}, {"type": "choice", "points": 3, "question": "Na⁺-K⁺ ATP酶每水解1分子ATP，跨膜转运的离子数量是？", "options": ["泵出2Na⁺，泵入3K⁺", "泵出3Na⁺，泵入2K⁺", "泵出3Na⁺，泵入3K⁺", "泵出1Na⁺，泵入1K⁺"], "answer": 1, "explanation": "Na⁺-K⁺ ATP酶的化学计量比是：3Na⁺出 / 2K⁺进 / 1ATP。每个循环净移出1个正电荷（生电性泵），维持细胞膜电位（约-70mV）和渗透平衡。", "pitfall": "3出/2进=净出1正电荷。这是最核心的数字，考试常考。哇巴因(ouabain)是该酶的经典抑制剂。"}, {"type": "choice", "points": 3, "question": "以下哪种运输方式属于次级主动运输？", "options": ["GLUT1转运葡萄糖进入红细胞", "Na⁺/葡萄糖同向转运(SGLT1)将葡萄糖吸收进小肠上皮细胞", "Na⁺-K⁺ ATP酶维持细胞Na⁺/K⁺梯度", "K⁺通道介导K⁺外流"], "answer": 1, "explanation": "SGLT1利用Na⁺-K⁺ ATP酶建立的Na⁺电化学梯度（Na⁺顺梯度流入），将葡萄糖逆梯度运入细胞。这不直接消耗ATP，但间接依赖ATP——属于次级主动运输。GLUT1是协助扩散，Na⁺-K⁺ ATP酶是初级主动运输，K⁺通道是协助扩散。", "pitfall": "区分初级和次级主动运输：初级=直接水解ATP（Na⁺-K⁺ ATP酶），次级=利用离子梯度（SGLT），两者都逆浓度梯度运输，但从ATP到离子梯度到葡萄糖是「两步走」。"}, {"type": "tf", "points": 2, "question": "离子通道的转运速率比载体蛋白慢，因为通道需要经历构象变化。", "answer": 1, "explanation": "错误。离子通道的转运速率(~10⁶-10⁸ ions/s)远快于载体蛋白(~10²-10⁴ molecules/s)，快了约1000倍。通道仅需「开/关」切换而不经历底物结合-构象变化-释放的催化循环。", "pitfall": "恰恰相反——通道快、载体慢。通道是一次开一个孔让离子自由通过，载体需要结合→构象变化→释放的完整催化循环，速率受限于构象变化频率。"}, {"type": "tf", "points": 2, "question": "GLUT4转运葡萄糖是主动运输过程，需要消耗ATP。", "answer": 1, "explanation": "错误。GLUT4是葡萄糖协助扩散转运体，不消耗ATP，顺浓度梯度转运。但GLUT4的「上膜」（囊泡从胞内转移到质膜）是受胰岛素信号调控的——这个调控过程消耗能量，但GLUT4本身转运葡萄糖时不耗能。", "pitfall": "GLUT1-4都是协助扩散（不耗能）！小肠的SGLT1才是Na⁺依赖的次级主动运输。GLUT的「胰岛素调控」指的是GLUT4的上膜/回收的动态调控过程需要信号转导（消耗能量），而非转运本身需能。"}, {"type": "fill", "points": 3, "question": "离子的跨膜运输方式中，____运输直接消耗____以逆浓度梯度泵出离子；____运输利用另一种溶质的____能量间接驱动逆浓度运输；____扩散通过通道或载体顺浓度梯度运输，不消耗能量。（依次填入）", "answer": [["初级主动"], ["ATP"], ["次级主动"], ["电化学梯度"], ["协助"]], "explanation": "三种基本运输方式：初级主动运输直接消耗ATP（如Na⁺-K⁺ ATP酶），次级主动运输利用离子梯度（如SGLT），协助扩散顺梯度不耗能（如GLUT）。", "pitfall": "注意区分次级主动运输和协助扩散——两者都涉及载体/通道蛋白，但次级主动运输逆梯度（间接耗能），协助扩散顺梯度（不耗能）。"}, {"type": "choice", "points": 3, "question": "ΔG°'(标准生化自由能变化)与平衡常数K'eq的关系是？", "options": ["ΔG°' = K'eq × RT", "ΔG°' = -RT ln K'eq", "ΔG°' = -RT / K'eq", "ΔG°' = RT × ln K'eq"], "answer": 1, "explanation": "在平衡时ΔG=0，Q=K'eq，代入ΔG=ΔG°'+RT ln Q得：ΔG°'=-RT ln K'eq。R=8.314 J/(mol·K)，T=298K。ΔG°'的负值越大→K'eq越大→反应越趋于完全。", "pitfall": "记住负号！ΔG°'=-RT ln K'eq。如果K'eq>1（平衡偏向产物），ln K'eq为正，ΔG°'为负（自发）。"}, {"type": "choice", "points": 3, "question": "ATP水解的ΔG°'约为-30.5 kJ/mol，为什么ATP被称为「能量货币」？最准确的解释是？", "options": ["ATP含有最高能的化学键", "ATP的磷酸基团转移势能居中——既能被分解代谢合成，又能为合成代谢提供能量", "ATP是非可再生的唯一能量形式", "ATP的浓度在细胞内最高"], "answer": 1, "explanation": "ATP不是磷酸化合物的最高能量形式（PEP的ΔG°'=-61.9 kJ/mol），也不是最低的。ATP恰好居中——比低能磷酸酯（如葡萄糖-6-磷酸，-13.8 kJ/mol）高，比超高能化合物（PEP）低。这个中间位置使它既能被代谢途径轻松合成（从ADP+Pi），又能为大多数需能反应提供足够的驱动力。", "pitfall": "「高能磷酸键」不是说键能特别高，而是说水解反应的ΔG°'很大（绝对值大）——因为产物的共振稳定化和静电排斥的解除，产物比反应物稳定得多。"}, {"type": "choice", "points": 3, "question": "ATP水解具有较大负ΔG°'的主要原因是什么？", "options": ["ATP中的磷酸酐键键能特别高", "ATP水解产物的共振稳定化、静电排斥解除和更好的溶剂化", "ATP在水溶液中不稳定", "ATP的浓度极低"], "answer": 1, "explanation": "ATP水解ΔG°'大的三个原因：(1) 静电排斥减轻（ATP有4个负电荷集中，水解后ADP和Pi各带负电分开）；(2) 共振稳定化（游离Pi有更多共振形式）；(3) 更好的溶剂化（ADP和Pi比ATP更容易被水分子水合）。", "pitfall": "不是因为磷酸酐键的「键能特别高」——键能本身适中。ΔG°'大是因为产物比反应物稳定得多。同样道理，PEP的ΔG°'最大(-61.9)是因为烯醇式→酮式的互变异构释放大量能量，不是磷酸键本身多强。"}, {"type": "choice", "points": 3, "question": "能荷(Energy Charge)的计算公式是？", "options": ["[ATP] / ([ATP]+[ADP]+[AMP])", "([ATP]+[ADP]) / ([ATP]+[ADP]+[AMP])", "([ATP]+0.5[ADP]) / ([ATP]+[ADP]+[AMP])", "[ATP] / [ADP]"], "answer": 2, "explanation": "能荷 EC = ([ATP] + 0.5[ADP]) / ([ATP]+[ADP]+[AMP])。ADP的权重是0.5因为它只有一个高能磷酸酐键。EC范围0～1，正常细胞0.85-0.90。EC调控分解代谢和合成代谢的平衡。", "pitfall": "ADP的系数是0.5（不是1），因为ADP只有一个高能磷酸酐键（γ-β），而ATP有两个（γ-β和β-α）。试题可能把0.5换成1来迷惑你。"}, {"type": "short", "points": 6, "question": "解释偶联反应的原理：为什么己糖激酶能催化葡萄糖+G6P这个ΔG°'>0的反应？", "answer": -1, "explanation": "<strong>参考答案：</strong><br><br>葡萄糖 + Pi → G6P + H₂O 的ΔG°' = +13.8 kJ/mol（不利反应，不能自发进行）(1分)。<br><br>体内实际反应是：葡萄糖 + ATP → G6P + ADP（ΔG°' = -16.7 kJ/mol）(1分)。<br><br>这是偶联反应的典型——不是「先水解ATP再磷酸化葡萄糖」，而是ATP的γ-磷酸基团直接转移到葡萄糖上（通过己糖激酶的催化），形成一个反应序列。总ΔG°' = ΔG°'(G6P水解) + ΔG°'(ATP水解) = +13.8 + (-30.5) = -16.7 kJ/mol，热力学上变得有利(2分)。<br><br>关键理解：偶联通过「共同化学中间体」（磷酸基团转移）实现，而不是ATP水解「释放能量」再被「利用」——热是弥散的，不能定向驱动反应(1分)。", "pitfall": "不能写成「ATP水解放出能量，推动葡萄糖磷酸化」——这在热力学上不准确。偶联的实质是形成共同中间体，两个反应合并为一条反应路径。"}, {"type": "choice", "points": 3, "question": "以下哪一组呼吸链组分的电子传递顺序是正确的？", "options": ["NADH→CoQ→Cyt c→复合体I→O₂", "NADH→复合体I→CoQ→复合体III→Cyt c→复合体IV→O₂", "NADH→复合体II→CoQ→复合体III→Cyt c→复合体I→O₂", "FADH₂→复合体I→CoQ→复合体IV→O₂"], "answer": 1, "explanation": "正确顺序：NADH→复合体I→CoQ→复合体III→Cyt c→复合体IV→O₂。FADH₂进入点在复合体II（即琥珀酸脱氢酶），然后→CoQ→复合体III→Cyt c→复合体IV→O₂。", "pitfall": "(1) 复合体II不是NADH的入口——它是FADH₂（来自琥珀酸氧化）的入口；(2) Cyt c位于复合体III和IV之间；(3) 复合体IV是最后一个复合体，最终将电子传给O₂。"}, {"type": "choice", "points": 3, "question": "以下哪一对抑制剂与靶点的匹配是错误的？", "options": ["鱼藤酮 — 复合体I", "抗霉素A — 复合体III", "CN⁻ — 复合体II", "寡霉素 — ATP合酶(F₀)"], "answer": 2, "explanation": "CN⁻（氰化物）、CO和N₃⁻抑制复合体IV（细胞色素c氧化酶），不是复合体II。鱼藤酮→复合体I，抗霉素A→复合体III，寡霉素→ATP合酶(F₀)。", "pitfall": "CN⁻/CO的靶点是复合体IV（与Cyt a₃结合），这是最致命的抑制剂——因为O₂是终端受体，被阻断后整个呼吸链无法运转。"}, {"type": "choice", "points": 3, "question": "化学渗透假说的核心内容是什么？", "options": ["电子传递和ATP合成通过高能化学中间体(X~P)耦合", "电子传递将H⁺泵出线粒体内膜→形成质子电化学梯度→H⁺经ATP合酶回流驱动ATP合成", "ATP合酶直接消耗O₂产生ATP", "NADH直接磷酸化ADP产生ATP"], "answer": 1, "explanation": "Mitchell的化学渗透假说（1978年诺贝尔化学奖）核心：电子传递和ATP合成通过跨膜的质子电化学梯度（ΔμH⁺）间接耦合——不通过「高能化学中间体」。三个必要条件：内膜对H⁺不通透、电子传递泵H⁺、H⁺经ATP合酶回流。", "pitfall": "这个假说的关键是「间接耦合」——电子传递链和ATP合酶是物理分离的，通过H⁺梯度连接。解偶联剂(DNP)消除H⁺梯度后，电子传递继续但ATP不合成，这直接证明了两个过程是可分离的。"}, {"type": "choice", "points": 3, "question": "ATP合酶的F₁部分中，负责催化ATP合成的亚基是？", "options": ["α亚基", "β亚基", "γ亚基", "c亚基"], "answer": 1, "explanation": "F₁的β亚基是催化亚基（3个β亚基在γ轴旋转时依次经历O→L→T→O构象循环，T态合成ATP）。γ亚基是不对称中心轴（旋转驱动），α亚基是结构亚基（提供支撑），c亚基属于F₀（质子通道的旋转环）。", "pitfall": "注意区分：F₁催化头部=α₃β₃γδε（β是催化亚基），F₀质子通道=a+c环。γ轴的旋转被β亚基感知并转化为构象变化，ATP在β亚基的T态合成。"}, {"type": "tf", "points": 2, "question": "鱼藤酮同时阻断来自NADH和FADH₂的电子传递。", "answer": 1, "explanation": "错误。鱼藤酮仅阻断复合体I（NADH→CoQ的电子传递）。FADH₂通过复合体II进入呼吸链（在复合体I下游的CoQ处汇入），鱼藤酮不阻断FADH₂→复合体II→CoQ→III→IV→O₂的电子传递。", "pitfall": "区分不同抑制剂的阻断范围：鱼藤酮=阻断NADH来源的电子；抗霉素A和CN⁻=阻断全部电子传递（因为它们在复合体I和II交汇后的下游）。"}, {"type": "short", "points": 4, "question": "解释为什么NADH氧化产生约2.5个ATP，而FADH₂氧化仅产生约1.5个ATP。", "answer": -1, "explanation": "<strong>参考答案：</strong><br><br>关键原因是「进入点的差异」导致「泵出的H⁺数量不同」。(1分)<br><br>NADH的电子从复合体I进入呼吸链→经过复合体I、III、IV三个质子泵，共泵出约10个H⁺→ATP合酶每合成1个ATP需要约4个H⁺回流→10÷4≈2.5 ATP。(2分)<br><br>FADH₂的电子从复合体II（琥珀酸脱氢酶）进入→不经过复合体I，只经过复合体III和IV两个质子泵，共泵出约6个H⁺→6÷4≈1.5 ATP。(2分)", "pitfall": "(1) 复合体II本身不是质子泵！(2) 不是所有电子传递组分都能泵H⁺——只有复合体I、III、IV是质子泵；(3) 这解释了为什么1分子葡萄糖完全氧化产生约30-32 ATP（而非旧教科书的36-38）。"}, {"type": "choice", "points": 3, "question": "光合作用Z方案中，光系统I(PSI)反应中心的色素是？", "options": ["P680", "P700", "叶绿素b", "类胡萝卜素"], "answer": 1, "explanation": "PSI反应中心是P700（最大吸收700nm），PSII反应中心是P680（最大吸收680nm）。两者都是特殊的叶绿素a二聚体。", "pitfall": "PSII=P680（短波长=更高能量），PSI=P700（长波长=较低能量）。「II在先，I在后」的命名是按发现顺序，不是按电子传递顺序——实际上电子先经过PSII再经过PSI。"}, {"type": "choice", "points": 3, "question": "Calvin循环的三个阶段依次是？", "options": ["还原→羧化→再生", "羧化→还原→再生", "羧化→再生→还原", "再生→羧化→还原"], "answer": 1, "explanation": "Calvin循环三阶段：(1) 羧化——CO₂与RuBP反应（RuBisCO催化），生成2分子3-PGA；(2) 还原——3-PGA经磷酸化和还原生成G3P（消耗ATP和NADPH）；(3) 再生——G3P经碳骨架重排再生RuBP。每3轮循环净合成1分子G3P。", "pitfall": "「羧化→还原→再生」的顺序不可颠倒。每净合成1分子G3P消耗9ATP+6NADPH——这些数字是高频考点。"}, {"type": "choice", "points": 3, "question": "关于C4植物与C3植物的比较，以下描述正确的是？", "options": ["C4植物在高温干旱条件下光合效率低于C3植物", "C4植物的RuBisCO存在于叶肉细胞中", "C4植物的Kranz结构包括叶肉细胞和维管束鞘细胞两层", "C4植物的光呼吸比C3植物更强烈"], "answer": 2, "explanation": "C4植物有Kranz结构——叶肉细胞+维管束鞘细胞呈双层同心排列。PEP羧化酶在叶肉细胞固定CO₂→生成C4酸→转运到维管束鞘细胞释放CO₂→被维管束鞘细胞中的RuBisCO用于Calvin循环。C4植物在高温干旱条件下光呼吸极低，光合效率更高。", "pitfall": "C4植物的RuBisCO不在叶肉细胞，而在维管束鞘细胞——这是Kranz结构的关键特征。PEP羧化酶在叶肉细胞中「初固定」CO₂以浓缩。"}, {"type": "tf", "points": 2, "question": "光合作用释放的O₂来自CO₂的光解。", "answer": 1, "explanation": "错误。光合作用释放的O₂来自H₂O的光解（水的氧化），不是CO₂。这一结论由¹⁸O同位素标记实验证明——用H₂¹⁸O培养植物时释放的是¹⁸O₂，用C¹⁸O₂时释放的是普通O₂。", "pitfall": "总反应式中O₂看起来可以来自CO₂或H₂O的O原子——但同位素实验证实是H₂O的O。水光解发生在PSII的放氧复合体(OEC)，Mn₄CaO₅簇催化。"}, {"type": "short", "points": 5, "question": "简述光合磷酸化与氧化磷酸化的异同。", "answer": -1, "explanation": "<strong>参考答案：</strong><br><br><strong>相同点（3分）：</strong><br>(1) 都基于化学渗透原理——电子传递泵H⁺→质子梯度→H⁺经ATP合酶回流→驱动ATP合成。<br>(2) 都有相似的ATP合酶结构（叶绿体CF₀CF₁与线粒体F₀F₁同源）。<br>(3) 都使用醌类(CoQ/PQ)和细胞色素类作为电子载体。<br><br><strong>不同点（3分）：</strong><br>(1) 能量来源：光合磷酸化用光能（光子），氧化磷酸化用化学能（NADH/FADH₂）。<br>(2) 电子来源：光合磷酸化来自H₂O的光解，氧化磷酸化来自NADH/FADH₂。<br>(3) 电子最终去向：光合磷酸化去向NADP⁺→NADPH，氧化磷酸化去向O₂→H₂O。<br>(4) 场所：类囊体膜 vs 线粒体内膜。<br>(5) 质子泵方向：基质→类囊体腔(向内) vs 基质→膜间隙(向外)。", "pitfall": "两者的相似性源于进化上的同源（内共生假说），但电子流向正好相反——光合作用中H₂O→电子传递链→NADP⁺（还原方向），呼吸作用中NADH→电子传递链→O₂（氧化方向）。光合作用的光反应本质是「将低能电子(H₂O)提升为高能电子(NADPH)的逆热力学过程」。"}, {"type": "fill", "points": 4, "question": "能荷(Energy Charge) = (________ + 0.5×________) / (________ + ________ + ________)。正常的哺乳动物细胞能荷约为________。", "answer": [["[ATP]"], ["[ADP]"], ["[ATP]"], ["[ADP]"], ["[AMP]"], ["0.85-0.90"]], "explanation": "EC = ([ATP]+0.5[ADP])/([ATP]+[ADP]+[AMP])。正常细胞EC维持在0.85-0.90。EC<0.5时细胞趋向死亡。EC调控分解代谢(EC低时激活)和合成代谢(EC高时激活)的平衡。", "pitfall": "ADP的系数是0.5——因为它只有一个高能磷酸酐键。三种腺苷酸的总和构成腺苷酸池。"}, {"type": "essay", "points": 8, "question": "综合阐述化学渗透假说的核心内容，并结合氧化磷酸化和光合磷酸化说明其普遍性。", "answer": -1, "explanation": "<strong>参考答案要点：</strong><br><br><strong>1. 化学渗透假说核心（Mitchell, 1961, Nobel 1978）（4分）：</strong><br>- 线粒体内膜对H⁺不通透<br>- 电子传递释放的能量用于将H⁺从基质泵到膜间隙→形成质子电化学梯度(ΔμH⁺)=ΔpH+Δψ<br>- H⁺经ATP合酶(F₀F₁)回流→构象变化→驱动ATP合成<br>- 电子传递和ATP合成是间接耦合（通过H⁺梯度），而非高能化学中间体<br>- 关键证据：解偶联剂(DNP)消除梯度后电子传递继续但ATP不合成<br><br><strong>2. 在氧化磷酸化中（2分）：</strong><br>- 复合体I、III、IV泵H⁺→膜间隙→F₀F₁→ATP<br><br><strong>3. 在光合磷酸化中（2分）：</strong><br>- PSII水光解(腔内产H⁺)+PQH₂氧化(Cyt b₆f将H⁺泵入腔内)→类囊体腔质子梯度→CF₀CF₁→ATP<br>- 基本逻辑完全相同，仅场所（线粒体内膜vs类囊体膜）和方向（泵出vs泵入）不同<br><br>化学渗透假说是生物化学中最具统一性的概念之一——线粒体和叶绿体虽为不同细胞器，但使用相同的底层物理原理：H⁺梯度耦合电子传递和ATP合成。", "pitfall": "这道大题最忌「偏科」——只写氧化磷酸化而忽略光合磷酸化，或反之。题干明确要求「结合两者说明普遍性」。还需注意注明Mitchell获诺贝尔奖和关键实验证据（解偶联剂实验）。"}];
+var LABELS = {"page_title": "章节测试", "section": {"choice": "一、选择题", "multi": "二、多选题", "tf": "三、判断题", "fill": "四、填空题", "short": "五、简答题", "calc": "六、计算题", "code": "七、代码题", "essay": "八、问答题", "comprehensive": "九、综合题"}, "section_order": ["choice", "multi", "tf", "fill", "short", "calc", "code", "essay", "comprehensive"], "points_suffix": "分", "true_label": "正确", "false_label": "错误", "placeholder": "在此作答...", "code_placeholder": "在此编写代码...", "pitfall_prefix": "易错提醒：", "correct_label": "正确", "wrong_label": "错误", "partial_label": "部分正确", "answer_prefix": "正确答案：", "reference_label": "参考答案", "graded_label": "已批改", "grade_button": "提交批改", "score_label": "总分", "duration_prefix": "满分 100 分 | 建议 ", "duration_suffix": " 分钟 | 选择答案后点击提交批改"};
+
+// ─── Answer normalization (robust to how the JSON was authored) ──────
+// tf / choice answers may arrive as int index, boolean, letter ("A"),
+// or label string ("正确"/"错误"/"对"/"错"). All are coerced to an
+// option index so grading never silently fails on a type mismatch.
+
+function tfAnswerIndex(ans) {
+  // option 0 = true_label (正确), option 1 = false_label (错误)
+  if (typeof ans === 'boolean') return ans ? 0 : 1;
+  if (typeof ans === 'number') return ans === 0 ? 0 : 1;
+  var s = ('' + ans).trim().toLowerCase();
+  var truthy = ['0', 't', 'true', '正确', '对', '是', 'yes', 'y', '√', '✓'];
+  var falsy  = ['1', 'f', 'false', '错误', '错', '否', 'no', 'n', '×', 'x'];
+  if (truthy.indexOf(s) !== -1) return 0;
+  if (falsy.indexOf(s) !== -1) return 1;
+  return ans ? 0 : 1;
+}
+
+function choiceAnswerIndex(ans, options) {
+  if (typeof ans === 'number') return ans;
+  var s = ('' + ans).trim();
+  if (/^[A-Za-z]$/.test(s)) return s.toUpperCase().charCodeAt(0) - 65;
+  if (/^\d+$/.test(s)) return parseInt(s, 10);
+  if (options) {
+    for (var i = 0; i < options.length; i++) {
+      if (('' + options[i]).trim() === s) return i;
+    }
+  }
+  return parseInt(s, 10);
+}
+
+function multiAnswerSet(ans, options) {
+  var arr = Array.isArray(ans) ? ans : [ans];
+  var set = {};
+  for (var i = 0; i < arr.length; i++) {
+    set[choiceAnswerIndex(arr[i], options)] = true;
+  }
+  return set;
+}
+
+// Normalize free text for fill-in-the-blank comparison: trim, lowercase,
+// drop surrounding whitespace and common punctuation, unify full/half width.
+function normText(s) {
+  s = ('' + s).trim().toLowerCase();
+  s = s.replace(/[\s　]+/g, '');
+  s = s.replace(/[.,;:!?。，、；：！？“”"'（）()【】\[\]<>《》]/g, '');
+  // full-width ASCII -> half-width
+  s = s.replace(/[！-～]/g, function (c) {
+    return String.fromCharCode(c.charCodeAt(0) - 0xfee0);
+  });
+  return s;
+}
+
+// How many blanks does a fill question have? Count underscore / ＿ runs.
+function fillBlankCount(question) {
+  var m = ('' + question).match(/(_{2,}|＿+)/g);
+  return m ? m.length : 0;
+}
+
+// Coerce a fill `answer` into an array (one entry per blank) of accepted
+// answer lists. Handles: string, [synonyms], [[blank1 syns],[blank2 syns]].
+function fillBlankAnswers(ans, nBlanks) {
+  if (nBlanks < 1) nBlanks = 1;
+  if (!Array.isArray(ans)) return padBlanks([[ans]], nBlanks);
+  if (ans.length && Array.isArray(ans[0])) return padBlanks(ans, nBlanks);
+  // flat array of strings
+  if (nBlanks === 1) return [ans];                 // synonyms for one blank
+  if (ans.length === nBlanks) {                    // one answer per blank
+    return ans.map(function (a) { return [a]; });
+  }
+  return padBlanks([ans], nBlanks);                // ambiguous -> all on blank 1
+}
+
+function padBlanks(arr, n) {
+  var out = arr.slice(0, n);
+  while (out.length < n) out.push(['']);
+  return out;
+}
+
+// ─── Build ───────────────────────────────────────────────────────────
+
+function build() {
+  var container = document.getElementById('questions-container');
+  if (!container) { console.error('ExamPass: questions-container not found'); return; }
+
+  // Stable-sort questions by section order so headings group correctly
+  // regardless of input order.
+  var order = LABELS.section_order || [];
+  Q.forEach(function (q, i) { q._i = i; });
+  Q.sort(function (a, b) {
+    var oa = order.indexOf(a.type); if (oa === -1) oa = 99;
+    var ob = order.indexOf(b.type); if (ob === -1) ob = 99;
+    return oa - ob || a._i - b._i;
+  });
+
+  var h = '';
+  var sec = '';
+  var titles = LABELS.section;
+
+  for (var i = 0; i < Q.length; i++) {
+    var q = Q[i];
+    if (q.type !== sec) {
+      sec = q.type;
+      if (titles[q.type]) h += '<h3>' + titles[q.type] + '</h3>';
+    }
+
+    var qid = 'q' + i;
+    h += '<div class="q-card" id="card-' + qid + '">';
+    h += '<div class="q-num">' + (i + 1) + '. (' + q.points + ' ' + LABELS.points_suffix + ')</div>';
+
+    if (q.type === 'fill') {
+      h += '<div class="q-text">' + renderFill(q, qid) + '</div>';
+    } else {
+      h += '<div class="q-text">' + q.question + '</div>';
+    }
+
+    if (q.type === 'choice') {
+      var opts = q.options || [];
+      for (var j = 0; j < opts.length; j++) {
+        h += '<label class="option" id="opt-' + qid + '-' + j + '" onclick="sel(\'' + qid + '\',' + j + ')">';
+        h += '<input type="radio" name="' + qid + '" value="' + j + '">' + String.fromCharCode(65 + j) + '. ' + opts[j] + '</label>';
+      }
+    } else if (q.type === 'multi') {
+      var mopts = q.options || [];
+      for (var k = 0; k < mopts.length; k++) {
+        h += '<label class="option" id="opt-' + qid + '-' + k + '" onclick="toggle(\'' + qid + '\',' + k + ')">';
+        h += '<input type="checkbox" name="' + qid + '" value="' + k + '">' + String.fromCharCode(65 + k) + '. ' + mopts[k] + '</label>';
+      }
+    } else if (q.type === 'tf') {
+      h += '<label class="option" id="opt-' + qid + '-0" onclick="sel(\'' + qid + '\',0)">';
+      h += '<input type="radio" name="' + qid + '" value="0">' + LABELS.true_label + '</label>';
+      h += '<label class="option" id="opt-' + qid + '-1" onclick="sel(\'' + qid + '\',1)">';
+      h += '<input type="radio" name="' + qid + '" value="1">' + LABELS.false_label + '</label>';
+    } else if (q.type === 'fill') {
+      // inputs already rendered inline inside q-text
+    } else if (q.type === 'code') {
+      h += '<textarea class="q-textarea q-code" id="text-' + qid + '" placeholder="' + (LABELS.code_placeholder || LABELS.placeholder) + '" rows="8" spellcheck="false"></textarea>';
+    } else {
+      h += '<textarea class="q-textarea" id="text-' + qid + '" placeholder="' + LABELS.placeholder + '" rows="3"></textarea>';
+    }
+
+    h += '<div class="result" id="result-' + qid + '">';
+    h += '<span class="badge" id="badge-' + qid + '"></span><span id="correct-' + qid + '"></span>';
+    h += '<div class="explanation">' + (q.explanation || '') + '</div>';
+    if (q.pitfall) {
+      h += '<div class="pitfall">' + LABELS.pitfall_prefix + q.pitfall + '</div>';
+    }
+    h += '</div></div>';
+  }
+
+  container.innerHTML = h;
+
+  if (window.MathJax && MathJax.typesetPromise) {
+    MathJax.typesetPromise([container]).catch(function (err) {
+      console.error('MathJax typeset error:', err);
+    });
+  }
+}
+
+// Render fill question text with inline <input> boxes replacing blanks.
+function renderFill(q, qid) {
+  var nBlanks = fillBlankCount(q.question);
+  var k = 0;
+  var html = ('' + q.question).replace(/(_{2,}|＿+)/g, function () {
+    var inp = '<input type="text" class="fill-input" id="fill-' + qid + '-' + k + '" autocomplete="off" spellcheck="false">';
+    k++;
+    return inp;
+  });
+  if (k === 0) {
+    // No markers in text -> append boxes based on answer shape
+    var n = fillBlankAnswers(q.answer, 1).length;
+    var ans = q.answer;
+    if (Array.isArray(ans)) n = Array.isArray(ans[0]) ? ans.length : (ans.length || 1);
+    if (n < 1) n = 1;
+    html += '<div class="fill-row">';
+    for (var b = 0; b < n; b++) {
+      if (n > 1) html += '<span class="fill-tag">' + (b + 1) + '.</span>';
+      html += '<input type="text" class="fill-input" id="fill-' + qid + '-' + b + '" autocomplete="off" spellcheck="false">';
+    }
+    html += '</div>';
+  }
+  return html;
+}
+
+document.addEventListener('DOMContentLoaded', build);
+if (document.readyState === 'interactive' || document.readyState === 'complete') {
+  build();
+}
+
+// ─── Selection handlers ──────────────────────────────────────────────
+
+function sel(qid, idx) {
+  var prefix = 'opt-' + qid + '-';
+  var all = document.querySelectorAll('[id^="' + prefix + '"]');
+  for (var i = 0; i < all.length; i++) all[i].classList.remove('selected');
+  var target = document.getElementById('opt-' + qid + '-' + idx);
+  if (target) target.classList.add('selected');
+  var radio = document.querySelector('input[name="' + qid + '"][value="' + idx + '"]');
+  if (radio) radio.checked = true;
+}
+
+function toggle(qid, idx) {
+  var box = document.querySelector('input[name="' + qid + '"][value="' + idx + '"]');
+  var label = document.getElementById('opt-' + qid + '-' + idx);
+  if (!box) return;
+  box.checked = !box.checked;
+  if (label) label.classList.toggle('selected', box.checked);
+}
+
+// ─── Grading ─────────────────────────────────────────────────────────
+
+function gradeAll() {
+  var score = 0;
+  for (var i = 0; i < Q.length; i++) {
+    var q = Q[i];
+    var qid = 'q' + i;
+    var card = document.getElementById('card-' + qid);
+    var result = document.getElementById('result-' + qid);
+    var badge = document.getElementById('badge-' + qid);
+    var correctEl = document.getElementById('correct-' + qid);
+    if (!card || !result) continue;
+
+    result.style.display = 'block';
+
+    if (q.type === 'choice' || q.type === 'tf') {
+      score += gradeSingle(q, qid, card, badge, correctEl);
+    } else if (q.type === 'multi') {
+      score += gradeMulti(q, qid, card, badge, correctEl);
+    } else if (q.type === 'fill') {
+      score += gradeFill(q, qid, card, badge, correctEl);
+    } else {
+      card.classList.add('correct');
+      badge.className = 'badge badge-ref';
+      badge.textContent = LABELS.reference_label;
+    }
+  }
+
+  var sb = document.getElementById('score-box');
+  if (sb) {
+    sb.style.display = 'block';
+    document.getElementById('score-num').textContent = roundScore(score);
+    sb.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  var opts = document.querySelectorAll('.option');
+  for (var a = 0; a < opts.length; a++) opts[a].style.pointerEvents = 'none';
+  var tas = document.querySelectorAll('.q-textarea');
+  for (var b = 0; b < tas.length; b++) tas[b].disabled = true;
+  var fis = document.querySelectorAll('.fill-input');
+  for (var c = 0; c < fis.length; c++) fis[c].disabled = true;
+
+  var btn = document.getElementById('grade-btn');
+  if (btn) { btn.disabled = true; btn.textContent = LABELS.graded_label; }
+
+  if (window.MathJax && MathJax.typesetPromise) {
+    MathJax.typesetPromise().catch(function (err) {
+      console.error('MathJax typeset error:', err);
+    });
+  }
+}
+
+function roundScore(s) {
+  return Math.round(s * 10) / 10;
+}
+
+function gradeSingle(q, qid, card, badge, correctEl) {
+  var ansIdx = q.type === 'tf' ? tfAnswerIndex(q.answer) : choiceAnswerIndex(q.answer, q.options);
+  var radio = document.querySelector('input[name="' + qid + '"]:checked');
+  if (radio && parseInt(radio.value, 10) === ansIdx) {
+    card.classList.add('correct');
+    badge.className = 'badge badge-ok';
+    badge.textContent = LABELS.correct_label;
+    correctEl.innerHTML = '';
+    var ok = document.getElementById('opt-' + qid + '-' + ansIdx);
+    if (ok) ok.classList.add('correct-answer');
+    return q.points;
+  }
+  card.classList.add('wrong');
+  badge.className = 'badge badge-no';
+  badge.textContent = LABELS.wrong_label;
+  var ansText = q.type === 'choice'
+    ? String.fromCharCode(65 + ansIdx) + '. ' + (q.options ? q.options[ansIdx] : '')
+    : (ansIdx === 0 ? LABELS.true_label : LABELS.false_label);
+  correctEl.innerHTML = LABELS.answer_prefix + ansText;
+  if (radio) {
+    var wrongOpt = document.getElementById('opt-' + qid + '-' + radio.value);
+    if (wrongOpt) wrongOpt.classList.add('wrong-answer');
+  }
+  var corr = document.getElementById('opt-' + qid + '-' + ansIdx);
+  if (corr) corr.classList.add('correct-answer');
+  return 0;
+}
+
+function gradeMulti(q, qid, card, badge, correctEl) {
+  var want = multiAnswerSet(q.answer, q.options);
+  var wantKeys = Object.keys(want).map(Number);
+  var checked = document.querySelectorAll('input[name="' + qid + '"]:checked');
+  var picked = [];
+  for (var i = 0; i < checked.length; i++) picked.push(parseInt(checked[i].value, 10));
+
+  var anyWrong = false, hitCorrect = 0;
+  for (var p = 0; p < picked.length; p++) {
+    if (want[picked[p]]) hitCorrect++;
+    else anyWrong = true;
+  }
+
+  // reveal correct / wrong option markers
+  var mopts = q.options || [];
+  for (var j = 0; j < mopts.length; j++) {
+    var el = document.getElementById('opt-' + qid + '-' + j);
+    if (!el) continue;
+    if (want[j]) el.classList.add('correct-answer');
+    else if (picked.indexOf(j) !== -1) el.classList.add('wrong-answer');
+  }
+
+  var earned;
+  if (!anyWrong && hitCorrect === wantKeys.length && picked.length === wantKeys.length) {
+    earned = q.points;
+    card.classList.add('correct');
+    badge.className = 'badge badge-ok';
+    badge.textContent = LABELS.correct_label;
+    correctEl.innerHTML = '';
+  } else if (!anyWrong && hitCorrect > 0) {
+    // 少选不错选 -> partial credit
+    earned = roundScore(q.points * hitCorrect / wantKeys.length);
+    card.classList.add('partial');
+    badge.className = 'badge badge-partial';
+    badge.textContent = LABELS.partial_label;
+    correctEl.innerHTML = LABELS.answer_prefix + multiAnswerText(wantKeys, mopts);
+  } else {
+    earned = 0;
+    card.classList.add('wrong');
+    badge.className = 'badge badge-no';
+    badge.textContent = LABELS.wrong_label;
+    correctEl.innerHTML = LABELS.answer_prefix + multiAnswerText(wantKeys, mopts);
+  }
+  return earned;
+}
+
+function multiAnswerText(keys, options) {
+  return keys.sort(function (a, b) { return a - b; }).map(function (k) {
+    return String.fromCharCode(65 + k) + '. ' + (options ? options[k] : '');
+  }).join('  ');
+}
+
+function gradeFill(q, qid, card, badge, correctEl) {
+  var nBlanks = fillBlankCount(q.question);
+  var blanks = fillBlankAnswers(q.answer, nBlanks);
+  var n = blanks.length;
+  var hit = 0;
+  var displays = [];
+
+  for (var b = 0; b < n; b++) {
+    var inp = document.getElementById('fill-' + qid + '-' + b);
+    var accepted = blanks[b] || [''];
+    var user = inp ? normText(inp.value) : '';
+    var ok = false;
+    for (var a = 0; a < accepted.length; a++) {
+      if (accepted[a] !== '' && normText(accepted[a]) === user && user !== '') { ok = true; break; }
+    }
+    if (inp) inp.classList.add(ok ? 'fill-ok' : 'fill-no');
+    if (ok) hit++;
+    displays.push((n > 1 ? (b + 1) + '. ' : '') + accepted.filter(function (x) { return x !== ''; }).join(' / '));
+  }
+
+  var earned = roundScore(q.points * hit / n);
+  correctEl.innerHTML = LABELS.answer_prefix + displays.join('   ');
+
+  if (hit === n) {
+    card.classList.add('correct');
+    badge.className = 'badge badge-ok';
+    badge.textContent = LABELS.correct_label;
+  } else if (hit > 0) {
+    card.classList.add('partial');
+    badge.className = 'badge badge-partial';
+    badge.textContent = LABELS.partial_label;
+  } else {
+    card.classList.add('wrong');
+    badge.className = 'badge badge-no';
+    badge.textContent = LABELS.wrong_label;
+  }
+  return earned;
+}
+
+</script>
+</body>
+</html>
