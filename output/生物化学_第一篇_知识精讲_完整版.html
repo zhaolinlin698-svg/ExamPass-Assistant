@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>第一篇 结构生物化学（第1-18章）知识精讲</title>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\(', '\)']],
+    displayMath: [['$$', '$$'], ['\[', '\]']]
+  }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"></script>
+<style>
+/* === ExamPass Shared Styles === */
+/* Paper-like warm background, clean typography, responsive */
+
+:root {
+  --paper: #fdf6e3;
+  --paper-dark: #f5ecd7;
+  --ink: #2c2c2c;
+  --ink-light: #555;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --divider: #d6c8a8;
+  --card-bg: #fef9ef;
+  --card-border: #e8dcc8;
+  --correct: #22c55e;
+  --correct-bg: #f0fdf4;
+  --wrong: #ef4444;
+  --wrong-bg: #fef2f2;
+  --tag-bg: #fef3c7;
+  --tag-text: #92400e;
+  --radius: 6px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Microsoft YaHei", "Noto Sans SC", "SimSun", sans-serif;
+  font-size: 12pt; line-height: 1.75; color: var(--ink);
+  max-width: 860px; margin: auto; padding: 24px 20px 60px;
+  background: var(--paper);
+}
+
+@media print {
+  body { font-size: 10.5pt; background: #fff; }
+  .no-print { display: none !important; }
+  h1, h2, h3 { page-break-after: avoid; }
+}
+
+/* ── Header ── */
+#exampass-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 6px 0; margin-bottom: 0;
+}
+.header-brand { font-size: 1.2em; font-weight: 700; color: #1a1a2e; letter-spacing: 0.3px; }
+.header-url  { font-size: 0.78em; color: #999; }
+.header-divider { border: none; border-top: 2px solid var(--divider); margin: 4px 0 20px 0; }
+
+/* ── Typography ── */
+h1 { font-size: 1.55em; text-align: center; border-bottom: 2px solid var(--divider); padding-bottom: 8px; margin-top: 0; }
+h2 { font-size: 1.25em; border-bottom: 1px solid var(--divider); padding-bottom: 4px; margin-top: 28px; }
+h3 { font-size: 1.08em; margin-top: 20px; color: var(--ink); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Tables ── */
+table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 0.95em; }
+td, th { border: 1px solid var(--card-border); padding: 5px 9px; text-align: left; }
+th { background: var(--paper-dark); font-weight: 700; }
+
+/* ── Knowledge point vs explanation ── */
+.kp { font-weight: 700; color: var(--ink); }           /* key point: bold dark */
+.exp { font-weight: 400; color: var(--ink-light); }    /* explanation: lighter */
+.exp em, .exp strong { color: var(--ink); }             /* emphasis inside explanation */
+
+/* ── Block elements ── */
+blockquote {
+  border-left: 3px solid #c0392b; background: #fef9ef;
+  padding: 6px 14px; margin: 10px 0; font-size: 0.95em;
+}
+code { background: #f0ede0; padding: 2px 5px; border-radius: 3px; font-size: 0.92em; }
+pre { background: #f0ede0; padding: 10px; border-radius: var(--radius); overflow-x: auto; }
+
+/* ── TOC ── */
+div.toc {
+  background: var(--card-bg); padding: 14px 18px;
+  border: 1px solid var(--card-border); border-radius: var(--radius); margin-bottom: 22px;
+}
+div.toc ul { padding-left: 18px; }
+div.toc li { margin: 3px 0; font-size: 0.95em; }
+
+/* ── Priority tags ── */
+.tag-must   { background: #fee2e2; color: #991b1b; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-key    { background: #fef3c7; color: #92400e; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-freq   { background: #dbeafe; color: #1e40af; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-info   { background: #f0fdf4; color: #166534; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+
+
+</style>
+</head>
+<body>
+
+<header id="exampass-header">
+  <div class="header-left"><span class="header-brand">ExamPass Assistant</span></div>
+  <div class="header-right"><span class="header-url">github.com/WUBING2023/ExamPass-Assistant</span></div>
+</header>
+<hr class="header-divider">
+
+<h1>第一篇 结构生物化学（第1-18章）知识精讲</h1>
+<div class="toc">
+<h2>目录</h2>
+<ul>
+<li><a href="#s20021115">第一篇导论：结构生物化学 —— 生命的分子逻辑</a></li>
+<li><a href="#s45573362">第1章 绪论：什么是生物化学</a></li>
+  <li><a href="#s14237901">1.1 生物化学的定义与范畴 了解</a></li>
+  <li><a href="#s30951446">1.2 生物化学的三个分支 重点</a></li>
+  <li><a href="#s86787326">1.3 生命的化学基础 高频</a></li>
+<li><a href="#s88893075">第2章 氨基酸：蛋白质的字母表</a></li>
+  <li><a href="#s26251590">2.1 氨基酸的通式与手性 必考</a></li>
+  <li><a href="#s43629705">2.2 氨基酸的分类（按侧链R基）必考</a></li>
+  <li><a href="#s49531860">2.3 氨基酸的酸碱性质 必考</a></li>
+  <li><a href="#s44871416">2.4 氨基酸的化学反应 重点</a></li>
+<li><a href="#s84117003">第3章 蛋白质的结构：从序列到三维世界</a></li>
+  <li><a href="#s75945611">3.1 肽键与多肽链 必考</a></li>
+  <li><a href="#s67756048">3.2 蛋白质的层次结构 必考</a></li>
+  <li><a href="#s79854762">3.3 α螺旋 必考</a></li>
+  <li><a href="#s57982958">3.4 β折叠 必考</a></li>
+  <li><a href="#s31743530">3.5 蛋白质折叠与三级结构 重点</a></li>
+  <li><a href="#s10080384">3.6 分子伴侣与错误折叠疾病 重点</a></li>
+<li><a href="#s88095948">第4章 蛋白质的功能：结构与功能的完美联姻</a></li>
+  <li><a href="#s77531524">4.1 氧结合蛋白：肌红蛋白与血红蛋白 必考</a></li>
+  <li><a href="#s88600113">4.2 协同效应与别构调控 必考</a></li>
+  <li><a href="#s53005341">4.3 免疫球蛋白与分子识别 重点</a></li>
+  <li><a href="#s20472786">4.4 肌肉收缩的分子机制 重点</a></li>
+<li><a href="#s48176070">第5章 蛋白质的性质及研究方法</a></li>
+  <li><a href="#s34086778">5.1 蛋白质的理化性质 高频</a></li>
+  <li><a href="#s70755092">5.2 蛋白质分离纯化技术 必考</a></li>
+<li><a href="#s84382448">第6章 核苷酸：核酸的建筑模块</a></li>
+  <li><a href="#s88051057">6.1 核苷酸的结构组分 必考</a></li>
+  <li><a href="#s63939741">6.2 核苷酸的功能——不仅仅是核酸原料 重点</a></li>
+<li><a href="#s52606763">第7章 核酸的结构与功能</a></li>
+  <li><a href="#s65354697">7.1 DNA双螺旋 必考</a></li>
+  <li><a href="#s31886981">7.2 DNA的构象多样性 重点</a></li>
+  <li><a href="#s77243762">7.3 RNA结构与功能多样性 必考</a></li>
+<li><a href="#s25577505">第8章 核酸的性质及研究方法</a></li>
+  <li><a href="#s23767824">8.1 DNA的变性、复性与杂交 必考</a></li>
+<li><a href="#s80484404">第9章 酶学概论</a></li>
+  <li><a href="#s42646350">9.1 酶是生物催化剂 必考</a></li>
+  <li><a href="#s86338096">9.2 酶的结构基础——活性中心 必考</a></li>
+<li><a href="#s48096339">第10章 酶动力学：酶有多快、多强？</a></li>
+  <li><a href="#s49555026">10.1 Michaelis-Menten方程 必考</a></li>
+  <li><a href="#s61882103">10.2 Km、Vmax和kcat的物理意义 必考</a></li>
+  <li><a href="#s80721023">10.3 Lineweaver-Burk双倒数作图 重点</a></li>
+  <li><a href="#s56013516">10.4 酶抑制剂 必考</a></li>
+<li><a href="#s91337446">第11章 酶的催化机制：有机化学的巅峰艺术</a></li>
+  <li><a href="#s42286968">11.1 丝氨酸蛋白酶 必考</a></li>
+  <li><a href="#s88102700">11.2 溶菌酶与过渡态稳定化 重点</a></li>
+  <li><a href="#s87820152">11.3 其他重要催化机制范例 高频</a></li>
+<li><a href="#s84664300">第12章 核酶：RNA也能当酶？</a></li>
+  <li><a href="#s10114836">12.1 核酶的发现与意义 必考</a></li>
+  <li><a href="#s88808601">12.2 核酶的类型与机制 重点</a></li>
+<li><a href="#s18931213">第13章 酶活性的调节</a></li>
+  <li><a href="#s85489026">13.1 别构调控 必考</a></li>
+  <li><a href="#s21844215">13.2 共价修饰调控 必考</a></li>
+  <li><a href="#s49160762">13.3 同工酶 高频</a></li>
+<li><a href="#s54503799">第14章 维生素与辅酶</a></li>
+  <li><a href="#s55806593">14.1 水溶性维生素与辅酶 必考</a></li>
+  <li><a href="#s16956057">14.2 PLP——生化反应的万能催化剂 必考</a></li>
+  <li><a href="#s34792225">14.3 脂溶性维生素简介 高频</a></li>
+<li><a href="#s31327310">第16章 糖类：能量的第一来源</a></li>
+  <li><a href="#s62123758">16.1 单糖的结构 必考</a></li>
+  <li><a href="#s40587217">16.2 重要的二糖和多糖 重点</a></li>
+<li><a href="#s71824652">第17章 脂质：不仅仅是脂肪</a></li>
+  <li><a href="#s32391233">17.1 脂肪酸 必考</a></li>
+  <li><a href="#s65297310">17.2 三酰甘油（脂肪）重点</a></li>
+  <li><a href="#s64812774">17.3 膜脂 必考</a></li>
+<li><a href="#s61485892">第18章 激素</a></li>
+  <li><a href="#s47869910">18.1 激素的分类与信号机制 重点</a></li>
+  <li><a href="#s87303083">18.2 第二信使与信号级联 必考</a></li>
+</ul>
+</div>
+<header id="exampass-header">
+  <div class="header-left"><span class="header-brand">ExamPass Assistant</span></div>
+  <div class="header-right"><span class="header-url">github.com/WUBING2023/ExamPass-Assistant</span></div>
+</header>
+<hr class="header-divider">
+
+
+
+
+
+<h2 id="s20021115">第一篇导论：结构生物化学 —— 生命的分子逻辑</h2>
+
+<p><span class="kp">结构生物化学的核心命题</span><span class="exp">是：生命大分子（蛋白质、核酸、糖类、脂质）的化学结构如何决定其生物学功能？为什么这些特定的分子被进化选中来执行生命活动？本篇从最简单的氨基酸出发，一路构建到复杂蛋白质机器、核酸信息载体、酶的催化奇迹，建立「结构--性质--功能」三位一体的思维框架。</span></p>
+
+<h2 id="s45573362">第1章 绪论：什么是生物化学</h2>
+
+<h3 id="s14237901">1.1 生物化学的定义与范畴 <span class="tag-info">了解</span></h3>
+
+<p><span class="kp">生物化学</span><span class="exp">是研究生命体内化学组成、化学反应及其与生命活动关系的科学。它是化学和生物学的桥梁——用化学的语言（分子结构、化学反应、能量变化）来解释生物学的现象（遗传、代谢、信号转导）。</span></p>
+
+<p><strong>直觉类比</strong>：如果把细胞比作一座工厂，生物化学要回答三个层次的问题：(1) 工厂用了什么原料和零件？（结构生物化学）(2) 生产线怎么运转？能量从哪来？（代谢生物化学）(3) 产品说明书存在哪？怎么被读取执行的？（分子生物学）</p>
+
+<h3 id="s30951446">1.2 生物化学的三个分支 <span class="tag-key">重点</span></h3>
+
+<table>
+<tr><th>分支</th><th>核心问题</th><th>关键词</th></tr>
+<tr><td><span class="kp">结构生物化学</span></td><td>生物分子的化学结构是怎样的？</td><td>蛋白质构象、DNA双螺旋、酶活性中心</td></tr>
+<tr><td><span class="kp">代谢生物化学</span></td><td>营养物质如何转化释放能量？</td><td>糖酵解、三羧酸循环、氧化磷酸化</td></tr>
+<tr><td><span class="kp">分子生物学</span></td><td>遗传信息如何储存、传递和表达？</td><td>DNA复制、转录、翻译、基因调控</td></tr>
+</table>
+
+<blockquote>易错：杨荣武第四版将全书分为这三大篇，与第三版的八篇结构不同。考研命题基于第四版目录结构，务必对照新版本复习。</blockquote>
+
+<h3 id="s86787326">1.3 生命的化学基础 <span class="tag-freq">高频</span></h3>
+
+<p><span class="kp">生物体的化学组成</span><span class="exp">：C、H、O、N四种元素占生物体干重的96%以上。碳的特殊性在于其四价、成键角度109.5°，能够形成稳定的单键、双键和三键，构建出无限的分子多样性。</span></p>
+
+<p><strong>为什么是碳而不是硅？</strong>硅虽然也是四价，但Si-Si键不稳定，Si-O键却极稳定（石英），所以硅基生命在热力学上倾向于形成岩石而非灵活的大分子。而C-C键和C-O键能相近，允许碳骨架在保持稳定的同时被氧化分解——这恰好满足代谢的需求。</p>
+
+<p><span class="kp">生物大分子的共同逻辑</span><span class="exp">：(1) 由少数几种单体缩聚而成（氨基酸→蛋白质、核苷酸→核酸、单糖→多糖）；(2) 脱水缩合，水解断裂；(3) 序列决定构象，构象决定功能。</span></p>
+
+<blockquote>易错：「脱水缩合」和「水解」是可逆的一对反应方向，前者需要能量（ATP驱动），后者释放能量。考试常考脱水缩合形成的是什么键——肽键（蛋白质）、磷酸二酯键（核酸）、糖苷键（多糖）。</blockquote>
+
+<h2 id="s88893075">第2章 氨基酸：蛋白质的字母表</h2>
+
+<h3 id="s26251590">2.1 氨基酸的通式与手性 <span class="tag-must">必考</span></h3>
+
+<p><strong>核心问题</strong>：20种标准氨基酸共享同一个基本骨架，但它们侧链的微小差异决定了蛋白质功能的巨大差异。</p>
+
+<p><span class="kp">氨基酸通式</span>：$$\mathrm{H_2N-CHR-COOH}$$<span class="exp">，中心Cα连接着一个氨基(-NH₂)、一个羧基(-COOH)、一个H原子和一个可变的侧链R基。除甘氨酸（R=H）外，所有标准氨基酸的Cα都是手性碳，且天然蛋白质中几乎全是L型。</span></p>
+
+<p><strong>为什么是L型？</strong>这不是化学上的必然，而是进化的偶然——最早的生命随机选择了L-氨基酸。一旦选定，后续所有酶的特异性口袋都只识别L构型，形成了路径依赖。在实验室化学合成中，L和D各一半（消旋体），但生命选择了手性纯。</p>
+
+<p><span class="kp">手性判断规则</span><span class="exp">：以甘油醛为参照，L型氨基酸的氨基在Fischer投影式中位于左侧。注意：L/D标注的是构型，不是旋光方向（+/-）。L型氨基酸可以是右旋(+)也可以是左旋(-)，两者没有必然对应关系。</span></p>
+
+<blockquote>易错：(1) 甘氨酸没有手性碳，因为R=H导致Cα上两个相同基团；(2) L/D是构型（相对甘油醛），(+)/(-)是旋光性（实验测定），绝不能混用；(3) 苏氨酸和异亮氨酸有两个手性碳，但天然形式均为L-构型（Cα为L）。</blockquote>
+
+<h3 id="s43629705">2.2 氨基酸的分类（按侧链R基）<span class="tag-must">必考</span></h3>
+
+<p><strong>为什么要分类？</strong>R基的化学性质——疏水性、极性、电荷、大小——决定了氨基酸在蛋白质折叠中的去向（内部/表面）、在酶催化中的作用（亲核/酸碱/金属配位）、以及在蛋白质-蛋白质相互作用中的识别。</p>
+
+<table>
+<tr><th>类别</th><th>R基特征</th><th>成员（单字母缩写）</th><th>在蛋白质中的典型角色</th></tr>
+<tr><td><span class="kp">疏水（非极性）</span></td><td>烷基链、芳环，不溶于水</td><td>G, A, V, L, I, P, F, W, M</td><td>蛋白质内部疏水核心、膜蛋白跨膜区</td></tr>
+<tr><td><span class="kp">极性不带电</span></td><td>含-OH、-SH、酰胺基</td><td>S, T, C, Y, N, Q</td><td>酶活性中心亲核试剂、磷酸化位点（S/T/Y）</td></tr>
+<tr><td><span class="kp">酸性（带负电）</span></td><td>侧链含羧基，pH 7解离为-COO⁻</td><td>D (Asp), E (Glu)</td><td>金属离子配位（Ca²⁺、Mg²⁺）、酸碱催化</td></tr>
+<tr><td><span class="kp">碱性（带正电）</span></td><td>侧链含氨基/胍基/咪唑基，pH 7质子化</td><td>K (Lys), R (Arg), H (His)</td><td>结合带负电的DNA/底物、His酸碱催化（pKa≈6）</td></tr>
+</table>
+
+<p><strong>深度理解——每个氨基酸的独特性</strong>：</p>
+<ul>
+<li><span class="kp">甘氨酸 (Gly, G)</span><span class="exp">——唯一无手性的氨基酸，R=H使其构象自由度最大。在蛋白质中出现在紧密转角处（需要极小侧链的位置），也是胶原蛋白中每第三个残基（Gly-X-Y重复）。</span></li>
+<li><span class="kp">脯氨酸 (Pro, P)</span><span class="exp">——唯一的亚氨基酸，侧链与主链N形成五元环。这限制了Cα-N键的旋转（φ角固定在-60°左右），使Pro成为α螺旋的"破坏者"和β转角的常见组分。</span></li>
+<li><span class="kp">半胱氨酸 (Cys, C)</span><span class="exp">——含巯基(-SH)，两个Cys的-SH可氧化形成二硫键(-S-S-)。二硫键是共价交联（不同于非共价的氢键/疏水力），能显著稳定蛋白质的三维结构，在分泌蛋白中尤其重要。</span></li>
+<li><span class="kp">组氨酸 (His, H)</span><span class="exp">——侧链咪唑基pKa≈6.0，在生理pH附近既能作为质子供体又能作为受体。这是His成为酶催化中最重要的亲核/酸碱催化剂的原因——它进可攻退可守。</span></li>
+</ul>
+
+<blockquote>易错：(1) 考试常要求默写20种氨基酸的结构、三字母和单字母缩写；(2) Pro是亚氨基酸，其「氨基」实为亚氨基(-NH-)；(3) Cys的-SH在氧化环境下形成二硫键，还原环境下断裂——这是可逆的；(4) 酸性氨基酸是Asp和Glu，其酰胺形式Asn和Gln属于极性不带电类，这是两个不同的类别。</blockquote>
+
+<h3 id="s49531860">2.3 氨基酸的酸碱性质 <span class="tag-must">必考</span></h3>
+
+<p><span class="kp">等电点（pI）</span><span class="exp">：氨基酸净电荷为零时的pH值。对于中性氨基酸（一个-NH₃⁺，一个-COO⁻），pI = (pK₁ + pK₂) / 2；对于酸性氨基酸（两个-COOH），pI = (pK₁ + pK_R) / 2；对于碱性氨基酸，pI = (pK_R + pK₂) / 2。</span></p>
+
+<p><strong>直觉理解</strong>：等电点就是氨基酸的「盈亏平衡点」。(1) pH &lt; pI：溶液中H⁺多，-COO⁻被质子化，净电荷为正；(2) pH &gt; pI：溶液中H⁺少，-NH₃⁺脱质子化，净电荷为负；(3) pH = pI：正负电荷恰好相等，净电荷为零，溶解度最低。</p>
+
+<p><span class="kp">滴定曲线</span><span class="exp">：氨基酸的滴定曲线是理解缓冲区和pKa的绝佳工具。中性氨基酸有两个缓冲平台（对应-COO⁻和-NH₃⁺的电离），酸性氨基酸三个平台（多一个侧链羧基），碱性氨基酸三个平台（多一个侧链氨基）。</span></p>
+
+<blockquote>易错：等电点时氨基酸溶解度最小的原因是分子间没有静电排斥力，容易聚集沉淀——而不是因为「不带电」。事实上等电点时分子内部正负电荷互相抵消，但整体对外呈电中性。此原理也是等电聚焦电泳分离蛋白质的基础。</blockquote>
+
+<h3 id="s44871416">2.4 氨基酸的化学反应 <span class="tag-key">重点</span></h3>
+
+<table>
+<tr><th>反应</th><th>靶向基团</th><th>试剂</th><th>应用/意义</th></tr>
+<tr><td>茚三酮反应</td><td>α-氨基</td><td>茚三酮</td><td>氨基酸定性/定量检测（蓝紫色），Pro产生黄色</td></tr>
+<tr><td>Edman降解</td><td>α-氨基（N端）</td><td>PITC</td><td>蛋白质测序——从N端逐一切除氨基酸并鉴定</td></tr>
+<tr><td>Sanger反应</td><td>α-氨基</td><td>DNFB (FDNB)</td><td>鉴定多肽N端氨基酸（历史上首次用于测序胰岛素）</td></tr>
+<tr><td>Ellman反应</td><td>-SH（Cys）</td><td>DTNB</td><td>定量游离巯基（产生黄色TNB⁻，412nm检测）</td></tr>
+</table>
+
+<h2 id="s84117003">第3章 蛋白质的结构：从序列到三维世界</h2>
+
+<h3 id="s75945611">3.1 肽键与多肽链 <span class="tag-must">必考</span></h3>
+
+<p><strong>核心问题</strong>：氨基酸如何连接成蛋白质？这个连接方式有什么几何限制？</p>
+
+<p><span class="kp">肽键</span><span class="exp">是一个氨基酸的α-羧基与下一个氨基酸的α-氨基脱水缩合形成的酰胺键(-CO-NH-)。肽键具有约40%的双键性质——这是因为酰胺N上的孤对电子与羰基C=O共轭（共振结构），使C-N键具有部分双键特征。</span></p>
+
+<p><strong>肽键的双键性质——深远的结构意义</strong>：(1) 肽键不能自由旋转，六个原子(Cα-CO-NH-Cα)位于同一平面上，形成肽平面；(2) 肽键可以是顺式或反式，但反式构象能量低（侧链不冲突），蛋白质中绝大部分肽键为反式；(3) Pro的肽键情况特殊，因为其五元环的结构，顺式(~10%)和反式(~90%)都可能出现。</p>
+
+<p><span class="kp">多肽链的方向性</span><span class="exp">：N端→C端。写蛋白质序列时总是N端在左、C端在右。例如 Ala-Gly-Phe 表示Ala的N端游离、Phe的C端游离。</span></p>
+
+<p><span class="kp">Ramachandran图</span><span class="exp">（拉氏图）：以φ角(N-Cα)为横轴、ψ角(Cα-C)为纵轴，绘制每个残基的二面角。大多数残基落在允许区域内（α螺旋区、β折叠区）。甘氨酸因其R=H而允许范围最广，脯氨酸因其环状结构而限制最严。</span></p>
+
+<blockquote>易错：(1) 肽键≠普通的C-N单键，它因共振而有约40%双键特征；(2) 肽平面的旋转发生在Cα-N(φ)和Cα-C(ψ)两个单键上，而非肽键本身；(3) Ramachandran图的白色区域（不允许区）对应原子间空间碰撞，说明蛋白质折叠受立体化学严格约束。</blockquote>
+
+<h3 id="s67756048">3.2 蛋白质的层次结构 <span class="tag-must">必考</span></h3>
+
+<table>
+<tr><th>结构层次</th><th>定义</th><th>稳定力</th><th>例子</th></tr>
+<tr><td><span class="kp">一级结构</span></td><td>氨基酸的线性序列（N→C）</td><td>共价键（肽键）</td><td>胰岛素A链21残基+B链30残基</td></tr>
+<tr><td><span class="kp">二级结构</span></td><td>主链局部规则性折叠</td><td>主链间氢键（C=O···H-N）</td><td>α螺旋、β折叠、β转角</td></tr>
+<tr><td><span class="kp">超二级结构</span></td><td>二级结构的组合单元</td><td>疏水力+氢键</td><td>βαβ单元、螺旋-转角-螺旋</td></tr>
+<tr><td><span class="kp">结构域</span></td><td>独立折叠的功能/结构单元</td><td>疏水核心等</td><td>Ig结构域、SH2结构域</td></tr>
+<tr><td><span class="kp">三级结构</span></td><td>整条多肽链的三维折叠</td><td>疏水力+氢键+离子键+二硫键</td><td>肌红蛋白的球状折叠</td></tr>
+<tr><td><span class="kp">四级结构</span></td><td>多条多肽链的组装</td><td>亚基间非共价力</td><td>血红蛋白α₂β₂四聚体</td></tr>
+</table>
+
+<blockquote>易错：(1) 二硫键是稳定三级结构的共价键，但不参与二级结构（α螺旋、β折叠只靠主链氢键）；(2) 并非所有蛋白质都有四级结构——单亚基蛋白质（如肌红蛋白）只有三级；(3) 结构域和亚基是不同的概念：结构域是同一条链内的折叠单元，亚基是不同多肽链。</blockquote>
+
+<h3 id="s79854762">3.3 α螺旋 <span class="tag-must">必考</span></h3>
+
+<p><span class="kp">α螺旋（α-helix）</span><span class="exp">是蛋白质中最常见的二级结构之一。主链绕一个假想的中轴右手螺旋上升，每圈3.6个氨基酸残基，螺距0.54nm（即每个残基上升0.15nm）。</span></p>
+
+<p><strong>螺旋的稳定力——主链氢键</strong>：第i个残基的C=O与第i+4个残基的N-H形成氢键，方向几乎平行于螺旋轴。这种「i→i+4」的氢键模式使螺旋内部高度有规律。注意：氢键在螺旋内部，所有R基朝外。</p>
+
+<p><strong>影响α螺旋稳定性的因素</strong>：</p>
+<ul>
+<li><span class="kp">Pro（破坏者）</span><span class="exp">——其N上无H可参与氢键，且五元环引入刚性的扭结，使主链无法维持螺旋几何。</span></li>
+<li><span class="kp">Gly（不稳定）</span><span class="exp">——构象熵太大，在螺旋中的固定构象在热力学上不利。</span></li>
+<li><span class="kp">连续的同电荷残基</span><span class="exp">——Lys-Lys-Lys或Glu-Glu-Glu在螺旋中每隔0.15nm出现一个电荷，强烈排斥。</span></li>
+<li><span class="kp">空间位阻大的残基</span><span class="exp">——Ile、Val等大侧链如果连续出现，空间冲突。</span></li>
+</ul>
+
+<p><strong>为什么α螺旋是右手的？</strong>因为所有天然氨基酸是L型，L型氨基酸的侧链在右手螺旋中处于更有利的取向（朝外远离螺旋轴），左手螺旋中L侧链会与主链C=O冲突。这是进化的精妙——一级结构的L手性决定了高级结构的螺旋手性。</p>
+
+<h3 id="s57982958">3.4 β折叠 <span class="tag-must">必考</span></h3>
+
+<p><span class="kp">β折叠（β-sheet）</span><span class="exp">：多条β链（β-strand，拉伸的锯齿形构象）通过链间主链氢键并列排列形成的片层结构。β链中相邻残基的R基交替朝上和朝下。</span></p>
+
+<table>
+<tr><th>特征</th><th>平行β折叠</th><th>反平行β折叠</th></tr>
+<tr><td>链方向</td><td>同向（N→C一致）</td><td>反向（N→C交替）</td></tr>
+<tr><td>氢键几何</td><td>弯曲，略弱</td><td>直线型，更强</td></tr>
+<tr><td>Cα距离</td><td>0.65nm</td><td>0.70nm</td></tr>
+<tr><td>重复距离</td><td>0.325nm/残基</td><td>0.35nm/残基（交替）</td></tr>
+<tr><td>常见位置</td><td>蛋白质疏水核心内部</td><td>表面和内部均有</td></tr>
+</table>
+
+<p><span class="kp">β转角（β-turn）</span><span class="exp">：由4个残基组成的急转弯结构，连接相邻的两条反平行β链。第1和第4个残基的C=O与N-H间形成氢键（i→i+3）。Pro和Gly在β转角中出现频率最高——Pro因其刚性转角倾向，Gly因体积小适合紧密转角。</span></p>
+
+<blockquote>易错：(1) α螺旋靠链内氢键（i→i+4），β折叠靠链间氢键——稳定力的来源和方向不同；(2) 丝心蛋白（fibroin）几乎全是β折叠，但α角蛋白（keratin）几乎全是α螺旋——环境决定了哪种二级结构占优势。</blockquote>
+
+<h3 id="s31743530">3.5 蛋白质折叠与三级结构 <span class="tag-key">重点</span></h3>
+
+<p><strong>核心问题</strong>：一条无规的多肽链如何自发折叠成精确的三维结构？</p>
+
+<p><span class="kp">Anfinsen实验</span><span class="exp">（诺贝尔奖级发现）：将RNase A用尿素（破坏氢键）和β-巯基乙醇（还原二硫键）完全变性展开后，去除变性剂，RNase A自发恢复全部酶活性。核心结论：蛋白质的一级结构包含了决定其三维结构所需的全部信息。</span></p>
+
+<p><strong>热力学视角——疏水效应是折叠的主要驱动力</strong>：蛋白质折叠不是靠「形成」有利相互作用（氢键在折叠态和伸展态中都大量存在），而是靠「避免」不利效应——暴露疏水基团于水中会导致水的熵减（水分子在疏水表面形成有序的笼状结构）。因此，<span class="kp">疏水残基被埋入蛋白质内部</span>释放了这些有序水分子，是折叠的主要热力学驱动力。</p>
+
+<p><span class="kp">Levinthal悖论</span><span class="exp">：一条100残基的多肽链，如果每个残基有3种可能构象，总共3¹⁰⁰≈10⁴⁷种可能构象。即使以飞秒级速度搜索，宇宙的年龄都不够用。但蛋白质在毫秒到秒级就完成了折叠——说明折叠不是随机搜索，而是沿着特定的「漏斗形」能垒路径进行的。</span></p>
+
+<p><strong>折叠模型</strong>：</p>
+<ul>
+<li><span class="kp">框架模型</span><span class="exp">：二级结构先形成，再对接成三级结构。</span></li>
+<li><span class="kp">疏水坍缩模型</span><span class="exp">：疏水残基先聚集成核心（类似油滴在水中），再在其中调整二级结构。</span></li>
+<li><span class="kp">成核-凝聚模型</span><span class="exp">（当前主流）：少量关键残基先形成折叠核，其余部分围绕核快速凝聚折叠。</span></li>
+</ul>
+
+<h3 id="s10080384">3.6 分子伴侣与错误折叠疾病 <span class="tag-key">重点</span></h3>
+
+<p><span class="kp">分子伴侣（chaperone）</span><span class="exp">：帮助其他蛋白质正确折叠但不成为最终结构一部分的蛋白质。它们不是「告诉」蛋白质怎么折叠，而是防止错误折叠和聚集——给新生肽链或变性蛋白提供一个安全的折叠环境。</span></p>
+
+<p><strong>关键分子伴侣</strong>：</p>
+<ul>
+<li><span class="kp">Hsp70系统</span><span class="exp">（DnaK/DnaJ/GrpE）：结合新生肽链的疏水区，防止过早折叠或聚集。ATP水解驱动构象变化、释放底物。</span></li>
+<li><span class="kp">Chaperonin（GroEL/GroES）</span><span class="exp">：双七元环桶状结构，为蛋白质提供一个隔离的「折叠笼」。GroES盖子关闭后，桶内环境改变，蛋白质在其中独立折叠。</span></li>
+</ul>
+
+<p><span class="kp">错误折叠与疾病</span><span class="exp">：朊病毒（PrP^Sc）是PrP蛋白的异常构象，它可以「传染」正常PrP转变为致病构象。阿尔茨海默症中的Aβ聚集、帕金森症中的α-突触核蛋白聚集也都是蛋白错误折叠和淀粉样纤维化的结果。</span></p>
+
+<h2 id="s88095948">第4章 蛋白质的功能：结构与功能的完美联姻</h2>
+
+<h3 id="s77531524">4.1 氧结合蛋白：肌红蛋白与血红蛋白 <span class="tag-must">必考</span></h3>
+
+<p><strong>核心问题</strong>：为什么需要专门蛋白质来运氧？O₂在水中的溶解度极低(~0.1mM)，无法满足组织呼吸需求。蛋白质通过将O₂结合在血红素的Fe²⁺上，大大提高了氧的携带能力。</p>
+
+<p><span class="kp">肌红蛋白（Myoglobin, Mb）</span><span class="exp">：单亚基，含一个血红素辅基，位于肌肉组织中。其功能是储存O₂——在肌肉高强度活动时释放O₂给线粒体。Mb的氧合曲线是双曲线（hyperbolic），反映了简单的结合平衡：Mb + O₂ ⇌ MbO₂。</span></p>
+
+<p><span class="kp">血红蛋白（Hemoglobin, Hb）</span><span class="exp">：α₂β₂四聚体（四个亚基，各含一个血红素），位于红细胞中。其功能是运输O₂——在肺部高pO₂处结合O₂，在组织低pO₂处释放O₂。Hb的氧合曲线是S形（sigmoidal），反映了协同效应。</span></p>
+
+<p><strong>S形曲线的生物学意义</strong>：(1) Hb在肺部(pO₂≈100 torr)几乎100%饱和；(2) 在组织(pO₂≈30 torr)时饱和度大幅下降，释放出大量O₂；(3) 在运动肌肉(pO₂≈10 torr)时进一步释放。如果Hb的曲线也是双曲线，那它在组织中的释氧能力将大打折扣。</p>
+
+<h3 id="s88600113">4.2 协同效应与别构调控 <span class="tag-must">必考</span></h3>
+
+<p><span class="kp">协同效应（cooperativity）</span><span class="exp">：一个亚基结合O₂后，使同一分子中其他亚基更容易（或更难）结合O₂。Hb表现为正协同效应——结合第一个O₂最困难，结合第四个O₂最容易。</span></p>
+
+<p><strong>MWC模型（对称/协同模型）</strong>：</p>
+<ul>
+<li>Hb存在两种构象状态：<span class="kp">T态（tense，低亲和力）</span>和<span class="kp">R态（relaxed，高亲和力）</span></li>
+<li>所有亚基必须同时处于T或R态（对称性约束）</li>
+<li>无氧时平衡偏向T态；O₂结合后T/R平衡逐渐移向R态</li>
+<li>这解释了S形曲线——低浓度时O₂主要遇见低亲和力的T态，结合弱；一旦浓度足够使一个亚基从T→R转变，其他亚基也跟着转换，结合力急剧上升</li>
+</ul>
+
+<p><strong>KNF模型（序列模型）</strong>：认为配体结合引发单个亚基构象变化，通过亚基界面传递给相邻亚基。两种模型都有实验证据支持，考试一般以MWC模型为主。</p>
+
+<p><span class="kp">别构效应物（allosteric effectors）</span>：</p>
+<ul>
+<li><span class="kp">2,3-BPG</span><span class="exp">（2,3-二磷酸甘油酸）：结合在Hb中央空腔，稳定T态，降低O₂亲和力——促使O₂释放。这是高原适应的机制之一（高原缺氧→红细胞内2,3-BPG升高→Hb释氧增强→组织供氧不降低）。</span></li>
+<li><span class="kp">Bohr效应</span><span class="exp">：H⁺和CO₂降低Hb与O₂的亲和力。在活跃代谢的组织中，CO₂↑→碳酸酐酶催化CO₂+H₂O→H₂CO₃→H⁺+HCO₃⁻，pH↓。H⁺与Hb结合稳定T态，促进O₂释放——恰好是组织需要O₂的时候。</span></li>
+</ul>
+
+<blockquote>易错：(1) 2,3-BPG只影响Hb，不影响Mb（Mb是单亚基，无别构位点）；(2) Bohr效应是「低pH降低O₂亲和力」而非「高pH提高亲和力」；(3) HbF（胎儿血红蛋白，α₂γ₂）对2,3-BPG亲和力低，因此对O₂亲和力比HbA高——因为γ链的His143Ser替代减少了一个正电荷，弱化了与2,3-BPG的静电结合，这使胎儿能从母体血中有效摄取O₂。</blockquote>
+
+<h3 id="s53005341">4.3 免疫球蛋白与分子识别 <span class="tag-key">重点</span></h3>
+
+<p><span class="kp">抗体（免疫球蛋白，Ig）</span><span class="exp">由两条重链（H链）和两条轻链（L链）通过二硫键连接成Y形结构。每条链的N端为可变区（V区，负责抗原识别），C端为恒定区（C区，负责效应功能）。</span></p>
+
+<p><strong>免疫多样性的产生机制</strong>（不是基因数量的无限膨胀）：</p>
+<ul>
+<li><span class="kp">V(D)J重组</span><span class="exp">——在B细胞发育中，多个V、D、J基因片段随机选取一个组合（类似从三个大桶中各抽一个球），组合数= V段数 × D段数 × J段数</span></li>
+<li><span class="kp">连接多样性</span><span class="exp">——V、D、J连接点可以添加或删除少量核苷酸</span></li>
+<li><span class="kp">体细胞高频突变</span><span class="exp">——在抗原刺激后，V区基因以极高频率发生点突变，由自然选择筛选出亲和力更高的突变体（亲和力成熟）</span></li>
+</ul>
+
+<p><strong>直觉类比</strong>：抗体多样性像乐高积木——不是给每个形状开模具，而是提供几种基础积木（V、D、J段），通过不同的排列组合产生海量变化。</p>
+
+<h3 id="s20472786">4.4 肌肉收缩的分子机制 <span class="tag-key">重点</span></h3>
+
+<p><span class="kp">肌小节（sarcomere）</span><span class="exp">是肌肉收缩的最小单位。肌球蛋白（myosin，粗丝）的头部以ATP为动力在肌动蛋白（actin，细丝）上「行走」，使粗细丝相对滑动。</span></p>
+
+<p><strong>肌球蛋白-肌动蛋白循环（四步）</strong>：</p>
+<ol>
+<li><span class="kp">ATP结合</span><span class="exp">：ATP与肌球蛋白头部结合，降低头部对肌动蛋白的亲和力，头部脱离肌动蛋白。</span></li>
+<li><span class="kp">ATP水解</span><span class="exp">：ATP→ADP+Pi，肌球蛋白头部构象变化，「扳起」（cocking）到高能状态。</span></li>
+<li><span class="kp">与肌动蛋白结合</span><span class="exp">：Pi释放，头部与肌动蛋白紧密结合。</span></li>
+<li><span class="kp">力产生（power stroke）</span><span class="exp">：ADP释放，头部恢复低能构象，带动肌动蛋白丝滑动~10nm。</span></li>
+</ol>
+
+<p><strong>Ca²⁺的调控角色</strong>：肌肉放松时，原肌球蛋白(tropomyosin)挡住肌球蛋白在肌动蛋白上的结合位点。神经冲动→肌质网释放Ca²⁺→Ca²⁺与肌钙蛋白(troponin)结合→原肌球蛋白构象变化→暴露肌动蛋白结合位点→收缩启动。</p>
+
+<p><strong>Deep principle</strong>：这是化学能（ATP→ADP+Pi）→机械能（肌丝滑动的力）的完美转化，且每次转化都通过精确的构象变化（而非宏观机器的齿轮啮合）来实现——蛋白质构象变化就是纳米尺度的机械工程。</p>
+
+<h2 id="s48176070">第5章 蛋白质的性质及研究方法</h2>
+
+<h3 id="s34086778">5.1 蛋白质的理化性质 <span class="tag-freq">高频</span></h3>
+
+<p><span class="kp">两性解离与等电点</span><span class="exp">：蛋白质的净电荷随pH变化。等电点时净电荷为零，溶解度最低（无静电排斥→聚集沉淀）。不同蛋白pI不同（多数在pH 4~7），等电聚焦电泳利用此原理分离蛋白质。</span></p>
+
+<p><span class="kp">胶体性质</span><span class="exp">：蛋白质分子大小在1~100nm（胶体范围），在水溶液中形成稳定的亲水胶体。稳定因素：(1) 表面水化层；(2) 表面电荷（非等电点时互相排斥）。破坏这些因素（加盐、调pH到pI、加有机溶剂）使蛋白质沉淀——盐析、等电点沉淀、有机溶剂沉淀的原理。</span></p>
+
+<p><span class="kp">蛋白质变性</span><span class="exp">：空间构象被破坏但一级结构完好的过程。变性因素包括热、强酸强碱、尿素、SDS、有机溶剂、重金属等。变性后疏水核心暴露，溶解度下降，生物活性丧失。</span></p>
+
+<blockquote>易错：(1) 变性≠沉淀，变性的蛋白质可能仍溶解（如可溶性变性蛋白），沉淀的蛋白质可能未变性（如盐析）；(2) 变性只是去折叠（unfolding），一级结构没断，不同于水解；(3) 有些变性是可逆的（复性），如RNase A实验。</blockquote>
+
+<h3 id="s70755092">5.2 蛋白质分离纯化技术 <span class="tag-must">必考</span></h3>
+
+<table>
+<tr><th>方法</th><th>分离原理</th><th>关键细节</th></tr>
+<tr><td><span class="kp">盐析</span></td><td>不同蛋白在不同(NH₄)₂SO₄浓度下沉淀</td><td>硫酸铵最常用——高溶解度、高离子强度、对蛋白稳定</td></tr>
+<tr><td><span class="kp">凝胶过滤/分子筛</span></td><td>按分子大小分离</td><td>大分子先出（走空隙），小分子后出（进凝胶孔）。注意：非按分子量——形状也影响</td></tr>
+<tr><td><span class="kp">离子交换层析</span></td><td>按净电荷分离</td><td>阳离子交换（带负电树脂结合正电蛋白）、阴离子交换（带正电树脂结合负电蛋白），NaCl梯度洗脱</td></tr>
+<tr><td><span class="kp">亲和层析</span></td><td>特异性配体-蛋白结合</td><td>分辨率最高，一步可达高纯度。His-tag+Ni-NTA是最常用的重组蛋白纯化</td></tr>
+<tr><td><span class="kp">SDS-PAGE</span></td><td>按分子量分离</td><td>SDS结合蛋白→所有蛋白带均匀负电荷→迁移率仅取决于分子量</td></tr>
+<tr><td><span class="kp">等电聚焦</span></td><td>按pI分离</td><td>pH梯度中蛋白迁移到pI位置停住</td></tr>
+<tr><td><span class="kp">2D电泳</span></td><td>等电聚焦 + SDS-PAGE</td><td>先按pI，再按分子量，高分辨率</td></tr>
+</table>
+
+<p><strong>蛋白质测序——Edman降解法</strong>：PITC与N端氨基酸的α-NH₂反应→酸性条件下切下N端氨基酸→PTH-氨基酸→HPLC鉴定→下一个循环。优点：每次只切一个N端；局限：只能测~50残基，长链需要先断裂成短肽再分别测序。</p>
+
+<blockquote>易错：(1) SDS-PAGE中，小分子迁移快、大分子慢，不要记反；(2) 凝胶过滤中大小分子顺序相反——大分子快（不进孔）、小分子慢（进孔多）；(3) 带His-tag的重组蛋白用Ni-NTA亲和层析纯化，原理是His的咪唑基与Ni²⁺配位。</blockquote>
+
+<h2 id="s84382448">第6章 核苷酸：核酸的建筑模块</h2>
+
+<h3 id="s88051057">6.1 核苷酸的结构组分 <span class="tag-must">必考</span></h3>
+
+<p><span class="kp">核苷酸 = 碱基 + 戊糖 + 磷酸</span><span class="exp">。碱基和戊糖组成核苷（nucleoside），核苷加磷酸是核苷酸（nucleotide）。注意命名：腺嘌呤+核糖=腺苷(adenosine)，腺苷+磷酸=腺苷酸(AMP)。</span></p>
+
+<table>
+<tr><th>组分</th><th>DNA</th><th>RNA</th></tr>
+<tr><td>戊糖</td><td>2'-脱氧核糖（2'-无-OH）</td><td>核糖（2'-有-OH）</td></tr>
+<tr><td>嘌呤碱基</td><td>A（腺嘌呤）、G（鸟嘌呤）</td><td>A、G</td></tr>
+<tr><td>嘧啶碱基</td><td>C（胞嘧啶）、T（胸腺嘧啶）</td><td>C、U（尿嘧啶，代替T）</td></tr>
+</table>
+
+<p><strong>为什么DNA用T而RNA用U？</strong>这是一个经典的进化解释题。胞嘧啶会自发脱氨基变为尿嘧啶（C→U，每天每个细胞发生约100次）。如果DNA也用U，就无法区分自然的U和由C脱氨错误产生的U。但DNA用T，当C脱氨产生U时，修复酶（尿嘧啶DNA糖苷酶UDG）可以识别U为异常碱基并移除。RNA是临时性分子，不需要长期保真，且在tRNA等中U的修饰衍生物功能多样，所以RNA保留U。</p>
+
+<h3 id="s63939741">6.2 核苷酸的功能——不仅仅是核酸原料 <span class="tag-key">重点</span></h3>
+
+<ul>
+<li><span class="kp">ATP</span><span class="exp">——细胞能量货币。两个高能磷酸酐键（~P），水解ΔG°\'≈ -30.5 kJ/mol。注意：「高能键」指水解时释放大量自由能，不是键本身能量格外高，而是产物比反应物稳定得多（共振稳定化+电荷分离解除+离子化+H⁺水合补偿）。</span></li>
+<li><span class="kp">cAMP / cGMP</span><span class="exp">——第二信使。腺苷酸环化酶催化ATP→cAMP，cAMP激活PKA→信号放大。</span></li>
+<li><span class="kp">NAD⁺ / FAD</span><span class="exp">——电子载体。NAD⁺接受一个H⁻（两个电子+一个质子）→NADH；FAD接受2H→FADH₂。</span></li>
+<li><span class="kp">CoA（辅酶A）</span><span class="exp">——酰基载体。乙酰CoA是代谢的核心十字路口。</span></li>
+</ul>
+
+<h2 id="s52606763">第7章 核酸的结构与功能</h2>
+
+<h3 id="s65354697">7.1 DNA双螺旋 <span class="tag-must">必考</span></h3>
+
+<p><strong>Watson-Crick双螺旋（B-DNA）的核心参数</strong>：</p>
+<ul>
+<li>两条链反向平行（一条5'→3'，另一条3'→5'）</li>
+<li>右手双螺旋，直径约2nm</li>
+<li>螺距3.4nm，每圈10bp（碱基对间距0.34nm）</li>
+<li>碱基对在螺旋内部（疏水），糖-磷酸骨架在外（亲水，带负电）</li>
+<li>A-T配对（2个氢键），G-C配对（3个氢键）</li>
+<li>大沟（major groove, 2.2nm宽）和小沟（minor groove, 1.2nm宽）交替出现</li>
+</ul>
+
+<p><strong>为什么最重要的是碱基互补配对？</strong>因为它同时解决了DNA的两个核心功能：(1) <span class="kp">储存遗传信息</span>——碱基序列即信息；(2) <span class="kp">忠实复制</span>——A-T、G-C的氢键配对模式保证了每条链都可以作为合成互补链的模板。Watson和Crick论文的最后一句名言：「我们注意到，我们所假设的特定配对方式直接暗示了一种可能的遗传物质复制机制。」</p>
+
+<p><strong>大沟和小沟的功能意义</strong>：大多数DNA结合蛋白（转录因子、限制酶）通过识别大沟中的碱基对来结合特定序列——因为大沟提供了足够的空间和碱基特异性读出。同一碱基对在大沟和小沟中暴露出不同的氢键供体/受体模式，使蛋白质能区分A-T和T-A、G-C和C-G（形成序列特异性识别）。</p>
+
+<h3 id="s31886981">7.2 DNA的构象多样性 <span class="tag-key">重点</span></h3>
+
+<table>
+<tr><th>类型</th><th>A-DNA</th><th>B-DNA</th><th>Z-DNA</th></tr>
+<tr><td>螺旋手性</td><td>右手</td><td>右手</td><td>左手</td></tr>
+<tr><td>每圈碱基对</td><td>11</td><td>10</td><td>12</td></tr>
+<tr><td>碱基对倾角</td><td>~20°（倾斜）</td><td>~0°（垂直）</td><td>~7°</td></tr>
+<tr><td>存在条件</td><td>脱水、RNA双链区</td><td>正常生理条件</td><td>交替GC序列、高盐</td></tr>
+<tr><td>大沟/小沟</td><td>深窄大沟+宽浅小沟</td><td>宽大沟+窄小沟</td><td>平坦大沟+深窄小沟</td></tr>
+</table>
+
+<p><strong>B↔Z转变的生物学意义</strong>：Z-DNA可能在基因表达调控中起作用（某些转录激活因子特异识别Z-DNA）。Z-DNA形成需要能量输入（B→Z自由能增加），细胞中Z-DNA的负超螺旋有利于Z-DNA形成。</p>
+
+<h3 id="s77243762">7.3 RNA结构与功能多样性 <span class="tag-must">必考</span></h3>
+
+<p><strong>核心思想</strong>：RNA不像DNA那样永远规整地保持双螺旋。RNA是单链的，通过链内碱基配对形成复杂的局部二级结构（茎-环、假结等），这些结构赋予RNA多样化的功能——从信息传递（mRNA）到催化（核酶）到结构支架（rRNA）。</p>
+
+<table>
+<tr><th>RNA类型</th><th>功能</th><th>特征</th></tr>
+<tr><td><span class="kp">mRNA</span></td><td>携带遗传信息从DNA到核糖体</td><td>5'帽子+编码区+3' polyA尾。原核mRNA多为多顺反子，真核几乎全是单顺反子</td></tr>
+<tr><td><span class="kp">tRNA</span></td><td>翻译密码子为氨基酸</td><td>三叶草二级结构→倒L形三级结构。含大量稀有碱基（D、ψ等）</td></tr>
+<tr><td><span class="kp">rRNA</span></td><td>核糖体结构和催化核心</td><td>占细胞总RNA的~80%。23S/28S rRNA是肽酰转移酶的催化组分（核酶）</td></tr>
+<tr><td><span class="kp">miRNA / siRNA</span></td><td>基因沉默</td><td>~22nt，与AGO蛋白结合，通过碱基互补靶向mRNA使其降解或翻译抑制</td></tr>
+</table>
+
+<blockquote>易错：(1) 真核mRNA的5'帽子是7-甲基鸟苷酸通过5'-5'三磷酸桥连接在mRNA的5'端——注意是反向连接（5'对5'，而非正常的5'对3'）；(2) tRNA的3'端总是CCA-OH，氨基酸连在末端A的3'-OH上（氨酰化反应）。</blockquote>
+
+<h2 id="s25577505">第8章 核酸的性质及研究方法</h2>
+
+<h3 id="s23767824">8.1 DNA的变性、复性与杂交 <span class="tag-must">必考</span></h3>
+
+<p><span class="kp">DNA变性（denaturation/melting）</span><span class="exp">：双螺旋中的氢键断裂、两条链分开成为无规卷曲单链的过程。变性不切断磷酸二酯键（一级结构保持完整）。</span></p>
+
+<p><span class="kp">增色效应（hyperchromic effect）</span><span class="exp">：DNA变性时A₂₆₀吸光度增加~30-40%。原理：双链中碱基紧密堆积，碱基环的π电子互相作用抑制紫外吸收；解链后碱基暴露，吸收增加。这是监测DNA变性的标准方法。</span></p>
+
+<p><span class="kp">熔解温度（Tm, melting temperature）</span><span class="exp">：DNA变性达50%时的温度。Tm受以下因素影响：(1) G-C含量↑→Tm↑（G-C有3个氢键，A-T只有2个）；(2) 盐浓度↑→Tm↑（阳离子屏蔽磷酸骨架的负电荷排斥）；(3) pH极端→Tm↓；(4) 有机溶剂→Tm↓。</span></p>
+
+<p><strong>经验公式</strong>（在标准缓冲液中）：$$T_m(^\circ\mathrm{C}) = 69.3 + 0.41 \times (\%\mathrm{GC})$$</p>
+
+<p><span class="kp">DNA复性（renaturation/reannealing）</span><span class="exp">：变性DNA的两条互补单链重新退火形成双螺旋。复性速率取决于：(1) DNA浓度（浓度越高碰撞越快）；(2) 基因组复杂度（序列越复杂越慢——因为互补链需要更长的时间来找对「另一半」）；(3) 离子强度；(4) 温度（最佳复性温度≈Tm-25°C）。</span></p>
+
+<p><span class="kp">Cot曲线</span><span class="exp">：以初始DNA浓度(C₀)×时间(t)为横坐标绘制复性百分比曲线。Cot₁/₂（半数复性时的Cot值）与基因组复杂度成正比——基因组越小/序列越简单，复性越快。人类基因组中有高度重复序列（极快复性，Cot₁/₂很小）、中等重复序列（如rRNA基因）和单拷贝序列（极慢复性，Cot₁/₂巨大）。</span></p>
+
+<p><span class="kp">核酸分子杂交</span><span class="exp">：利用变性和复性原理，用已知的单链核酸探针检测样品中的互补序列。Southern blot（DNA检测DNA）、Northern blot（RNA检测RNA）、FISH（荧光原位杂交）、基因芯片都是杂交原理的不同应用形式。</span></p>
+
+<blockquote>易错：(1) Tm不是DNA完全熔解的温度，是50%变性的温度；(2) 较高的Tm反映了DNA结构稳定性的增加，不是因为GC对本身更强壮，而是因为GC对有3个氢键+更好的碱基堆积相互作用；(3) Southern blot测DNA, Northern blot测RNA, Western blot测蛋白——命名极易混淆：Southern是发明人的名字，其他是戏仿。</blockquote>
+
+<h2 id="s80484404">第9章 酶学概论</h2>
+
+<h3 id="s42646350">9.1 酶是生物催化剂 <span class="tag-must">必考</span></h3>
+
+<p><strong>核心问题</strong>：为什么生命需要酶？热力学上可行的反应不一定能在生理条件下发生——因为活化能太高。酶通过降低活化能（ΔG‡），使反应速率提高10⁶~10¹²倍，但酶不改变反应的平衡常数和ΔG。</p>
+
+<p><strong>直觉类比</strong>：化学反应就像翻越一座山。底物在山的一边，产物在山的另一边。反应速率取决于翻山的速度——即有多少分子有足够的能量翻过山顶（活化能，ΔG‡）。酶的作用不是把山铲平（改变ΔG），而是在山中间挖一条隧道——降低了需要攀爬的高度（降低ΔG‡），更多分子能通过隧道到达对面。</p>
+
+<p><span class="kp">酶的催化特性</span>：</p>
+<ul>
+<li><span class="kp">高效性</span><span class="exp">——速率提升可达10¹²倍（如脲酶催化尿素水解比非催化快10¹⁴倍）</span></li>
+<li><span class="kp">专一性（特异性）</span><span class="exp">——绝对专一性（只催化一种底物）、相对专一性（催化一类类似底物）、立体专一性（只识别一个手性异构体）</span></li>
+<li><span class="kp">温和条件</span><span class="exp">——常温常压中性pH，而化学催化剂常需高温高压强酸强碱</span></li>
+<li><span class="kp">可调控性</span><span class="exp">——别构调控、共价修饰、酶量调控、抑制剂等多种调节方式</span></li>
+</ul>
+
+<h3 id="s86338096">9.2 酶的结构基础——活性中心 <span class="tag-must">必考</span></h3>
+
+<p><span class="kp">活性中心（active site）</span><span class="exp">是酶分子上结合底物并将其转化为产物的特定区域。它通常是一个三维的裂缝或口袋，仅占酶总体积的一小部分（~5-10%）。</span></p>
+
+<p><strong>活性中心的组成</strong>：</p>
+<ul>
+<li><span class="kp">结合基团（binding groups）</span><span class="exp">——负责识别和结合底物，通常通过氢键、疏水力、离子键与底物相互作用</span></li>
+<li><span class="kp">催化基团（catalytic groups）</span><span class="exp">——直接参与化学键的断裂和形成，通常是Ser、His、Asp、Glu、Cys、Lys等具有功能侧链的残基</span></li>
+</ul>
+
+<p><strong>酶的催化机制分类</strong>：</p>
+<ul>
+<li><span class="kp">酸碱催化</span><span class="exp">——活性中心的氨基酸侧链作为质子供体（酸）或受体（碱），稳定过渡态</span></li>
+<li><span class="kp">共价催化</span><span class="exp">——酶与底物形成共价中间体（如Ser-OH亲核攻击形成酰基-酶中间体）</span></li>
+<li><span class="kp">金属离子催化</span><span class="exp">——金属离子（Zn²⁺, Mg²⁺, Fe²⁺等）提供Lewis酸催化、稳定负电荷、介导氧化还原</span></li>
+<li><span class="kp">邻近与定向效应</span><span class="exp">——将两个底物在活性中心以正确的空间取向「摆放」在一起，使有效浓度极大提高</span></li>
+<li><span class="kp">过渡态稳定化</span><span class="exp">——活性中心的形状不是完美匹配底物，而是完美匹配过渡态——酶与过渡态的紧密结合降低了活化能</span></li>
+</ul>
+
+<header id="exampass-header">
+  <div class="header-left"><span class="header-brand">ExamPass Assistant</span></div>
+  <div class="header-right"><span class="header-url">github.com/WUBING2023/ExamPass-Assistant</span></div>
+</header>
+<hr class="header-divider">
+
+
+
+
+
+<h2 id="s48096339">第10章 酶动力学：酶有多快、多强？</h2>
+
+<h3 id="s49555026">10.1 Michaelis-Menten方程 <span class="tag-must">必考</span></h3>
+
+<p><strong>核心问题</strong>：酶促反应速率如何随底物浓度变化？这为什么是双曲线？</p>
+
+<p><span class="kp">Michaelis-Menten方程</span>：$$v_0 = \frac{V_{\max}[S]}{K_m + [S]}$$</p>
+
+<p><span class="exp">其中v₀为初始反应速率，Vmax为最大反应速率（所有酶分子被底物饱和时的速率），[S]为底物浓度，Km为米氏常数——使v₀=Vmax/2时的底物浓度。</span></p>
+
+<p><strong>推导——稳态假设</strong>：M-M方程的推导基于以下关键假设：</p>
+<ol>
+<li><span class="kp">稳态假设</span><span class="exp">：酶-底物复合物[ES]的浓度在初始阶段保持恒定（d[ES]/dt=0）——这意味着ES的形成速率等于其分解速率。</span></li>
+<li><span class="kp">初始速度条件</span><span class="exp">：测量v₀时，[S] &gt;&gt; [E]，且[S]几乎不变，[P]≈0（逆反应可忽略）。</span></li>
+<li>反应模型：E + S ⇌ ES → E + P（k₁和k₋₁为结合/解离速率常数，kcat为催化常数）</li>
+</ol>
+
+<p>推导过程：稳态时 k₁[E][S] = (k₋₁ + kcat)[ES]，代入[E]_{total} = [E] + [ES]，整理得：</p>
+
+$$K_m = \frac{k_{-1} + k_{\mathrm{cat}}}{k_1}$$
+$$v_0 = \frac{k_{\mathrm{cat}}[E]_{\mathrm{total}}[S]}{K_m + [S]}$$
+
+<h3 id="s61882103">10.2 Km、Vmax和kcat的物理意义 <span class="tag-must">必考</span></h3>
+
+<table>
+<tr><th>参数</th><th>定义</th><th>物理意义</th></tr>
+<tr><td><span class="kp">K_m</span></td><td>(k₋₁ + kcat)/k₁</td><td>底物与酶的亲和力度量——Km越小，亲和力越大（需要更低浓度就能达到半饱和）。当kcat&lt;&lt;k₋₁时，Km≈k₋₁/k₁=Kd（解离常数），此时Km直接反映亲和力</td></tr>
+<tr><td><span class="kp">V_{\max}</span></td><td>kcat[E]total</td><td>底物饱和时的最大速率——酶越多、或每个酶分子越快，Vmax越大</td></tr>
+<tr><td><span class="kp">k_{\mathrm{cat}}</span></td><td>催化常数/转换数</td><td>每个酶分子在饱和条件下每秒转化的底物分子数。kcat=Vmax/[E]total。单位s⁻¹</td></tr>
+<tr><td><span class="kp">k_{\mathrm{cat}}/K_m</span></td><td>催化效率/专一性常数</td><td>综合衡量酶的催化效率——不仅考虑催化速度，还考虑底物结合能力。上限受扩散控制（~10⁸-10⁹ M⁻¹s⁻¹）</td></tr>
+</table>
+
+<blockquote>易错：(1) Km不是ES的解离常数Kd，除非kcat远小于k₋₁；一般来说Km≥Kd；(2) Km是酶的特征常数，与酶浓度[E]无关，但Vmax随[E]线性变化；(3) 同一酶对不同底物的Km不同——Km最小的底物不一定是生理底物，但常被称为「最适底物」。</blockquote>
+
+<h3 id="s80721023">10.3 Lineweaver-Burk双倒数作图 <span class="tag-key">重点</span></h3>
+
+<p><span class="kp">双倒数方程</span>：$$\frac{1}{v_0} = \left(\frac{K_m}{V_{\max}}\right) \cdot \frac{1}{[S]} + \frac{1}{V_{\max}}$$</p>
+
+<p><span class="exp">以1/v₀为Y轴、1/[S]为X轴做图，得到一条直线：(1) Y截距=1/Vmax；(2) X截距=-1/Km；(3) 斜率=Km/Vmax。</span></p>
+
+<p><strong>为什么常用双倒数图？</strong>虽然M-M曲线本身就可以拟合出Km和Vmax，但双倒数直线更容易肉眼判断抑制剂类型：(1) 竞争性抑制——Vmax不变、Km增大（交于Y轴同一点）；(2) 非竞争性抑制——Vmax减小、Km不变（交于X轴同一点）；(3) 反竞争性抑制——Vmax和Km等比例减小（平行线）。</p>
+
+<h3 id="s56013516">10.4 酶抑制剂 <span class="tag-must">必考</span></h3>
+
+<table>
+<tr><th>抑制类型</th><th>结合位点</th><th>Km变化</th><th>Vmax变化</th><th>双倒数图特征</th></tr>
+<tr><td><span class="kp">竞争性</span></td><td>活性中心（与S竞争）</td><td>↑（表观增大）</td><td>不变</td><td>交于Y轴同一点</td></tr>
+<tr><td><span class="kp">非竞争性</span></td><td>活性中心外（ES均可结合）</td><td>不变</td><td>↓</td><td>交于X轴同一点</td></tr>
+<tr><td><span class="kp">反竞争性</span></td><td>只结合ES（不跟游离E结合）</td><td>↓</td><td>↓</td><td>平行线</td></tr>
+</table>
+
+<p><strong>临床实例</strong>：</p>
+<ul>
+<li><span class="kp">甲氨蝶呤（methotrexate）</span><span class="exp">——叶酸的结构类似物，竞争性抑制二氢叶酸还原酶(DHFR)，阻断核苷酸合成，用于抗癌。</span></li>
+<li><span class="kp">青霉素</span><span class="exp">——不可逆抑制细菌转肽酶（共价结合活性中心Ser），阻断细胞壁合成。注意：青霉素是自杀性抑制剂（mechanism-based inhibitor），不同于可逆竞争性抑制剂。</span></li>
+<li><span class="kp">别嘌呤醇</span><span class="exp">——黄嘌呤氧化酶的自杀性底物，用于治疗痛风（降低尿酸产生）。</span></li>
+</ul>
+
+<blockquote>易错：(1) 竞争性抑制剂不改变Vmax是因为提高[S]可以「竞争赢」抑制剂——当[S]→∞时所有酶仍可被底物饱和；(2) 非竞争性抑制剂改变Vmax是因为即使[S]→∞，一部分酶因结合了抑制剂而不能催化——相当于「坏掉的」酶分子；(3) 不可逆抑制剂≠竞争性抑制剂，前者与酶共价结合永久失活。</blockquote>
+
+<h2 id="s91337446">第11章 酶的催化机制：有机化学的巅峰艺术</h2>
+
+<h3 id="s42286968">11.1 丝氨酸蛋白酶 <span class="tag-must">必考</span></h3>
+
+<p><strong>核心问题</strong>：一个简单的蛋白水解反应，酶如何实现如此高的速率提升？</p>
+
+<p><span class="kp">丝氨酸蛋白酶家族</span><span class="exp">（胰蛋白酶、胰凝乳蛋白酶、弹性蛋白酶）共享相同的催化三联体（Ser-His-Asp）和两步共价催化机制，但底物特异性不同。</span></p>
+
+<p><strong>催化三联体的协同作用——电荷中继网络</strong>：</p>
+<ul>
+<li><span class="kp">Asp¹⁰²</span><span class="exp">的-COO⁻通过氢键定向His⁵⁷的咪唑环（提高其pKa，使其成为更好的碱）</span></li>
+<li><span class="kp">His⁵⁷</span><span class="exp">的咪唑基作为一般酸碱催化剂：在第一步中作为碱从Ser¹⁹⁵的-OH接受一个质子，在第二步中作为酸给离去基团提供质子</span></li>
+<li><span class="kp">Ser¹⁹⁵</span><span class="exp">的-OH在His⁵⁷的帮助下变为更强的亲核试剂（醇盐离子，Ser-O⁻），攻击底物的羰基碳</span></li>
+</ul>
+
+<p><strong>反应机制（两步共价催化）</strong>：</p>
+<ol>
+<li><span class="kp">酰化阶段</span><span class="exp">：Ser¹⁹⁵-O⁻亲核攻击底物肽键的羰基碳→形成四面体过渡态（氧负离子穴oxyanion hole中的Gly和Ser的主链NH稳定此过渡态）→羰基碳重新sp²杂化→C端肽段离去（His⁵⁷给离去基团-NH提供质子）→形成酰基-酶中间体（Ser¹⁹⁵的O与底物N端部分以酯键相连）</span></li>
+<li><span class="kp">脱酰阶段</span><span class="exp">：水分子进入活性中心→His⁵⁷从水接受质子→产生的OH⁻攻击酰基-酶中间体→第二次四面体过渡态→释放N端肽段→酶恢复自由状态</span></li>
+</ol>
+
+<p><strong>三种丝氨酸蛋白酶的底物特异性差异</strong>：</p>
+<ul>
+<li><span class="kp">胰凝乳蛋白酶</span><span class="exp">——S1口袋深而疏水（含Ser¹⁸⁹），偏好Phe/Tyr/Trp等大疏水残基的C端肽键</span></li>
+<li><span class="kp">胰蛋白酶</span><span class="exp">——S1口袋底部有Asp¹⁸⁹（带负电），偏好Lys/Arg等碱性残基的C端肽键（静电吸引）</span></li>
+<li><span class="kp">弹性蛋白酶</span><span class="exp">——S1口袋入口被Val²¹⁶和Thr²²⁶封闭，只能容纳Gly/Ala等小残基</span></li>
+</ul>
+
+<p><strong>Deep insight</strong>：三种酶共享相同的折叠骨架和催化机制（趋异进化），通过简单地「装修」底物结合口袋（换几个残基）就实现了底物特异性的分化——这是蛋白质工程学中最优雅的设计范例。</p>
+
+<h3 id="s88102700">11.2 溶菌酶与过渡态稳定化 <span class="tag-key">重点</span></h3>
+
+<p><span class="kp">溶菌酶（lysozyme）</span><span class="exp">是第一个被阐明了三维结构和催化机制的酶（Phillips, 1965）。它催化细菌细胞壁的肽聚糖中NAM-NAG间的β-1,4-糖苷键水解。</span></p>
+
+<p><strong>核心机制</strong>：</p>
+<ul>
+<li><span class="kp">Glu³⁵（pKa≈6.5，非寻常高）</span><span class="exp">作为一般酸催化剂，提供质子给糖苷键的O</span></li>
+<li><span class="kp">Asp⁵²（pKa≈3.5）</span><span class="exp">作为亲核基团/静电稳定剂，稳定底物的正电荷中间体（碳正离子过渡态）</span></li>
+<li>底物的D糖环被扭曲成半椅式构象——这恰好降低过渡态的能量（酶「掰弯」底物使其更像过渡态）</li>
+</ul>
+
+<p><strong>Deep principle——过渡态稳定化</strong>：酶最稳定结合的是反应的过渡态，不是底物也不是产物。如果酶与底物结合得太紧（底物的几何形状完美契合活性中心），那么底物→过渡态的变形需要额外能量，活化能反而升高。因此，好酶的活性中心不完全匹配底物，而是完美匹配过渡态的几何形状和电荷分布。</p>
+
+<h3 id="s87820152">11.3 其他重要催化机制范例 <span class="tag-freq">高频</span></h3>
+
+<ul>
+<li><span class="kp">碳酸酐酶</span><span class="exp">——Zn²⁺配位的水分子pKa从15.7降至~7（Zn²⁺的Lewis酸效应），使H₂O→OH⁻成为极强的亲核试剂。催化效率kcat/Km≈10⁸ M⁻¹s⁻¹，接近扩散控制极限。</span></li>
+<li><span class="kp">限制性内切酶EcoRV</span><span class="exp">——通过Mg²⁺介导的催化，精确识别GATATC序列。非特异序列结合时不催化（Mg²⁺不在正确位置），带来极高的序列选择性。</span></li>
+</ul>
+
+<h2 id="s84664300">第12章 核酶：RNA也能当酶？</h2>
+
+<h3 id="s10114836">12.1 核酶的发现与意义 <span class="tag-must">必考</span></h3>
+
+<p><strong>颠覆性发现</strong>：1982年，Cech发现四膜虫rRNA前体可以在完全无蛋白质的情况下自我剪接（self-splicing），证明RNA具有催化功能。1989年获诺贝尔化学奖。Altman发现RNase P中的RNA组分是催化的真正执行者。</p>
+
+<p><strong>为什么这是革命性的？</strong>在核酶发现之前，「酶==蛋白质」是生物化学的教条。核酶的发现打破了这一教条，同时也为「RNA世界」假说提供了关键证据——在DNA和蛋白质出现之前，RNA可能同时承担遗传信息存储（类似DNA）和催化（类似蛋白质酶）双重功能。</p>
+
+<h3 id="s88808601">12.2 核酶的类型与机制 <span class="tag-key">重点</span></h3>
+
+<table>
+<tr><th>核酶类型</th><th>来源</th><th>催化反应</th><th>机制关键点</th></tr>
+<tr><td><span class="kp">I类内含子</span></td><td>四膜虫rRNA等</td><td>自我剪接（两步转酯反应）</td><td>外源G的3'-OH作亲核攻击</td></tr>
+<tr><td><span class="kp">II类内含子</span></td><td>线粒体/叶绿体</td><td>自我剪接</td><td>内部A的2'-OH作亲核，形成套索</td></tr>
+<tr><td><span class="kp">RNase P</span></td><td>所有生物</td><td>tRNA 5'端加工</td><td>RNA是催化亚基，蛋白辅助</td></tr>
+<tr><td><span class="kp">锤头状核酶</span></td><td>植物类病毒</td><td>RNA链特异性切割</td><td>Mg²⁺辅助的一般酸碱催化</td></tr>
+<tr><td><span class="kp">核糖体</span></td><td>所有生物</td><td>肽键形成（肽酰转移）</td><td>23S/28S rRNA是催化剂，蛋白只是支架</td></tr>
+</table>
+
+<p><strong>Deep insight——核糖体是核酶</strong>：这个发现极其重要。肽酰转移酶中心完全由rRNA组成，最近的蛋白在18Å外——蛋白质只提供结构框架。这意味着生命的最后共同祖先(LUCA)的蛋白质合成机器可能完全是RNA组成的，蛋白质后来才接管了大多数催化功能，因为20种氨基酸侧链比4种碱基提供了更丰富的化学功能。</p>
+
+<blockquote>易错：(1) 并非所有内含子都是核酶——mRNA内含子（剪接体催化）和tRNA内含子需要蛋白质酶；(2) 核酶不一定完全是RNA——RNase P的RNA组分和蛋白质组分协同工作；(3) 肽键形成由rRNA催化≠核糖体是纯RNA机器——核糖体蛋白（r-proteins）对结构维持、组装和辅助功能仍然重要。</blockquote>
+
+<h2 id="s18931213">第13章 酶活性的调节</h2>
+
+<h3 id="s85489026">13.1 别构调控 <span class="tag-must">必考</span></h3>
+
+<p><span class="kp">别构酶（allosteric enzyme）</span><span class="exp">是代谢调控的核心——调节物结合在活性中心以外的别构位点，通过构象变化影响催化活性。大多数别构酶位于代谢途径的关键调控节点（如糖酵解中的PFK-1）。</span></p>
+
+<p><strong>别构调控的v vs [S]曲线</strong>：别构酶通常表现为S形曲线（而非M-M双曲线），这反映了正协同效应。S形曲线在中间[S]范围产生一个「开关式」的敏感区域——在此区域内，[S]的微小变化即可引起反应速率的大幅变化，赋予代谢精准的调控响应。</p>
+
+<p><span class="kp">关键别构酶范例——ATCase（天冬氨酸转氨甲酰酶）</span>：</p>
+<ul>
+<li>催化嘧啶核苷酸生物合成的第一步（氨甲酰磷酸+天冬氨酸→N-氨甲酰天冬氨酸）</li>
+<li><span class="kp">别构抑制剂 CTP</span><span class="exp">（嘧啶核苷酸的终产物）——反馈抑制。CTP结合后T/R平衡移向T态</span></li>
+<li><span class="kp">别构激活剂 ATP</span><span class="exp">（嘌呤核苷酸）——嘌呤和嘧啶的合成需要平衡协调，高ATP信号激活嘧啶合成</span></li>
+<li>结构：催化亚基6个（两个三聚体）+ 调节亚基6个（三个二聚体），T↔R转变涉及催化亚基间的相对旋转</li>
+</ul>
+
+<blockquote>易错：(1) 别构调控与M-M酶的区别在于别构酶具有四级结构（多亚基）且v-[S]曲线为S形；(2) 别构激活剂≠竞争性活化——它不在活性中心，而是改变T/R平衡；(3) 反馈抑制是最常见的别构调控模式——代谢途径的终产物抑制该途径的第一个关键酶。</blockquote>
+
+<h3 id="s21844215">13.2 共价修饰调控 <span class="tag-must">必考</span></h3>
+
+<table>
+<tr><th>修饰类型</th><th>关键酶</th><th>效果</th><th>可逆性</th></tr>
+<tr><td><span class="kp">磷酸化/去磷酸化</span></td><td>蛋白激酶/蛋白磷酸酶</td><td>激活或抑制（取决于靶蛋白）</td><td>完全可逆</td></tr>
+<tr><td><span class="kp">乙酰化/去乙酰化</span></td><td>HAT/HDAC</td><td>组蛋白：染色质松→转录激活</td><td>完全可逆</td></tr>
+<tr><td><span class="kp">泛素化</span></td><td>E1-E2-E3级联</td><td>靶向蛋白酶体降解（K48链）</td><td>去泛素化酶可逆转</td></tr>
+<tr><td><span class="kp">ADP-核糖基化</span></td><td>细菌毒素等</td><td>修饰Gs蛋白→腺苷酸环化酶持续激活</td><td>取决于具体酶</td></tr>
+</table>
+
+<p><strong>磷酸化/去磷酸化——酶调控的「开关」</strong>：蛋白质磷酸化是翻译后修饰中最普遍、最重要的调控方式。Ser/Thr/Tyr的-OH被ATP磷酸化→引入带负电的大基团→改变局部电荷和构象→改变蛋白活性。蛋白激酶(PK)和蛋白磷酸酶(PP)的可逆平衡决定了磷酸化水平。人类基因组编码~500种蛋白激酶（激酶组kinome），反映了磷酸化调控在信号转导中的核心地位。</p>
+
+<p><span class="kp">酶原激活——不可逆的调控方式</span>：</p>
+<ul>
+<li><span class="kp">胰蛋白酶原→胰蛋白酶</span><span class="exp">：肠激酶切除N端六肽→构象重排→活性中心形成。这是消化酶的安全机制——在胰腺中合成的是无活性的酶原，到达肠道后才被激活。</span></li>
+<li><span class="kp">凝血级联</span><span class="exp">：凝血因子以酶原形式在血液中循环，血管损伤时按级联顺序逐一激活。级联反应通过酶激活酶的方式产生巨大的放大效应——一个分子激活成千上万个下游分子。</span></li>
+</ul>
+
+<blockquote>易错：(1) 酶原激活不同于别构调控——它是不可逆的（或需要特定抑制剂）；(2) 磷酸化不总是激活——酪氨酸羟化酶的磷酸化激活，而糖原合酶的磷酸化则抑制；(3) 级联放大是信号转导的核心原理——一个上游信号分子可以激活多个下游效应器，产生信号放大。</blockquote>
+
+<h3 id="s49160762">13.3 同工酶 <span class="tag-freq">高频</span></h3>
+
+<p><span class="kp">同工酶（isozyme）</span><span class="exp">：催化相同反应但具有不同氨基酸序列、Km值、调控特性的酶。典型例子——乳酸脱氢酶LDH₁（H₄，心肌型）和LDH₅（M₄，骨骼肌型）。</span></p>
+
+<p><strong>LDH同工酶的生理意义</strong>：LDH催化丙酮酸↔乳酸。心肌中LDH₁对底物丙酮酸的Km小且被高浓度丙酮酸抑制——心肌是有氧组织，不希望浪费葡萄糖在无氧酵解，反而希望乳酸→丙酮酸用于氧化。骨骼肌中LDH₅对丙酮酸Km大且不被高浓度抑制——骨骼肌在剧烈运动时大量产生丙酮酸需要快速转为乳酸。同一反应，不同组织用不同同工酶精细调控——进化的精妙。</p>
+
+<h2 id="s54503799">第14章 维生素与辅酶</h2>
+
+<h3 id="s55806593">14.1 水溶性维生素与辅酶 <span class="tag-must">必考</span></h3>
+
+<table>
+<tr><th>维生素</th><th>活性形式（辅酶）</th><th>催化的反应类型</th><th>关键机制</th></tr>
+<tr><td><span class="kp">B₁（硫胺素）</span></td><td>TPP</td><td>α-酮酸脱羧、转酮醇反应</td><td>噻唑环C2的碳负离子</td></tr>
+<tr><td><span class="kp">B₂（核黄素）</span></td><td>FAD / FMN</td><td>氧化还原（1e⁻或2e⁻转移）</td><td>异咯嗪环接受H⁺+e⁻</td></tr>
+<tr><td><span class="kp">B₃（烟酸）</span></td><td>NAD⁺ / NADP⁺</td><td>氧化还原（H⁻转移）</td><td>烟酰胺环接受H⁻</td></tr>
+<tr><td><span class="kp">B₅（泛酸）</span></td><td>CoA</td><td>酰基转移</td><td>-SH与酰基形成硫酯键</td></tr>
+<tr><td><span class="kp">B₆（吡哆醇）</span></td><td>PLP</td><td>氨基转移、脱羧、消旋</td><td>PLP与α-NH₂形成Schiff碱</td></tr>
+<tr><td><span class="kp">B₇（生物素）</span></td><td>生物素</td><td>羧基转移（CO₂固定）</td><td>通过酰胺键与Lys连接（生物素化）</td></tr>
+<tr><td><span class="kp">B₉（叶酸）</span></td><td>THF</td><td>一碳单位转移</td><td>N⁵、N¹⁰位携带甲基/甲烯基/甲酰基</td></tr>
+<tr><td><span class="kp">B₁₂（钴胺素）</span></td><td>甲基钴胺素/腺苷钴胺素</td><td>重排（甲基丙二酰CoA→琥珀酰CoA）、甲基转移</td><td>Co-C键均裂产生自由基</td></tr>
+</table>
+
+<p><strong>Deep principle——为什么进化选择这些辅酶？</strong>20种氨基酸侧链虽然丰富，但缺乏某些关键催化能力：稳定碳负离子（TPP的噻唑环）、进行单电子氧化还原（FAD/FMN的异咯嗪环）、转移酰基（CoA的-SH形成高能硫酯）、一碳单位迁移（THF的N⁵,N¹⁰位）。辅酶弥补了氨基酸化学功能的不足——它们是从RNA世界中「继承」来的古老催化工具。</p>
+
+<h3 id="s16956057">14.2 PLP——生化反应的万能催化剂 <span class="tag-must">必考</span></h3>
+
+<p><span class="kp">磷酸吡哆醛（PLP）</span><span class="exp">是B₆的活性形式，催化几乎所有涉及α-氨基酸的转化反应：转氨基、脱羧、消旋、α,β-消除、β,γ-消除等。</span></p>
+
+<p><strong>PLP催化的统一机制——电子下沉（electron sink）</strong>：PLP的醛基与氨基酸的α-NH₂形成Schiff碱（亚胺），随后吡啶环作为「电子下沉」稳定各种转化中间体的负电荷。具体反应路径取决于从Cα上断裂哪个键——这由酶活性中心的特定残基定向决定：</p>
+<ul>
+<li>断裂Cα-H + Cα-COOH → 脱羧反应</li>
+<li>断裂Cα-H + Cα-R → 转氨反应（变为酮酸+PLP→PMP）</li>
+<li>断裂Cα-N → 消旋</li>
+</ul>
+
+<p><strong>直觉类比</strong>：PLP就像一把瑞士军刀——它的化学机制是统一的（形成Schiff碱→电子引流→断裂选定的键），但不同的酶（转氨酶、脱羧酶、消旋酶）通过控制哪个键被稳定/活化来决定「用这把刀的哪个功能」。</p>
+
+<h3 id="s34792225">14.3 脂溶性维生素简介 <span class="tag-freq">高频</span></h3>
+
+<table>
+<tr><th>维生素</th><th>活性形式</th><th>主要功能</th><th>缺乏症</th></tr>
+<tr><td><span class="kp">A（视黄醇）</span></td><td>视黄醛、视黄酸</td><td>视觉（视紫红质）、基因转录调控</td><td>夜盲症、干眼症</td></tr>
+<tr><td><span class="kp">D（钙化醇）</span></td><td>1,25-(OH)₂-D₃</td><td>钙磷代谢（类固醇激素）</td><td>佝偻病（儿童）、骨软化（成人）</td></tr>
+<tr><td><span class="kp">E（生育酚）</span></td><td>α-生育酚</td><td>抗氧化（保护膜脂不饱和脂肪酸）</td><td>神经病变（罕见）</td></tr>
+<tr><td><span class="kp">K（叶绿醌）</span></td><td>维生素K</td><td>γ-羧基化（凝血因子II,VII,IX,X的Gla修饰）</td><td>出血倾向</td></tr>
+</table>
+
+<h2 id="s31327310">第16章 糖类：能量的第一来源</h2>
+
+<h3 id="s62123758">16.1 单糖的结构 <span class="tag-must">必考</span></h3>
+
+<p><span class="kp">糖类的化学通式</span><span class="exp">：(CH₂O)n。最简单的是三碳糖（甘油醛和二羟丙酮），生物化学中最重要的是六碳糖（葡萄糖、果糖、半乳糖）和五碳糖（核糖、脱氧核糖）。</span></p>
+
+<p><span class="kp">葡萄糖的结构关键点</span>：</p>
+<ul>
+<li>D-葡萄糖是六碳醛糖（aldohexose），天然氨基酸为L型，天然糖为D型——又是一个进化巧合</li>
+<li>溶液中99%为环状半缩醛形式：C₁醛基与C₅-OH反应形成六元吡喃环，产生两个异头体α和β</li>
+<li><span class="kp">变旋现象（mutarotation）</span><span class="exp">：纯α-D-葡萄糖([α]=+112°)溶于水后旋光度随时间变化，最终稳定在+52.7°，此时达到α (~36%)和β (~64%)的平衡混合物</span></li>
+</ul>
+
+<p><span class="kp">异头碳（anomeric carbon）</span><span class="exp">：单糖环化后产生的新手性中心。α型：异头碳的-OH与环平面另一侧（与决定D/L的末端CH₂OH反方向）的参考碳异侧；β型：同侧。</span></p>
+
+<blockquote>易错：(1) D/L和α/β是两个不同的概念——D/L描述的是离醛基最远的手性碳（C₅），α/β描述的是异头碳（C₁）；(2) 溶液中开链形式极少（~0.02%），但就是这极少部分参与了还原反应（Fehling试剂检测还原糖就是基于开链醛基）。</blockquote>
+
+<h3 id="s40587217">16.2 重要的二糖和多糖 <span class="tag-key">重点</span></h3>
+
+<table>
+<tr><th>糖</th><th>组成</th><th>连接键</th><th>功能/特征</th></tr>
+<tr><td><span class="kp">蔗糖</span></td><td>Glc (α1↔2β) Fru</td><td>α,β-1,2-糖苷键</td><td>非还原糖（两个异头碳都参与成键）</td></tr>
+<tr><td><span class="kp">乳糖</span></td><td>Gal (β1→4) Glc</td><td>β-1,4-糖苷键</td><td>还原糖（Glc的异头碳游离）</td></tr>
+<tr><td><span class="kp">麦芽糖</span></td><td>Glc (α1→4) Glc</td><td>α-1,4-糖苷键</td><td>淀粉水解产物</td></tr>
+<tr><td><span class="kp">淀粉（直链）</span></td><td>Glc聚合物</td><td>α-1,4-糖苷键</td><td>植物储能，螺旋结构（每圈6个Glc）</td></tr>
+<tr><td><span class="kp">淀粉（支链）</span></td><td>Glc聚合物</td><td>α-1,4 + α-1,6（分支）</td><td>分支点每24-30残基</td></tr>
+<tr><td><span class="kp">糖原</span></td><td>Glc聚合物</td><td>α-1,4 + α-1,6（更频繁分支）</td><td>动物储能，分支点每8-12残基</td></tr>
+<tr><td><span class="kp">纤维素</span></td><td>Glc聚合物</td><td>β-1,4-糖苷键</td><td>植物细胞壁，直线排列形成微纤维</td></tr>
+</table>
+
+<p><strong>Deep insight——α vs β糖苷键的「小差异，大后果」</strong>：淀粉(α-1,4)和纤维素(β-1,4)仅差一个异头构型，但结构天壤之别：(1) α糖苷键使链弯曲成螺旋——适合作为可溶性储能分子（易被淀粉酶水解）；(2) β糖苷键使链呈直线——相邻链间形成大量氢键构成不溶性纤维——适合结构支撑。人类能消化淀粉但消化不了纤维素，正是因为α-淀粉酶只识别α糖苷键。</p>
+
+<h2 id="s71824652">第17章 脂质：不仅仅是脂肪</h2>
+
+<h3 id="s32391233">17.1 脂肪酸 <span class="tag-must">必考</span></h3>
+
+<p><span class="kp">脂肪酸</span><span class="exp">是长链羧酸（通常C12-C24），分饱和（无双键）和不饱和（含1个或多个双键）。自然界中的双键几乎全是顺式（cis），顺式双键在烃链中引入约30°的拐角，影响膜的流动性和堆积。</span></p>
+
+<p><strong>脂肪酸的系统命名与简写</strong>：</p>
+<ul>
+<li>棕榈酸（16:0）——C16饱和脂肪酸</li>
+<li>油酸（18:1 Δ⁹或ω-9）——C18单不饱和，双键在C9-C10</li>
+<li>亚油酸（18:2 Δ⁹,¹²或ω-6）——C18双不饱和（必需脂肪酸，人体不能合成）</li>
+<li>α-亚麻酸（18:3 Δ⁹,¹²,¹⁵或ω-3）——C18三不饱和（也是必需脂肪酸）</li>
+</ul>
+
+<p><span class="kp">ω命名法</span><span class="exp">：从甲基端（ω端，离羧基最远）开始编号。ω-3指最后一个双键在距甲基端第3个碳处。人类不能合成ω-3和ω-6必需脂肪酸，因为无法在脂肪酸链的ω-3和ω-6位置引入双键。</span></p>
+
+<h3 id="s65297310">17.2 三酰甘油（脂肪）<span class="tag-key">重点</span></h3>
+
+<p><span class="kp">三酰甘油（TAG）</span><span class="exp">：甘油骨架上酯化三个脂肪酸。是生物体最浓缩的储能形式（完全氧化释放~38 kJ/g，而糖类仅~17 kJ/g）。原因是脂肪酸的碳骨架比糖更还原（高比例C-H键），氧化时释放更多能量。</span></p>
+
+<p><strong>脂肪在脂肪细胞中以脂滴形式储存</strong>：几乎无水的油性核心，这极大降低了储存体积（1g脂肪仅占1.2mL，而1g糖原需3-4mL因为高度水化）。</p>
+
+<h3 id="s64812774">17.3 膜脂 <span class="tag-must">必考</span></h3>
+
+<table>
+<tr><th>类型</th><th>结构</th><th>分布/功能</th></tr>
+<tr><td><span class="kp">磷脂（甘油磷脂）</span></td><td>甘油-2-PO₄⁻-X + 两个FA</td><td>膜主要成分（PC, PE, PS, PI等）。两亲性——疏水尾+亲水头</td></tr>
+<tr><td><span class="kp">鞘脂</span></td><td>鞘氨醇骨架 + 一个FA + 极性头</td><td>神经髓鞘、信号转导（神经酰胺→鞘磷脂→神经节苷脂）</td></tr>
+<tr><td><span class="kp">胆固醇</span></td><td>四环甾核 + 羟基 + 短烃链</td><td>动物细胞膜（调节流动性）、类固醇激素前体</td></tr>
+</table>
+
+<p><strong>膜的流动镶嵌模型（Singer-Nicolson, 1972）</strong>：磷脂双分子层是膜的「溶剂」，蛋白质漂浮其中或镶嵌其上。膜是流动的二维液体——磷脂可以在同一单层内横向扩散，但几乎不会翻转（flip-flop，需要翻转酶）。胆固醇在膜中「缓冲」流动性——高温时限制磷脂运动（降低流动性），低温时阻止磷脂紧密堆积（提高流动性）。</p>
+
+<h2 id="s61485892">第18章 激素</h2>
+
+<h3 id="s47869910">18.1 激素的分类与信号机制 <span class="tag-key">重点</span></h3>
+
+<table>
+<tr><th>分类</th><th>化学本质</th><th>受体位置</th><th>信号机制</th><th>例子</th></tr>
+<tr><td><span class="kp">脂溶性激素</span></td><td>类固醇、甲状腺激素</td><td>胞内/核内受体</td><td>慢——调控基因转录</td><td>雌二醇、可的松、T₃、视黄酸</td></tr>
+<tr><td><span class="kp">水溶性激素</span></td><td>多肽/蛋白质、氨基酸衍生物</td><td>细胞膜表面受体</td><td>快——第二信使级联</td><td>胰岛素、胰高血糖素、肾上腺素</td></tr>
+</table>
+
+<p><strong>为什么需要两种完全不同的信号机制？</strong>脂溶性激素可以穿膜直达胞内靶点（慢但持久，因为需要转录翻译），水溶性激素无法穿膜必须通过膜受体→胞内信号转导（快但短暂，响应迅速）。进化为不同的生理需求提供了不同的解决方案。</p>
+
+<h3 id="s87303083">18.2 第二信使与信号级联 <span class="tag-must">必考</span></h3>
+
+<p><span class="kp">cAMP信号通路</span><span class="exp">：激素（如肾上腺素）与G蛋白偶联受体(GPCR)结合→激活Gs蛋白（GTP交换GDP）→Gsα-GTP激活腺苷酸环化酶→ATP→cAMP（第二信使）→cAMP激活PKA→PKA磷酸化下游靶蛋白→细胞响应。</span></p>
+
+<p><strong>信号放大的数字</strong>：一个激素分子→激活一个受体→激活多个Gs蛋白→每个Gs激活一个腺苷酸环化酶→产生多个cAMP→每个cAMP激活一个PKA→PKA磷酸化多个靶酶。总放大倍数可达10⁶~10⁸。这就是为什么极低浓度（nM-pM）的激素就能引发巨大细胞响应。</p>
+
+<p><span class="kp">磷脂酰肌醇信号通路</span><span class="exp">：GPCR→Gq蛋白激活PLCβ→PIP₂裂解为IP₃和DAG（两个第二信使）→IP₃打开内质网Ca²⁺通道→Ca²⁺激活PKC和其他Ca²⁺敏感蛋白→DAG直接激活PKC。</span></p>
+
+<blockquote>易错：(1) cAMP和cGMP是第二信使，不是激素本身——它们只在胞内传递信号；(2) G蛋白的「开」是GTP结合态，「关」是GDP结合态（Gsα自身具有GTPase活性，缓慢水解GTP关闭信号）；(3) 霍乱毒素通过ADP-核糖基化修饰Gsα，使其GTPase活性丧失→Gsα持续激活→cAMP持续升高→肠上皮细胞大量分泌Cl⁻和水→腹泻。</blockquote>
+
+
+</body>
+</html>
