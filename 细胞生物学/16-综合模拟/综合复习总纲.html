@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>细胞生物学 综合复习总纲</title>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\(', '\)']],
+    displayMath: [['$$', '$$'], ['\[', '\]']]
+  }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"></script>
+<style>
+/* === ExamPass Shared Styles === */
+/* Paper-like warm background, clean typography, responsive */
+
+:root {
+  --paper: #fdf6e3;
+  --paper-dark: #f5ecd7;
+  --ink: #2c2c2c;
+  --ink-light: #555;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --divider: #d6c8a8;
+  --card-bg: #fef9ef;
+  --card-border: #e8dcc8;
+  --correct: #22c55e;
+  --correct-bg: #f0fdf4;
+  --wrong: #ef4444;
+  --wrong-bg: #fef2f2;
+  --tag-bg: #fef3c7;
+  --tag-text: #92400e;
+  --radius: 6px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Microsoft YaHei", "Noto Sans SC", "SimSun", sans-serif;
+  font-size: 12pt; line-height: 1.75; color: var(--ink);
+  max-width: 860px; margin: auto; padding: 24px 20px 60px;
+  background: var(--paper);
+}
+
+@media print {
+  body { font-size: 10.5pt; background: #fff; }
+  .no-print { display: none !important; }
+  h1, h2, h3 { page-break-after: avoid; }
+}
+
+/* ── Header ── */
+#exampass-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 6px 0; margin-bottom: 0;
+}
+.header-brand { font-size: 1.2em; font-weight: 700; color: #1a1a2e; letter-spacing: 0.3px; }
+.header-url  { font-size: 0.78em; color: #999; }
+.header-divider { border: none; border-top: 2px solid var(--divider); margin: 4px 0 20px 0; }
+
+/* ── Typography ── */
+h1 { font-size: 1.55em; text-align: center; border-bottom: 2px solid var(--divider); padding-bottom: 8px; margin-top: 0; }
+h2 { font-size: 1.25em; border-bottom: 1px solid var(--divider); padding-bottom: 4px; margin-top: 28px; }
+h3 { font-size: 1.08em; margin-top: 20px; color: var(--ink); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Tables ── */
+table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 0.95em; }
+td, th { border: 1px solid var(--card-border); padding: 5px 9px; text-align: left; }
+th { background: var(--paper-dark); font-weight: 700; }
+
+/* ── Knowledge point vs explanation ── */
+.kp { font-weight: 700; color: var(--ink); }           /* key point: bold dark */
+.exp { font-weight: 400; color: var(--ink-light); }    /* explanation: lighter */
+.exp em, .exp strong { color: var(--ink); }             /* emphasis inside explanation */
+
+/* ── Block elements ── */
+blockquote {
+  border-left: 3px solid #c0392b; background: #fef9ef;
+  padding: 6px 14px; margin: 10px 0; font-size: 0.95em;
+}
+code { background: #f0ede0; padding: 2px 5px; border-radius: 3px; font-size: 0.92em; }
+pre { background: #f0ede0; padding: 10px; border-radius: var(--radius); overflow-x: auto; }
+
+/* ── TOC ── */
+div.toc {
+  background: var(--card-bg); padding: 14px 18px;
+  border: 1px solid var(--card-border); border-radius: var(--radius); margin-bottom: 22px;
+}
+div.toc ul { padding-left: 18px; }
+div.toc li { margin: 3px 0; font-size: 0.95em; }
+
+/* ── Priority tags ── */
+.tag-must   { background: #fee2e2; color: #991b1b; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-key    { background: #fef3c7; color: #92400e; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-freq   { background: #dbeafe; color: #1e40af; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-info   { background: #f0fdf4; color: #166534; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+
+
+</style>
+</head>
+<body>
+
+<header id="exampass-header">
+  <div class="header-left"><span class="header-brand">ExamPass Assistant</span></div>
+  <div class="header-right"><span class="header-url">github.com/WUBING2023/ExamPass-Assistant</span></div>
+</header>
+<hr class="header-divider">
+
+<h1>细胞生物学 综合复习总纲</h1>
+<div class="toc">
+<h2>目录</h2>
+<ul>
+<li><a href="#s52519500">细胞生物学 综合复习总纲</a></li>
+  <li><a href="#s69536348">考试信息 必考</a></li>
+  <li><a href="#s91129036">高频考点总览</a></li>
+  <li><a href="#s52391986">复习策略</a></li>
+</ul>
+</div>
+
+<h2 id="s52519500">细胞生物学 综合复习总纲</h2>
+
+<h3 id="s69536348">考试信息 <span class="tag-must">必考</span></h3>
+<p><strong>新疆大学 817细胞生物学 考试题型</strong>：</p>
+<ul>
+  <li><span class="kp">名词解释</span><span class="exp">——10题，每题3-4分，共30-40分</span></li>
+  <li><span class="kp">简答题</span><span class="exp">——6-8题，每题6-10分，共40-60分</span></li>
+  <li><span class="kp">论述题</span><span class="exp">——2-3题，每题12-15分，共30-40分</span></li>
+</ul>
+
+<h3 id="s91129036">高频考点总览</h3>
+<table>
+  <tr><th>章节</th><th>核心考点</th><th>考频</th></tr>
+  <tr><td>绪论</td><td>细胞学说、研究层次</td><td>★★★</td></tr>
+  <tr><td>细胞统一性与多样性</td><td>原核vs真核、病毒特征、模式生物</td><td>★★★</td></tr>
+  <tr><td>研究方法</td><td>电镜对比、差速离心vs密度梯度离心</td><td>★★★</td></tr>
+  <tr><td>细胞质膜</td><td>流动镶嵌模型、物质运输方式、血影</td><td>★★★★★</td></tr>
+  <tr><td>内膜系统</td><td>信号假说、溶酶体发生、蛋白质分选</td><td>★★★★★</td></tr>
+  <tr><td>线粒体与叶绿体</td><td>氧化磷酸化、内共生学说、半自主性</td><td>★★★★★</td></tr>
+  <tr><td>细胞骨架</td><td>三类骨架对比、分子马达、肌肉收缩</td><td>★★★★</td></tr>
+  <tr><td>细胞核与染色体</td><td>核小体、核纤层、NLS、端粒</td><td>★★★★★</td></tr>
+  <tr><td>核糖体</td><td>核酶、多聚核糖体、翻译过程</td><td>★★★</td></tr>
+  <tr><td>细胞信号转导</td><td>GPCR通路、第二信使、RTK-Ras-MAPK</td><td>★★★★★</td></tr>
+  <tr><td>细胞周期与分裂</td><td>有丝分裂vs减数分裂、时相事件</td><td>★★★★★</td></tr>
+  <tr><td>周期调控与癌症</td><td>MPF、检验点、癌基因vs抑癌基因</td><td>★★★★★</td></tr>
+  <tr><td>细胞分化与干细胞</td><td>全能性、管家基因、干细胞分类</td><td>★★★★</td></tr>
+  <tr><td>细胞衰老与凋亡</td><td>Hayflick界限、凋亡vs坏死、Caspase</td><td>★★★★★</td></tr>
+  <tr><td>细胞连接</td><td>三类连接、整联蛋白、胶原</td><td>★★★</td></tr>
+</table>
+
+<h3 id="s52391986">复习策略</h3>
+<ol>
+  <li><strong>名词解释</strong>：每天背诵10个高频名词，确保能写出定义+核心特征+举例</li>
+  <li><strong>简答题</strong>：重点掌握「对比类」题目（如原核vs真核、凋亡vs坏死、有丝vs减数）</li>
+  <li><strong>论述题</strong>：重点掌握跨章节综合题（如物质运输、信号转导、周期调控）</li>
+  <li><strong>真题导向</strong>：2009-2025年真题反复出现的考点就是重中之重</li>
+</ol>
+<blockquote>新疆大学真题特点：名词解释占分高（30-40分），且经常重复出题。建议把历年真题中所有名词解释都背熟。</blockquote>
+
+
+
+</body>
+</html>

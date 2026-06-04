@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>第六章 线粒体与叶绿体</title>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\(', '\)']],
+    displayMath: [['$$', '$$'], ['\[', '\]']]
+  }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"></script>
+<style>
+/* === ExamPass Shared Styles === */
+/* Paper-like warm background, clean typography, responsive */
+
+:root {
+  --paper: #fdf6e3;
+  --paper-dark: #f5ecd7;
+  --ink: #2c2c2c;
+  --ink-light: #555;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --divider: #d6c8a8;
+  --card-bg: #fef9ef;
+  --card-border: #e8dcc8;
+  --correct: #22c55e;
+  --correct-bg: #f0fdf4;
+  --wrong: #ef4444;
+  --wrong-bg: #fef2f2;
+  --tag-bg: #fef3c7;
+  --tag-text: #92400e;
+  --radius: 6px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Microsoft YaHei", "Noto Sans SC", "SimSun", sans-serif;
+  font-size: 12pt; line-height: 1.75; color: var(--ink);
+  max-width: 860px; margin: auto; padding: 24px 20px 60px;
+  background: var(--paper);
+}
+
+@media print {
+  body { font-size: 10.5pt; background: #fff; }
+  .no-print { display: none !important; }
+  h1, h2, h3 { page-break-after: avoid; }
+}
+
+/* ── Header ── */
+#exampass-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 6px 0; margin-bottom: 0;
+}
+.header-brand { font-size: 1.2em; font-weight: 700; color: #1a1a2e; letter-spacing: 0.3px; }
+.header-url  { font-size: 0.78em; color: #999; }
+.header-divider { border: none; border-top: 2px solid var(--divider); margin: 4px 0 20px 0; }
+
+/* ── Typography ── */
+h1 { font-size: 1.55em; text-align: center; border-bottom: 2px solid var(--divider); padding-bottom: 8px; margin-top: 0; }
+h2 { font-size: 1.25em; border-bottom: 1px solid var(--divider); padding-bottom: 4px; margin-top: 28px; }
+h3 { font-size: 1.08em; margin-top: 20px; color: var(--ink); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Tables ── */
+table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 0.95em; }
+td, th { border: 1px solid var(--card-border); padding: 5px 9px; text-align: left; }
+th { background: var(--paper-dark); font-weight: 700; }
+
+/* ── Knowledge point vs explanation ── */
+.kp { font-weight: 700; color: var(--ink); }           /* key point: bold dark */
+.exp { font-weight: 400; color: var(--ink-light); }    /* explanation: lighter */
+.exp em, .exp strong { color: var(--ink); }             /* emphasis inside explanation */
+
+/* ── Block elements ── */
+blockquote {
+  border-left: 3px solid #c0392b; background: #fef9ef;
+  padding: 6px 14px; margin: 10px 0; font-size: 0.95em;
+}
+code { background: #f0ede0; padding: 2px 5px; border-radius: 3px; font-size: 0.92em; }
+pre { background: #f0ede0; padding: 10px; border-radius: var(--radius); overflow-x: auto; }
+
+/* ── TOC ── */
+div.toc {
+  background: var(--card-bg); padding: 14px 18px;
+  border: 1px solid var(--card-border); border-radius: var(--radius); margin-bottom: 22px;
+}
+div.toc ul { padding-left: 18px; }
+div.toc li { margin: 3px 0; font-size: 0.95em; }
+
+/* ── Priority tags ── */
+.tag-must   { background: #fee2e2; color: #991b1b; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-key    { background: #fef3c7; color: #92400e; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-freq   { background: #dbeafe; color: #1e40af; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-info   { background: #f0fdf4; color: #166534; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+
+
+</style>
+</head>
+<body>
+
+<header id="exampass-header">
+  <div class="header-left"><span class="header-brand">ExamPass Assistant</span></div>
+  <div class="header-right"><span class="header-url">github.com/WUBING2023/ExamPass-Assistant</span></div>
+</header>
+<hr class="header-divider">
+
+<h1>第六章 线粒体与叶绿体</h1>
+<div class="toc">
+<h2>目录</h2>
+<ul>
+<li><a href="#s39248215">六、线粒体与叶绿体</a></li>
+  <li><a href="#s58822155">6.1 线粒体的形态结构 必考</a></li>
+  <li><a href="#s50165394">6.2 氧化磷酸化 必考</a></li>
+  <li><a href="#s58252448">6.3 线粒体的半自主性 重点</a></li>
+  <li><a href="#s81185826">6.4 线粒体的起源——内共生学说 必考</a></li>
+  <li><a href="#s63124105">6.5 叶绿体 重点</a></li>
+  <li><a href="#s66750688">6.6 光合作用 重点</a></li>
+  <li><a href="#s24696136">6.7 叶绿体的半自主性与起源 高频</a></li>
+</ul>
+</div>
+
+<h2 id="s39248215">六、线粒体与叶绿体</h2>
+
+<h3 id="s58822155">6.1 线粒体的形态结构 <span class="tag-must">必考</span></h3>
+<p><span class="kp">线粒体（Mitochondria）</span><span class="exp">——真核细胞中进行氧化磷酸化、产生ATP的细胞器，被称为"细胞的动力工厂"。</span></p>
+<p><strong>结构</strong>（由外到内）：</p>
+<ul>
+  <li><span class="kp">外膜</span><span class="exp">——通透性较高，含孔蛋白通道</span></li>
+  <li><span class="kp">膜间隙</span><span class="exp">——内外膜之间的空间</span></li>
+  <li><span class="kp">内膜</span><span class="exp">——向内折叠形成嵴，通透性低，含呼吸链酶复合体</span></li>
+  <li><span class="kp">基质</span><span class="exp">——含三羧酸循环酶系、mtDNA、核糖体</span></li>
+</ul>
+
+<h3 id="s50165394">6.2 氧化磷酸化 <span class="tag-must">必考</span></h3>
+<p><span class="kp">氧化磷酸化</span><span class="exp">——电子沿呼吸链传递过程中释放的能量，驱动H⁺从基质泵到膜间隙，形成质子电化学梯度，H⁺回流驱动ATP合酶合成ATP。</span></p>
+<p><strong>化学渗透假说</strong>（Mitchell, 1961）：</p>
+<ol>
+  <li>呼吸链传递电子，将H⁺从基质泵到膜间隙</li>
+  <li>形成跨内膜的质子电化学梯度（质子动力）</li>
+  <li>H⁺通过ATP合酶回流到基质</li>
+  <li>ATP合酶利用H⁺回流的能量合成ATP</li>
+</ol>
+<blockquote>易错：氧化磷酸化和光合磷酸化都基于化学渗透假说，都利用质子梯度驱动ATP合成。</blockquote>
+
+<h3 id="s58252448">6.3 线粒体的半自主性 <span class="tag-key">重点</span></h3>
+<ul>
+  <li><span class="kp">有自己的DNA（mtDNA）</span><span class="exp">——环状DNA，编码部分线粒体蛋白和tRNA、rRNA</span></li>
+  <li><span class="kp">有自己的核糖体</span><span class="exp">——类似原核生物的70S核糖体</span></li>
+  <li><span class="kp">大部分蛋白质由核基因编码</span><span class="exp">——在胞质中合成后转运到线粒体</span></li>
+  <li><span class="kp">分裂方式类似细菌</span><span class="exp">——通过分裂增殖</span></li>
+</ul>
+
+<h3 id="s81185826">6.4 线粒体的起源——内共生学说 <span class="tag-must">必考</span></h3>
+<p><span class="kp">内共生学说</span><span class="exp">——由Margulis提出，认为线粒体起源于被原始真核细胞吞噬的需氧细菌。</span></p>
+<p><strong>证据</strong>：</p>
+<ul>
+  <li>线粒体有双层膜（外膜来自宿主，内膜来自细菌）</li>
+  <li>有独立的环状DNA</li>
+  <li>核糖体为70S（与原核生物相同）</li>
+  <li>以分裂方式增殖</li>
+  <li>对抗生素敏感（如氯霉素抑制线粒体蛋白合成）</li>
+</ul>
+
+<h3 id="s63124105">6.5 叶绿体 <span class="tag-key">重点</span></h3>
+<p><span class="kp">叶绿体（Chloroplast）</span><span class="exp">——植物细胞中进行光合作用的细胞器。</span></p>
+<p><strong>结构</strong>：</p>
+<ul>
+  <li><span class="kp">外膜和内膜</span><span class="exp">——双层膜包围</span></li>
+  <li><span class="kp">类囊体</span><span class="exp">——扁平囊状结构，堆叠成基粒，含光合色素和电子传递链</span></li>
+  <li><span class="kp">基质</span><span class="exp">——含碳固定酶系（Calvin循环）、cpDNA、核糖体</span></li>
+</ul>
+
+<h3 id="s66750688">6.6 光合作用 <span class="tag-key">重点</span></h3>
+<p><strong>光反应</strong>（类囊体膜上）：</p>
+<ul>
+  <li>光能 --&gt; 化学能（ATP和NADPH）</li>
+  <li>水的光解：$2H_2O \rightarrow O_2 + 4H^+ + 4e^-$</li>
+  <li>光合磷酸化：利用质子梯度合成ATP</li>
+</ul>
+<p><strong>暗反应</strong>（基质中）：</p>
+<ul>
+  <li>Calvin循环：利用ATP和NADPH固定CO₂</li>
+  <li>$CO_2 + RuBP \rightarrow 2\times 3-PGA$（RuBisCO催化）</li>
+</ul>
+
+<h3 id="s24696136">6.7 叶绿体的半自主性与起源 <span class="tag-freq">高频</span></h3>
+<p>类似线粒体，叶绿体也有自己的DNA、核糖体（70S），大部分蛋白质由核基因编码，通过分裂增殖。内共生学说认为叶绿体起源于被吞噬的蓝藻（蓝细菌）。</p>
+<blockquote>易错：线粒体和叶绿体都是半自主性细胞器，但它们的起源不同——线粒体来自需氧细菌，叶绿体来自蓝藻。</blockquote>
+
+
+
+</body>
+</html>

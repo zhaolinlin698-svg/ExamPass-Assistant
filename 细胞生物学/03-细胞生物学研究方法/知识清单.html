@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>第三章 细胞生物学研究方法</title>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\(', '\)']],
+    displayMath: [['$$', '$$'], ['\[', '\]']]
+  }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"></script>
+<style>
+/* === ExamPass Shared Styles === */
+/* Paper-like warm background, clean typography, responsive */
+
+:root {
+  --paper: #fdf6e3;
+  --paper-dark: #f5ecd7;
+  --ink: #2c2c2c;
+  --ink-light: #555;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --divider: #d6c8a8;
+  --card-bg: #fef9ef;
+  --card-border: #e8dcc8;
+  --correct: #22c55e;
+  --correct-bg: #f0fdf4;
+  --wrong: #ef4444;
+  --wrong-bg: #fef2f2;
+  --tag-bg: #fef3c7;
+  --tag-text: #92400e;
+  --radius: 6px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Microsoft YaHei", "Noto Sans SC", "SimSun", sans-serif;
+  font-size: 12pt; line-height: 1.75; color: var(--ink);
+  max-width: 860px; margin: auto; padding: 24px 20px 60px;
+  background: var(--paper);
+}
+
+@media print {
+  body { font-size: 10.5pt; background: #fff; }
+  .no-print { display: none !important; }
+  h1, h2, h3 { page-break-after: avoid; }
+}
+
+/* ── Header ── */
+#exampass-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 6px 0; margin-bottom: 0;
+}
+.header-brand { font-size: 1.2em; font-weight: 700; color: #1a1a2e; letter-spacing: 0.3px; }
+.header-url  { font-size: 0.78em; color: #999; }
+.header-divider { border: none; border-top: 2px solid var(--divider); margin: 4px 0 20px 0; }
+
+/* ── Typography ── */
+h1 { font-size: 1.55em; text-align: center; border-bottom: 2px solid var(--divider); padding-bottom: 8px; margin-top: 0; }
+h2 { font-size: 1.25em; border-bottom: 1px solid var(--divider); padding-bottom: 4px; margin-top: 28px; }
+h3 { font-size: 1.08em; margin-top: 20px; color: var(--ink); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Tables ── */
+table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 0.95em; }
+td, th { border: 1px solid var(--card-border); padding: 5px 9px; text-align: left; }
+th { background: var(--paper-dark); font-weight: 700; }
+
+/* ── Knowledge point vs explanation ── */
+.kp { font-weight: 700; color: var(--ink); }           /* key point: bold dark */
+.exp { font-weight: 400; color: var(--ink-light); }    /* explanation: lighter */
+.exp em, .exp strong { color: var(--ink); }             /* emphasis inside explanation */
+
+/* ── Block elements ── */
+blockquote {
+  border-left: 3px solid #c0392b; background: #fef9ef;
+  padding: 6px 14px; margin: 10px 0; font-size: 0.95em;
+}
+code { background: #f0ede0; padding: 2px 5px; border-radius: 3px; font-size: 0.92em; }
+pre { background: #f0ede0; padding: 10px; border-radius: var(--radius); overflow-x: auto; }
+
+/* ── TOC ── */
+div.toc {
+  background: var(--card-bg); padding: 14px 18px;
+  border: 1px solid var(--card-border); border-radius: var(--radius); margin-bottom: 22px;
+}
+div.toc ul { padding-left: 18px; }
+div.toc li { margin: 3px 0; font-size: 0.95em; }
+
+/* ── Priority tags ── */
+.tag-must   { background: #fee2e2; color: #991b1b; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-key    { background: #fef3c7; color: #92400e; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-freq   { background: #dbeafe; color: #1e40af; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-info   { background: #f0fdf4; color: #166534; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+
+
+</style>
+</head>
+<body>
+
+<header id="exampass-header">
+  <div class="header-left"><span class="header-brand">ExamPass Assistant</span></div>
+  <div class="header-right"><span class="header-url">github.com/WUBING2023/ExamPass-Assistant</span></div>
+</header>
+<hr class="header-divider">
+
+<h1>第三章 细胞生物学研究方法</h1>
+<div class="toc">
+<h2>目录</h2>
+<ul>
+<li><a href="#s39711981">三、细胞生物学研究方法</a></li>
+  <li><a href="#s20880075">3.1 显微镜技术 必考</a></li>
+  <li><a href="#s42123458">3.2 细胞及其组分的分析方法 重点</a></li>
+  <li><a href="#s77904079">3.3 细胞培养与细胞工程 高频</a></li>
+</ul>
+</div>
+
+<h2 id="s39711981">三、细胞生物学研究方法</h2>
+
+<h3 id="s20880075">3.1 显微镜技术 <span class="tag-must">必考</span></h3>
+
+<h4>光学显微镜</h4>
+<p><span class="kp">分辨率</span><span class="exp">——能区分两个点的最小距离。光学显微镜的分辨率极限约为0.2μm。</span></p>
+<p>$$d = \frac{0.61\lambda}{NA} = \frac{0.61\lambda}{n \sin\alpha}$$</p>
+<p><span class="kp">$\lambda$为波长，$NA$为数值孔径，$n$为介质折射率，$lpha$为孔径角的一半。</span></p>
+
+<table>
+  <tr><th>显微镜类型</th><th>光源</th><th>分辨率</th><th>特点</th></tr>
+  <tr><td>普通光学显微镜</td><td>可见光</td><td>~0.2μm</td><td>观察细胞大体结构</td></tr>
+  <tr><td>荧光显微镜</td><td>紫外/蓝光</td><td>~0.2μm</td><td>特异性标记蛋白质/核酸</td></tr>
+  <tr><td>共聚焦显微镜</td><td>激光</td><td>~0.2μm</td><td>光学切片、三维重建</td></tr>
+  <tr><td>相差显微镜</td><td>可见光</td><td>~0.2μm</td><td>观察活细胞，无需染色</td></tr>
+</table>
+
+<h4>电子显微镜 <span class="tag-must">必考</span></h4>
+<p><span class="kp">电子显微镜</span><span class="exp">——以电子束为光源，分辨率可达0.1nm，远高于光学显微镜。</span></p>
+
+<table>
+  <tr><th>类型</th><th>透射电镜（TEM）</th><th>扫描电镜（SEM）</th></tr>
+  <tr><td>成像原理</td><td>电子束穿透样品</td><td>电子束扫描样品表面</td></tr>
+  <tr><td>观察内容</td><td>内部超微结构</td><td>表面三维形貌</td></tr>
+  <tr><td>样品要求</td><td>超薄切片（50-100nm）</td><td>表面喷镀金属</td></tr>
+  <tr><td>分辨率</td><td>~0.1nm</td><td>~1-3nm</td></tr>
+</table>
+<blockquote>易错：(1)透射电镜看内部，扫描电镜看表面。(2)扫描电镜样品不需要超薄切片，但需要喷镀金属。(3)电镜观察的样品必须是死细胞（需固定）。</blockquote>
+
+<h3 id="s42123458">3.2 细胞及其组分的分析方法 <span class="tag-key">重点</span></h3>
+<ul>
+  <li><span class="kp">差速离心</span><span class="exp">——根据细胞器大小和密度不同，在不同离心力下分离细胞组分</span></li>
+  <li><span class="kp">密度梯度离心</span><span class="exp">——在密度梯度介质中分离不同密度的细胞器</span></li>
+  <li><span class="kp">流式细胞术</span><span class="exp">——对单个细胞进行快速定量分析和分选</span></li>
+  <li><span class="kp">免疫荧光技术</span><span class="exp">——用荧光标记抗体定位特定蛋白质</span></li>
+  <li><span class="kp">核酸原位杂交</span><span class="exp">——用标记探针检测细胞内特定核酸序列</span></li>
+</ul>
+
+<h3 id="s77904079">3.3 细胞培养与细胞工程 <span class="tag-freq">高频</span></h3>
+<p><span class="kp">细胞培养</span><span class="exp">——在体外模拟体内环境，使细胞生长和增殖的技术。</span></p>
+<ul>
+  <li><span class="kp">原代培养</span><span class="exp">——直接从组织分离的细胞进行培养</span></li>
+  <li><span class="kp">传代培养</span><span class="exp">——原代细胞增殖后转移到新培养瓶</span></li>
+  <li><span class="kp">细胞系</span><span class="exp">——可长期传代培养的细胞群体</span></li>
+  <li><span class="kp">细胞融合</span><span class="exp">——两个或多个细胞融合成一个杂合细胞</span></li>
+</ul>
+
+
+
+</body>
+</html>

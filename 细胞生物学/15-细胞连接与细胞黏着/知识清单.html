@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>第十五章 细胞连接与细胞黏着</title>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\(', '\)']],
+    displayMath: [['$$', '$$'], ['\[', '\]']]
+  }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"></script>
+<style>
+/* === ExamPass Shared Styles === */
+/* Paper-like warm background, clean typography, responsive */
+
+:root {
+  --paper: #fdf6e3;
+  --paper-dark: #f5ecd7;
+  --ink: #2c2c2c;
+  --ink-light: #555;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --divider: #d6c8a8;
+  --card-bg: #fef9ef;
+  --card-border: #e8dcc8;
+  --correct: #22c55e;
+  --correct-bg: #f0fdf4;
+  --wrong: #ef4444;
+  --wrong-bg: #fef2f2;
+  --tag-bg: #fef3c7;
+  --tag-text: #92400e;
+  --radius: 6px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Microsoft YaHei", "Noto Sans SC", "SimSun", sans-serif;
+  font-size: 12pt; line-height: 1.75; color: var(--ink);
+  max-width: 860px; margin: auto; padding: 24px 20px 60px;
+  background: var(--paper);
+}
+
+@media print {
+  body { font-size: 10.5pt; background: #fff; }
+  .no-print { display: none !important; }
+  h1, h2, h3 { page-break-after: avoid; }
+}
+
+/* ── Header ── */
+#exampass-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 6px 0; margin-bottom: 0;
+}
+.header-brand { font-size: 1.2em; font-weight: 700; color: #1a1a2e; letter-spacing: 0.3px; }
+.header-url  { font-size: 0.78em; color: #999; }
+.header-divider { border: none; border-top: 2px solid var(--divider); margin: 4px 0 20px 0; }
+
+/* ── Typography ── */
+h1 { font-size: 1.55em; text-align: center; border-bottom: 2px solid var(--divider); padding-bottom: 8px; margin-top: 0; }
+h2 { font-size: 1.25em; border-bottom: 1px solid var(--divider); padding-bottom: 4px; margin-top: 28px; }
+h3 { font-size: 1.08em; margin-top: 20px; color: var(--ink); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Tables ── */
+table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 0.95em; }
+td, th { border: 1px solid var(--card-border); padding: 5px 9px; text-align: left; }
+th { background: var(--paper-dark); font-weight: 700; }
+
+/* ── Knowledge point vs explanation ── */
+.kp { font-weight: 700; color: var(--ink); }           /* key point: bold dark */
+.exp { font-weight: 400; color: var(--ink-light); }    /* explanation: lighter */
+.exp em, .exp strong { color: var(--ink); }             /* emphasis inside explanation */
+
+/* ── Block elements ── */
+blockquote {
+  border-left: 3px solid #c0392b; background: #fef9ef;
+  padding: 6px 14px; margin: 10px 0; font-size: 0.95em;
+}
+code { background: #f0ede0; padding: 2px 5px; border-radius: 3px; font-size: 0.92em; }
+pre { background: #f0ede0; padding: 10px; border-radius: var(--radius); overflow-x: auto; }
+
+/* ── TOC ── */
+div.toc {
+  background: var(--card-bg); padding: 14px 18px;
+  border: 1px solid var(--card-border); border-radius: var(--radius); margin-bottom: 22px;
+}
+div.toc ul { padding-left: 18px; }
+div.toc li { margin: 3px 0; font-size: 0.95em; }
+
+/* ── Priority tags ── */
+.tag-must   { background: #fee2e2; color: #991b1b; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-key    { background: #fef3c7; color: #92400e; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-freq   { background: #dbeafe; color: #1e40af; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-info   { background: #f0fdf4; color: #166534; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+
+
+</style>
+</head>
+<body>
+
+<header id="exampass-header">
+  <div class="header-left"><span class="header-brand">ExamPass Assistant</span></div>
+  <div class="header-right"><span class="header-url">github.com/WUBING2023/ExamPass-Assistant</span></div>
+</header>
+<hr class="header-divider">
+
+<h1>第十五章 细胞连接与细胞黏着</h1>
+<div class="toc">
+<h2>目录</h2>
+<ul>
+<li><a href="#s89726601">十五、细胞连接与细胞黏着</a></li>
+  <li><a href="#s55318098">15.1 细胞连接 必考</a></li>
+  <li><a href="#s89622744">15.2 细胞黏着分子 重点</a></li>
+  <li><a href="#s12701243">15.3 细胞外基质（ECM）高频</a></li>
+</ul>
+</div>
+
+<h2 id="s89726601">十五、细胞连接与细胞黏着</h2>
+
+<h3 id="s55318098">15.1 细胞连接 <span class="tag-must">必考</span></h3>
+<p><span class="kp">细胞连接（Cell Junction）</span><span class="exp">——多细胞生物中，相邻细胞之间或细胞与细胞外基质之间的特化连接结构。</span></p>
+
+<h4>封闭连接（Occluding Junction）</h4>
+<p><span class="kp">紧密连接（Tight Junction）</span><span class="exp">——相邻细胞质膜紧密相贴，完全封闭细胞间隙，阻止物质从细胞间隙通过。</span></p>
+<ul>
+  <li>主要蛋白：Claudin、Occludin</li>
+  <li>功能：维持上皮细胞的极性、屏障功能</li>
+</ul>
+
+<h4>锚定连接（Anchoring Junction）</h4>
+<table>
+  <tr><th>类型</th><th>连接对象</th><th>胞内锚定</th><th>跨膜蛋白</th></tr>
+  <tr><td><span class="kp">黏着带（Adherens Junction）</span></td><td>细胞-细胞</td><td>微丝</td><td>钙黏蛋白（Cadherin）</td></tr>
+  <tr><td><span class="kp">桥粒（Desmosome）</span></td><td>细胞-细胞</td><td>中间纤维</td><td>桥粒芯蛋白等</td></tr>
+  <tr><td><span class="kp">黏着斑（Focal Adhesion）</span></td><td>细胞-ECM</td><td>微丝</td><td>整联蛋白（Integrin）</td></tr>
+  <tr><td><span class="kp">半桥粒（Hemidesmosome）</span></td><td>细胞-ECM</td><td>中间纤维</td><td>整联蛋白</td></tr>
+</table>
+
+<h4>通讯连接（Communicating Junction）</h4>
+<p><span class="kp">间隙连接（Gap Junction）</span><span class="exp">——由连接子（Connexon）组成的细胞间通道，允许小分子（&lt;1kD）和离子直接通过。</span></p>
+<p><span class="kp">胞间连丝（Plasmodesmata）</span><span class="exp">——植物细胞特有的通讯连接，相邻细胞通过细胞壁上的孔道连通。</span></p>
+<p><span class="kp">化学突触（Chemical Synapse）</span><span class="exp">——神经元之间通过神经递质传递信号的连接结构。</span></p>
+
+<h3 id="s89622744">15.2 细胞黏着分子 <span class="tag-key">重点</span></h3>
+<table>
+  <tr><th>家族</th><th>Ca²⁺依赖性</th><th>主要功能</th></tr>
+  <tr><td><span class="kp">钙黏蛋白（Cadherin）</span></td><td>依赖</td><td>同嗜性黏着（同类细胞黏着）</td></tr>
+  <tr><td><span class="kp">选择素（Selectin）</span></td><td>依赖</td><td>异嗜性黏着（白细胞与内皮细胞）</td></tr>
+  <tr><td><span class="kp">整联蛋白（Integrin）</span></td><td>依赖</td><td>细胞与ECM黏着</td></tr>
+  <tr><td><span class="kp">免疫球蛋白超家族</span></td><td>不依赖</td><td>多种细胞识别</td></tr>
+</table>
+
+<h3 id="s12701243">15.3 细胞外基质（ECM）<span class="tag-freq">高频</span></h3>
+<p><strong>主要成分</strong>：</p>
+<ul>
+  <li><span class="kp">胶原（Collagen）</span><span class="exp">——动物体内最丰富的蛋白质，提供抗拉强度</span></li>
+  <li><span class="kp">弹性蛋白（Elastin）</span><span class="exp">——提供弹性</span></li>
+  <li><span class="kp">蛋白聚糖（Proteoglycan）</span><span class="exp">——形成水合凝胶，抵抗压缩</span></li>
+  <li><span class="kp">纤连蛋白（Fibronectin）</span><span class="exp">——连接细胞与ECM</span></li>
+  <li><span class="kp">层粘连蛋白（Laminin）</span><span class="exp">——基底膜的主要成分</span></li>
+</ul>
+<blockquote>易错：胶原是动物体内最丰富的蛋白质，占人体总蛋白的25%以上。考试中常考「最丰富」这个概念。</blockquote>
+
+
+
+</body>
+</html>

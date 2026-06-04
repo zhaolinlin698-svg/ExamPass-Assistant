@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>第四章 细胞质膜</title>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\(', '\)']],
+    displayMath: [['$$', '$$'], ['\[', '\]']]
+  }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"></script>
+<style>
+/* === ExamPass Shared Styles === */
+/* Paper-like warm background, clean typography, responsive */
+
+:root {
+  --paper: #fdf6e3;
+  --paper-dark: #f5ecd7;
+  --ink: #2c2c2c;
+  --ink-light: #555;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --divider: #d6c8a8;
+  --card-bg: #fef9ef;
+  --card-border: #e8dcc8;
+  --correct: #22c55e;
+  --correct-bg: #f0fdf4;
+  --wrong: #ef4444;
+  --wrong-bg: #fef2f2;
+  --tag-bg: #fef3c7;
+  --tag-text: #92400e;
+  --radius: 6px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Microsoft YaHei", "Noto Sans SC", "SimSun", sans-serif;
+  font-size: 12pt; line-height: 1.75; color: var(--ink);
+  max-width: 860px; margin: auto; padding: 24px 20px 60px;
+  background: var(--paper);
+}
+
+@media print {
+  body { font-size: 10.5pt; background: #fff; }
+  .no-print { display: none !important; }
+  h1, h2, h3 { page-break-after: avoid; }
+}
+
+/* ── Header ── */
+#exampass-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 6px 0; margin-bottom: 0;
+}
+.header-brand { font-size: 1.2em; font-weight: 700; color: #1a1a2e; letter-spacing: 0.3px; }
+.header-url  { font-size: 0.78em; color: #999; }
+.header-divider { border: none; border-top: 2px solid var(--divider); margin: 4px 0 20px 0; }
+
+/* ── Typography ── */
+h1 { font-size: 1.55em; text-align: center; border-bottom: 2px solid var(--divider); padding-bottom: 8px; margin-top: 0; }
+h2 { font-size: 1.25em; border-bottom: 1px solid var(--divider); padding-bottom: 4px; margin-top: 28px; }
+h3 { font-size: 1.08em; margin-top: 20px; color: var(--ink); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Tables ── */
+table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 0.95em; }
+td, th { border: 1px solid var(--card-border); padding: 5px 9px; text-align: left; }
+th { background: var(--paper-dark); font-weight: 700; }
+
+/* ── Knowledge point vs explanation ── */
+.kp { font-weight: 700; color: var(--ink); }           /* key point: bold dark */
+.exp { font-weight: 400; color: var(--ink-light); }    /* explanation: lighter */
+.exp em, .exp strong { color: var(--ink); }             /* emphasis inside explanation */
+
+/* ── Block elements ── */
+blockquote {
+  border-left: 3px solid #c0392b; background: #fef9ef;
+  padding: 6px 14px; margin: 10px 0; font-size: 0.95em;
+}
+code { background: #f0ede0; padding: 2px 5px; border-radius: 3px; font-size: 0.92em; }
+pre { background: #f0ede0; padding: 10px; border-radius: var(--radius); overflow-x: auto; }
+
+/* ── TOC ── */
+div.toc {
+  background: var(--card-bg); padding: 14px 18px;
+  border: 1px solid var(--card-border); border-radius: var(--radius); margin-bottom: 22px;
+}
+div.toc ul { padding-left: 18px; }
+div.toc li { margin: 3px 0; font-size: 0.95em; }
+
+/* ── Priority tags ── */
+.tag-must   { background: #fee2e2; color: #991b1b; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-key    { background: #fef3c7; color: #92400e; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-freq   { background: #dbeafe; color: #1e40af; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-info   { background: #f0fdf4; color: #166534; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+
+
+</style>
+</head>
+<body>
+
+<header id="exampass-header">
+  <div class="header-left"><span class="header-brand">ExamPass Assistant</span></div>
+  <div class="header-right"><span class="header-url">github.com/WUBING2023/ExamPass-Assistant</span></div>
+</header>
+<hr class="header-divider">
+
+<h1>第四章 细胞质膜</h1>
+<div class="toc">
+<h2>目录</h2>
+<ul>
+<li><a href="#s81875318">四、细胞质膜</a></li>
+  <li><a href="#s15593276">4.1 细胞质膜的结构模型 必考</a></li>
+  <li><a href="#s44106907">4.2 膜脂 重点</a></li>
+  <li><a href="#s73634408">4.3 膜蛋白 重点</a></li>
+  <li><a href="#s71512474">4.4 物质的跨膜运输 必考</a></li>
+  <li><a href="#s55230491">4.5 细胞表面特化结构 高频</a></li>
+</ul>
+</div>
+
+<h2 id="s81875318">四、细胞质膜</h2>
+
+<h3 id="s15593276">4.1 细胞质膜的结构模型 <span class="tag-must">必考</span></h3>
+<p><span class="kp">流动镶嵌模型（Fluid Mosaic Model）</span><span class="exp">——由Singer和Nicolson于1972年提出，是当前公认的质膜结构模型。</span></p>
+<p><strong>核心内容</strong>：</p>
+<ul>
+  <li><span class="kp">脂双层是膜的骨架</span><span class="exp">——磷脂分子亲水头部朝外，疏水尾部朝内</span></li>
+  <li><span class="kp">膜蛋白镶嵌在脂双层中</span><span class="exp">——蛋白质以不同方式与脂双层结合</span></li>
+  <li><span class="kp">膜具有流动性</span><span class="exp">——脂质和蛋白质都可侧向运动</span></li>
+  <li><span class="kp">膜是不对称的</span><span class="exp">——内外两层脂质和蛋白质分布不同</span></li>
+</ul>
+
+<h3 id="s44106907">4.2 膜脂 <span class="tag-key">重点</span></h3>
+<table>
+  <tr><th>类型</th><th>特点</th><th>功能</th></tr>
+  <tr><td><span class="kp">磷脂</span></td><td>含量最多，甘油磷脂+鞘磷脂</td><td>构成脂双层骨架</td></tr>
+  <tr><td><span class="kp">糖脂</span></td><td>含糖基，分布于外叶</td><td>细胞识别、保护</td></tr>
+  <tr><td><span class="kp">胆固醇</span></td><td>动物细胞特有，嵌在磷脂之间</td><td>调节膜流动性</td></tr>
+</table>
+
+<h3 id="s73634408">4.3 膜蛋白 <span class="tag-key">重点</span></h3>
+<table>
+  <tr><th>类型</th><th>结合方式</th><th>举例</th></tr>
+  <tr><td><span class="kp">内在膜蛋白（整合蛋白）</span></td><td>跨膜或深入脂双层</td><td>离子通道、受体</td></tr>
+  <tr><td><span class="kp">外在膜蛋白（外周蛋白）</span></td><td>非共价结合在膜表面</td><td>血影蛋白</td></tr>
+  <tr><td><span class="kp">脂锚定蛋白</span></td><td>通过共价键与脂质结合</td><td>G蛋白</td></tr>
+</table>
+
+<h3 id="s71512474">4.4 物质的跨膜运输 <span class="tag-must">必考</span></h3>
+
+<h4>被动运输（不耗能）</h4>
+<ul>
+  <li><span class="kp">简单扩散</span><span class="exp">——小分子、脂溶性物质直接穿过脂双层（O₂、CO₂、乙醇）</span></li>
+  <li><span class="kp">协助扩散</span><span class="exp">——通过通道蛋白或载体蛋白，顺浓度梯度（葡萄糖、氨基酸、离子）</span></li>
+</ul>
+
+<h4>主动运输（耗能）</h4>
+<ul>
+  <li><span class="kp">ATP驱动泵</span><span class="exp">——直接利用ATP水解能量（Na⁺-K⁺泵、Ca²⁺泵）</span></li>
+  <li><span class="kp">协同运输</span><span class="exp">——利用一种物质的浓度梯度驱动另一种物质（同向/反向）</span></li>
+</ul>
+
+<h4>胞吞与胞吐</h4>
+<ul>
+  <li><span class="kp">胞吞作用</span><span class="exp">——细胞膜内陷包裹物质进入细胞（吞噬、胞饮、受体介导）</span></li>
+  <li><span class="kp">胞吐作用</span><span class="exp">——囊泡与质膜融合释放内容物（组成型、调节型）</span></li>
+</ul>
+
+<h3 id="s55230491">4.5 细胞表面特化结构 <span class="tag-freq">高频</span></h3>
+<ul>
+  <li><span class="kp">细胞外被（糖萼）</span><span class="exp">——糖蛋白和糖脂的糖链在细胞表面形成，参与细胞识别和免疫</span></li>
+  <li><span class="kp">细胞外基质（ECM）</span><span class="exp">——由细胞分泌的胶原、弹性蛋白、蛋白聚糖等构成</span></li>
+  <li><span class="kp">血影（Ghost）</span><span class="exp">——红细胞经低渗处理后，血红蛋白释放，留下的质膜空壳</span></li>
+</ul>
+<blockquote>易错：血影是研究质膜的重要模型材料，保留了完整的质膜结构和膜骨架。</blockquote>
+
+
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>第十四章 细胞衰老与凋亡</title>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\(', '\)']],
+    displayMath: [['$$', '$$'], ['\[', '\]']]
+  }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"></script>
+<style>
+/* === ExamPass Shared Styles === */
+/* Paper-like warm background, clean typography, responsive */
+
+:root {
+  --paper: #fdf6e3;
+  --paper-dark: #f5ecd7;
+  --ink: #2c2c2c;
+  --ink-light: #555;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --divider: #d6c8a8;
+  --card-bg: #fef9ef;
+  --card-border: #e8dcc8;
+  --correct: #22c55e;
+  --correct-bg: #f0fdf4;
+  --wrong: #ef4444;
+  --wrong-bg: #fef2f2;
+  --tag-bg: #fef3c7;
+  --tag-text: #92400e;
+  --radius: 6px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Microsoft YaHei", "Noto Sans SC", "SimSun", sans-serif;
+  font-size: 12pt; line-height: 1.75; color: var(--ink);
+  max-width: 860px; margin: auto; padding: 24px 20px 60px;
+  background: var(--paper);
+}
+
+@media print {
+  body { font-size: 10.5pt; background: #fff; }
+  .no-print { display: none !important; }
+  h1, h2, h3 { page-break-after: avoid; }
+}
+
+/* ── Header ── */
+#exampass-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 6px 0; margin-bottom: 0;
+}
+.header-brand { font-size: 1.2em; font-weight: 700; color: #1a1a2e; letter-spacing: 0.3px; }
+.header-url  { font-size: 0.78em; color: #999; }
+.header-divider { border: none; border-top: 2px solid var(--divider); margin: 4px 0 20px 0; }
+
+/* ── Typography ── */
+h1 { font-size: 1.55em; text-align: center; border-bottom: 2px solid var(--divider); padding-bottom: 8px; margin-top: 0; }
+h2 { font-size: 1.25em; border-bottom: 1px solid var(--divider); padding-bottom: 4px; margin-top: 28px; }
+h3 { font-size: 1.08em; margin-top: 20px; color: var(--ink); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Tables ── */
+table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 0.95em; }
+td, th { border: 1px solid var(--card-border); padding: 5px 9px; text-align: left; }
+th { background: var(--paper-dark); font-weight: 700; }
+
+/* ── Knowledge point vs explanation ── */
+.kp { font-weight: 700; color: var(--ink); }           /* key point: bold dark */
+.exp { font-weight: 400; color: var(--ink-light); }    /* explanation: lighter */
+.exp em, .exp strong { color: var(--ink); }             /* emphasis inside explanation */
+
+/* ── Block elements ── */
+blockquote {
+  border-left: 3px solid #c0392b; background: #fef9ef;
+  padding: 6px 14px; margin: 10px 0; font-size: 0.95em;
+}
+code { background: #f0ede0; padding: 2px 5px; border-radius: 3px; font-size: 0.92em; }
+pre { background: #f0ede0; padding: 10px; border-radius: var(--radius); overflow-x: auto; }
+
+/* ── TOC ── */
+div.toc {
+  background: var(--card-bg); padding: 14px 18px;
+  border: 1px solid var(--card-border); border-radius: var(--radius); margin-bottom: 22px;
+}
+div.toc ul { padding-left: 18px; }
+div.toc li { margin: 3px 0; font-size: 0.95em; }
+
+/* ── Priority tags ── */
+.tag-must   { background: #fee2e2; color: #991b1b; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-key    { background: #fef3c7; color: #92400e; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-freq   { background: #dbeafe; color: #1e40af; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-info   { background: #f0fdf4; color: #166534; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+
+
+</style>
+</head>
+<body>
+
+<header id="exampass-header">
+  <div class="header-left"><span class="header-brand">ExamPass Assistant</span></div>
+  <div class="header-right"><span class="header-url">github.com/WUBING2023/ExamPass-Assistant</span></div>
+</header>
+<hr class="header-divider">
+
+<h1>第十四章 细胞衰老与凋亡</h1>
+<div class="toc">
+<h2>目录</h2>
+<ul>
+<li><a href="#s34401204">十四、细胞衰老与凋亡</a></li>
+  <li><a href="#s30365699">14.1 细胞衰老 必考</a></li>
+  <li><a href="#s88939777">14.2 细胞衰老的原因与假说 重点</a></li>
+  <li><a href="#s39119104">14.3 细胞凋亡 必考</a></li>
+  <li><a href="#s72324814">14.4 细胞凋亡的分子机制 必考</a></li>
+</ul>
+</div>
+
+<h2 id="s34401204">十四、细胞衰老与凋亡</h2>
+
+<h3 id="s30365699">14.1 细胞衰老 <span class="tag-must">必考</span></h3>
+<p><span class="kp">细胞衰老（Cell Senescence）</span><span class="exp">——细胞增殖能力逐渐下降并最终停止的过程。</span></p>
+<p><span class="kp">Hayflick界限</span><span class="exp">——正常人体细胞在体外培养时，分裂次数是有限的（约50-60代），之后细胞停止分裂进入衰老状态。这是细胞衰老的经典实验证据。</span></p>
+<p><strong>细胞衰老的特征</strong>：</p>
+<ul>
+  <li>细胞体积增大、形态变扁平</li>
+  <li>细胞周期停滞（G₁期）</li>
+  <li>端粒缩短</li>
+  <li>$\beta$-半乳糖苷酶活性升高（衰老标志物）</li>
+  <li>p53和p21表达升高</li>
+</ul>
+
+<h3 id="s88939777">14.2 细胞衰老的原因与假说 <span class="tag-key">重点</span></h3>
+<ul>
+  <li><span class="kp">端粒缩短假说</span><span class="exp">——端粒随每次分裂缩短，缩短到临界长度时触发衰老</span></li>
+  <li><span class="kp">氧化损伤假说</span><span class="exp">——活性氧（ROS）积累导致DNA、蛋白质和脂质的损伤</span></li>
+  <li><span class="kp">基因调控假说</span><span class="exp">——衰老是遗传程序的一部分</span></li>
+</ul>
+
+<h3 id="s39119104">14.3 细胞凋亡 <span class="tag-must">必考</span></h3>
+<p><span class="kp">细胞凋亡（Apoptosis）</span><span class="exp">——由基因调控的程序性细胞死亡，是主动的、有序的细胞自我消亡过程。</span></p>
+
+<h4>凋亡与坏死的区别</h4>
+<table>
+  <tr><th>特征</th><th>凋亡</th><th>坏死</th></tr>
+  <tr><td>性质</td><td>生理性、主动</td><td>病理性、被动</td></tr>
+  <tr><td>细胞形态</td><td>细胞皱缩、染色质凝集</td><td>细胞肿胀、破裂</td></tr>
+  <tr><td>细胞膜</td><td>保持完整（形成凋亡小体）</td><td>破裂</td></tr>
+  <tr><td>DNA</td><td>有规律断裂（梯状条带）</td><td>随机降解</td></tr>
+  <tr><td>炎症反应</td><td>无</td><td>有</td></tr>
+  <tr><td>涉及酶</td><td>Caspase家族</td><td>无特异性酶</td></tr>
+</table>
+
+<h3 id="s72324814">14.4 细胞凋亡的分子机制 <span class="tag-must">必考</span></h3>
+<p><strong>Caspase级联反应</strong>：</p>
+<ul>
+  <li><span class="kp">起始Caspase</span><span class="exp">——Caspase-8, Caspase-9（被凋亡信号激活）</span></li>
+  <li><span class="kp">执行Caspase</span><span class="exp">——Caspase-3, Caspase-6, Caspase-7（执行凋亡程序）</span></li>
+</ul>
+
+<p><strong>两条主要凋亡通路</strong>：</p>
+<ol>
+  <li><span class="kp">外源通路（死亡受体通路）</span><span class="exp">——死亡配体（如FasL）与死亡受体（如Fas）结合，激活Caspase-8</span></li>
+  <li><span class="kp">内源通路（线粒体通路）</span><span class="exp">——线粒体释放细胞色素c，与Apaf-1和Caspase-9形成凋亡体，激活Caspase-9</span></li>
+</ol>
+<p><span class="kp">Bcl-2家族</span><span class="exp">——调控凋亡的关键蛋白家族，包括抗凋亡蛋白（Bcl-2、Bcl-XL）和促凋亡蛋白（Bax、Bak）。</span></p>
+<p><span class="kp">凋亡小体（Apoptotic Body）</span><span class="exp">——凋亡细胞形成的膜包裹碎片，被吞噬细胞清除，不引起炎症反应。</span></p>
+<blockquote>易错：凋亡是主动过程需要能量（ATP），坏死是被动过程。凋亡不引起炎症反应，坏死引起炎症反应。这是两者的重要区别。</blockquote>
+
+
+
+</body>
+</html>

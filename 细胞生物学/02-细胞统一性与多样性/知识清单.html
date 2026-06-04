@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>第二章 细胞的统一性与多样性</title>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\(', '\)']],
+    displayMath: [['$$', '$$'], ['\[', '\]']]
+  }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"></script>
+<style>
+/* === ExamPass Shared Styles === */
+/* Paper-like warm background, clean typography, responsive */
+
+:root {
+  --paper: #fdf6e3;
+  --paper-dark: #f5ecd7;
+  --ink: #2c2c2c;
+  --ink-light: #555;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --divider: #d6c8a8;
+  --card-bg: #fef9ef;
+  --card-border: #e8dcc8;
+  --correct: #22c55e;
+  --correct-bg: #f0fdf4;
+  --wrong: #ef4444;
+  --wrong-bg: #fef2f2;
+  --tag-bg: #fef3c7;
+  --tag-text: #92400e;
+  --radius: 6px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Microsoft YaHei", "Noto Sans SC", "SimSun", sans-serif;
+  font-size: 12pt; line-height: 1.75; color: var(--ink);
+  max-width: 860px; margin: auto; padding: 24px 20px 60px;
+  background: var(--paper);
+}
+
+@media print {
+  body { font-size: 10.5pt; background: #fff; }
+  .no-print { display: none !important; }
+  h1, h2, h3 { page-break-after: avoid; }
+}
+
+/* ── Header ── */
+#exampass-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 6px 0; margin-bottom: 0;
+}
+.header-brand { font-size: 1.2em; font-weight: 700; color: #1a1a2e; letter-spacing: 0.3px; }
+.header-url  { font-size: 0.78em; color: #999; }
+.header-divider { border: none; border-top: 2px solid var(--divider); margin: 4px 0 20px 0; }
+
+/* ── Typography ── */
+h1 { font-size: 1.55em; text-align: center; border-bottom: 2px solid var(--divider); padding-bottom: 8px; margin-top: 0; }
+h2 { font-size: 1.25em; border-bottom: 1px solid var(--divider); padding-bottom: 4px; margin-top: 28px; }
+h3 { font-size: 1.08em; margin-top: 20px; color: var(--ink); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Tables ── */
+table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 0.95em; }
+td, th { border: 1px solid var(--card-border); padding: 5px 9px; text-align: left; }
+th { background: var(--paper-dark); font-weight: 700; }
+
+/* ── Knowledge point vs explanation ── */
+.kp { font-weight: 700; color: var(--ink); }           /* key point: bold dark */
+.exp { font-weight: 400; color: var(--ink-light); }    /* explanation: lighter */
+.exp em, .exp strong { color: var(--ink); }             /* emphasis inside explanation */
+
+/* ── Block elements ── */
+blockquote {
+  border-left: 3px solid #c0392b; background: #fef9ef;
+  padding: 6px 14px; margin: 10px 0; font-size: 0.95em;
+}
+code { background: #f0ede0; padding: 2px 5px; border-radius: 3px; font-size: 0.92em; }
+pre { background: #f0ede0; padding: 10px; border-radius: var(--radius); overflow-x: auto; }
+
+/* ── TOC ── */
+div.toc {
+  background: var(--card-bg); padding: 14px 18px;
+  border: 1px solid var(--card-border); border-radius: var(--radius); margin-bottom: 22px;
+}
+div.toc ul { padding-left: 18px; }
+div.toc li { margin: 3px 0; font-size: 0.95em; }
+
+/* ── Priority tags ── */
+.tag-must   { background: #fee2e2; color: #991b1b; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-key    { background: #fef3c7; color: #92400e; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-freq   { background: #dbeafe; color: #1e40af; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-info   { background: #f0fdf4; color: #166534; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+
+
+</style>
+</head>
+<body>
+
+<header id="exampass-header">
+  <div class="header-left"><span class="header-brand">ExamPass Assistant</span></div>
+  <div class="header-right"><span class="header-url">github.com/WUBING2023/ExamPass-Assistant</span></div>
+</header>
+<hr class="header-divider">
+
+<h1>第二章 细胞的统一性与多样性</h1>
+<div class="toc">
+<h2>目录</h2>
+<ul>
+<li><a href="#s10062871">一、细胞的基本特征</a></li>
+  <li><a href="#s30074158">2.1 细胞的统一性 重点</a></li>
+  <li><a href="#s53499620">2.2 细胞的多样性 重点</a></li>
+  <li><a href="#s79352680">2.3 病毒 高频</a></li>
+  <li><a href="#s70610226">2.4 模式生物 高频</a></li>
+  <li><a href="#s19762647">2.5 古核细胞（古细菌）了解</a></li>
+</ul>
+</div>
+
+<h2 id="s10062871">一、细胞的基本特征</h2>
+
+<h3 id="s30074158">2.1 细胞的统一性 <span class="tag-key">重点</span></h3>
+<p>所有细胞具有以下共性：</p>
+<ul>
+  <li><span class="kp">相似的化学组成</span><span class="exp">——都以核酸、蛋白质、脂质、糖类为主</span></li>
+  <li><span class="kp">细胞膜</span><span class="exp">——所有细胞都有质膜包围，维持内环境稳定</span></li>
+  <li><span class="kp">DNA-RNA-蛋白质</span><span class="exp">——遗传信息流方向一致</span></li>
+  <li><span class="kp">核糖体</span><span class="exp">——都有核糖体进行蛋白质合成</span></li>
+  <li><span class="kp">一分为二的分裂方式</span><span class="exp">——细胞增殖的基本方式</span></li>
+</ul>
+
+<h3 id="s53499620">2.2 细胞的多样性 <span class="tag-key">重点</span></h3>
+
+<h4>原核细胞 vs 真核细胞</h4>
+<table>
+  <tr><th>特征</th><th>原核细胞</th><th>真核细胞</th></tr>
+  <tr><td>细胞核</td><td>无核膜（拟核）</td><td>有核膜（真核）</td></tr>
+  <tr><td>细胞器</td><td>无膜包被细胞器</td><td>有各种膜包被细胞器</td></tr>
+  <tr><td>核糖体</td><td>70S</td><td>80S</td></tr>
+  <tr><td>细胞骨架</td><td>无</td><td>有微丝、微管、中间纤维</td></tr>
+  <tr><td>细胞壁</td><td>肽聚糖</td><td>植物为纤维素</td></tr>
+  <tr><td>DNA</td><td>环状，裸露</td><td>线状，与组蛋白结合</td></tr>
+  <tr><td>基因表达</td><td>转录翻译偶联</td><td>转录翻译分隔</td></tr>
+</table>
+<blockquote>易错：原核细胞没有膜包被的细胞器，但有核糖体。核糖体不是膜包被的细胞器。</blockquote>
+
+<h3 id="s79352680">2.3 病毒 <span class="tag-freq">高频</span></h3>
+<p><span class="kp">病毒（Virus）</span><span class="exp">——非细胞形态的生命体，由核酸（DNA或RNA）和蛋白质外壳构成，必须在活细胞内寄生增殖。</span></p>
+<p><strong>病毒的基本特征</strong>：</p>
+<ul>
+  <li><span class="kp">非细胞形态</span><span class="exp">——没有细胞结构</span></li>
+  <li><span class="kp">只有一种核酸</span><span class="exp">——DNA或RNA，不会同时有两种</span></li>
+  <li><span class="kp">专性寄生</span><span class="exp">——必须在活细胞内才能增殖</span></li>
+  <li><span class="kp">以复制方式增殖</span><span class="exp">——不是分裂</span></li>
+</ul>
+<p><strong>病毒增殖过程</strong>：吸附 --&gt; 侵入 --&gt; 脱壳 --&gt; 生物合成 --&gt; 装配 --&gt; 释放</p>
+
+<h3 id="s70610226">2.4 模式生物 <span class="tag-freq">高频</span></h3>
+<table>
+  <tr><th>模式生物</th><th>特点</th><th>主要用途</th></tr>
+  <tr><td>大肠杆菌（E. coli）</td><td>繁殖快、遗传背景清楚</td><td>原核基因表达调控</td></tr>
+  <tr><td>酵母（S. cerevisiae）</td><td>单细胞真核、易培养</td><td>细胞周期、蛋白质相互作用</td></tr>
+  <tr><td>线虫（C. elegans）</td><td>细胞数固定、透明</td><td>发育生物学、细胞凋亡</td></tr>
+  <tr><td>果蝇（D. melanogaster）</td><td>繁殖快、染色体少</td><td>遗传学、发育生物学</td></tr>
+  <tr><td>拟南芥（Arabidopsis）</td><td>基因组小、生长快</td><td>植物分子生物学</td></tr>
+  <tr><td>小鼠（M. musculus）</td><td>哺乳动物、基因操作成熟</td><td>人类疾病模型</td></tr>
+</table>
+
+<h3 id="s19762647">2.5 古核细胞（古细菌）<span class="tag-info">了解</span></h3>
+<p><span class="kp">古细菌</span><span class="exp">——形态类似细菌，但分子特征更接近真核生物，是第三类生命形式。生活在极端环境（高温、高盐、厌氧等）。</span></p>
+
+
+
+</body>
+</html>

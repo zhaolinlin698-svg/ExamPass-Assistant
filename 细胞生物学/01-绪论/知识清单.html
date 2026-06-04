@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>第一章 绪论</title>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\(', '\)']],
+    displayMath: [['$$', '$$'], ['\[', '\]']]
+  }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"></script>
+<style>
+/* === ExamPass Shared Styles === */
+/* Paper-like warm background, clean typography, responsive */
+
+:root {
+  --paper: #fdf6e3;
+  --paper-dark: #f5ecd7;
+  --ink: #2c2c2c;
+  --ink-light: #555;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --divider: #d6c8a8;
+  --card-bg: #fef9ef;
+  --card-border: #e8dcc8;
+  --correct: #22c55e;
+  --correct-bg: #f0fdf4;
+  --wrong: #ef4444;
+  --wrong-bg: #fef2f2;
+  --tag-bg: #fef3c7;
+  --tag-text: #92400e;
+  --radius: 6px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Microsoft YaHei", "Noto Sans SC", "SimSun", sans-serif;
+  font-size: 12pt; line-height: 1.75; color: var(--ink);
+  max-width: 860px; margin: auto; padding: 24px 20px 60px;
+  background: var(--paper);
+}
+
+@media print {
+  body { font-size: 10.5pt; background: #fff; }
+  .no-print { display: none !important; }
+  h1, h2, h3 { page-break-after: avoid; }
+}
+
+/* ── Header ── */
+#exampass-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 6px 0; margin-bottom: 0;
+}
+.header-brand { font-size: 1.2em; font-weight: 700; color: #1a1a2e; letter-spacing: 0.3px; }
+.header-url  { font-size: 0.78em; color: #999; }
+.header-divider { border: none; border-top: 2px solid var(--divider); margin: 4px 0 20px 0; }
+
+/* ── Typography ── */
+h1 { font-size: 1.55em; text-align: center; border-bottom: 2px solid var(--divider); padding-bottom: 8px; margin-top: 0; }
+h2 { font-size: 1.25em; border-bottom: 1px solid var(--divider); padding-bottom: 4px; margin-top: 28px; }
+h3 { font-size: 1.08em; margin-top: 20px; color: var(--ink); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Tables ── */
+table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 0.95em; }
+td, th { border: 1px solid var(--card-border); padding: 5px 9px; text-align: left; }
+th { background: var(--paper-dark); font-weight: 700; }
+
+/* ── Knowledge point vs explanation ── */
+.kp { font-weight: 700; color: var(--ink); }           /* key point: bold dark */
+.exp { font-weight: 400; color: var(--ink-light); }    /* explanation: lighter */
+.exp em, .exp strong { color: var(--ink); }             /* emphasis inside explanation */
+
+/* ── Block elements ── */
+blockquote {
+  border-left: 3px solid #c0392b; background: #fef9ef;
+  padding: 6px 14px; margin: 10px 0; font-size: 0.95em;
+}
+code { background: #f0ede0; padding: 2px 5px; border-radius: 3px; font-size: 0.92em; }
+pre { background: #f0ede0; padding: 10px; border-radius: var(--radius); overflow-x: auto; }
+
+/* ── TOC ── */
+div.toc {
+  background: var(--card-bg); padding: 14px 18px;
+  border: 1px solid var(--card-border); border-radius: var(--radius); margin-bottom: 22px;
+}
+div.toc ul { padding-left: 18px; }
+div.toc li { margin: 3px 0; font-size: 0.95em; }
+
+/* ── Priority tags ── */
+.tag-must   { background: #fee2e2; color: #991b1b; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-key    { background: #fef3c7; color: #92400e; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-freq   { background: #dbeafe; color: #1e40af; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-info   { background: #f0fdf4; color: #166534; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+
+
+</style>
+</head>
+<body>
+
+<header id="exampass-header">
+  <div class="header-left"><span class="header-brand">ExamPass Assistant</span></div>
+  <div class="header-right"><span class="header-url">github.com/WUBING2023/ExamPass-Assistant</span></div>
+</header>
+<hr class="header-divider">
+
+<h1>第一章 绪论</h1>
+<div class="toc">
+<h2>目录</h2>
+<ul>
+<li><a href="#s27723142">一、细胞生物学概述</a></li>
+  <li><a href="#s90264043">1.1 细胞生物学的研究内容 重点</a></li>
+  <li><a href="#s32070424">1.2 细胞学说的建立与意义 必考</a></li>
+  <li><a href="#s52920231">1.3 当前细胞生物学的重点研究领域 高频</a></li>
+</ul>
+</div>
+
+<h2 id="s27723142">一、细胞生物学概述</h2>
+
+<h3 id="s90264043">1.1 细胞生物学的研究内容 <span class="tag-key">重点</span></h3>
+<p><span class="kp">细胞生物学</span><span class="exp">——是从细胞整体、亚显微和分子三个水平上研究细胞生命活动规律的科学。</span></p>
+<p><strong>三个研究层次</strong>：</p>
+<ul>
+  <li><span class="kp">显微水平</span><span class="exp">——光学显微镜下观察细胞形态结构</span></li>
+  <li><span class="kp">亚显微水平</span><span class="exp">——电子显微镜下观察细胞器的超微结构</span></li>
+  <li><span class="kp">分子水平</span><span class="exp">——研究生物大分子的结构与功能</span></li>
+</ul>
+<p><strong>核心研究问题</strong>：</p>
+<ul>
+  <li>细胞的<strong>结构和功能</strong>的关系</li>
+  <li>细胞的<strong>增殖与分化</strong></li>
+  <li>细胞的<strong>衰老与死亡</strong></li>
+  <li>细胞的<strong>信号转导</strong></li>
+  <li>细胞的<strong>起源与进化</strong></li>
+</ul>
+
+<h3 id="s32070424">1.2 细胞学说的建立与意义 <span class="tag-must">必考</span></h3>
+<p><span class="kp">细胞学说（Cell Theory）</span><span class="exp">——由施莱登（Schleiden）和施旺（Schwann）于1838-1839年提出，是生物学的基石之一。</span></p>
+<p><strong>核心内容</strong>：</p>
+<ol>
+  <li><span class="kp">一切生物体都是由细胞构成的</span><span class="exp">——细胞是生物体的基本结构单位</span></li>
+  <li><span class="kp">细胞是生命活动的基本单位</span><span class="exp">——每个细胞都是相对独立的生命单位</span></li>
+  <li><span class="kp">细胞来自细胞</span><span class="exp">——新细胞由已存在的细胞分裂产生（Virchow, 1855年补充）</span></li>
+</ol>
+<blockquote>易错：细胞学说的第三条「细胞来自细胞」是Virchow补充的，不是施莱登和施旺原版的内容。考试常考人物对应关系。</blockquote>
+
+<h3 id="s52920231">1.3 当前细胞生物学的重点研究领域 <span class="tag-freq">高频</span></h3>
+<ul>
+  <li><span class="kp">细胞信号转导</span><span class="exp">——研究细胞如何接收和传递信号</span></li>
+  <li><span class="kp">细胞周期调控</span><span class="exp">——揭示细胞增殖的分子机制</span></li>
+  <li><span class="kp">细胞凋亡</span><span class="exp">——程序性细胞死亡的分子机制</span></li>
+  <li><span class="kp">干细胞生物学</span><span class="exp">——干细胞的维持与分化</span></li>
+  <li><span class="kp">肿瘤细胞生物学</span><span class="exp">——癌基因与抑癌基因</span></li>
+  <li><span class="kp">表观遗传学</span><span class="exp">——不改变DNA序列的基因表达调控</span></li>
+</ul>
+
+
+
+</body>
+</html>

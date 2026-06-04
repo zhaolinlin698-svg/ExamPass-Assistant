@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>第十章 细胞信号转导</title>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\(', '\)']],
+    displayMath: [['$$', '$$'], ['\[', '\]']]
+  }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"></script>
+<style>
+/* === ExamPass Shared Styles === */
+/* Paper-like warm background, clean typography, responsive */
+
+:root {
+  --paper: #fdf6e3;
+  --paper-dark: #f5ecd7;
+  --ink: #2c2c2c;
+  --ink-light: #555;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --divider: #d6c8a8;
+  --card-bg: #fef9ef;
+  --card-border: #e8dcc8;
+  --correct: #22c55e;
+  --correct-bg: #f0fdf4;
+  --wrong: #ef4444;
+  --wrong-bg: #fef2f2;
+  --tag-bg: #fef3c7;
+  --tag-text: #92400e;
+  --radius: 6px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Microsoft YaHei", "Noto Sans SC", "SimSun", sans-serif;
+  font-size: 12pt; line-height: 1.75; color: var(--ink);
+  max-width: 860px; margin: auto; padding: 24px 20px 60px;
+  background: var(--paper);
+}
+
+@media print {
+  body { font-size: 10.5pt; background: #fff; }
+  .no-print { display: none !important; }
+  h1, h2, h3 { page-break-after: avoid; }
+}
+
+/* ── Header ── */
+#exampass-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 6px 0; margin-bottom: 0;
+}
+.header-brand { font-size: 1.2em; font-weight: 700; color: #1a1a2e; letter-spacing: 0.3px; }
+.header-url  { font-size: 0.78em; color: #999; }
+.header-divider { border: none; border-top: 2px solid var(--divider); margin: 4px 0 20px 0; }
+
+/* ── Typography ── */
+h1 { font-size: 1.55em; text-align: center; border-bottom: 2px solid var(--divider); padding-bottom: 8px; margin-top: 0; }
+h2 { font-size: 1.25em; border-bottom: 1px solid var(--divider); padding-bottom: 4px; margin-top: 28px; }
+h3 { font-size: 1.08em; margin-top: 20px; color: var(--ink); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Tables ── */
+table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 0.95em; }
+td, th { border: 1px solid var(--card-border); padding: 5px 9px; text-align: left; }
+th { background: var(--paper-dark); font-weight: 700; }
+
+/* ── Knowledge point vs explanation ── */
+.kp { font-weight: 700; color: var(--ink); }           /* key point: bold dark */
+.exp { font-weight: 400; color: var(--ink-light); }    /* explanation: lighter */
+.exp em, .exp strong { color: var(--ink); }             /* emphasis inside explanation */
+
+/* ── Block elements ── */
+blockquote {
+  border-left: 3px solid #c0392b; background: #fef9ef;
+  padding: 6px 14px; margin: 10px 0; font-size: 0.95em;
+}
+code { background: #f0ede0; padding: 2px 5px; border-radius: 3px; font-size: 0.92em; }
+pre { background: #f0ede0; padding: 10px; border-radius: var(--radius); overflow-x: auto; }
+
+/* ── TOC ── */
+div.toc {
+  background: var(--card-bg); padding: 14px 18px;
+  border: 1px solid var(--card-border); border-radius: var(--radius); margin-bottom: 22px;
+}
+div.toc ul { padding-left: 18px; }
+div.toc li { margin: 3px 0; font-size: 0.95em; }
+
+/* ── Priority tags ── */
+.tag-must   { background: #fee2e2; color: #991b1b; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-key    { background: #fef3c7; color: #92400e; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-freq   { background: #dbeafe; color: #1e40af; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-info   { background: #f0fdf4; color: #166534; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+
+
+</style>
+</head>
+<body>
+
+<header id="exampass-header">
+  <div class="header-left"><span class="header-brand">ExamPass Assistant</span></div>
+  <div class="header-right"><span class="header-url">github.com/WUBING2023/ExamPass-Assistant</span></div>
+</header>
+<hr class="header-divider">
+
+<h1>第十章 细胞信号转导</h1>
+<div class="toc">
+<h2>目录</h2>
+<ul>
+<li><a href="#s85799311">十、细胞信号转导</a></li>
+  <li><a href="#s89394872">10.1 细胞通讯方式 重点</a></li>
+  <li><a href="#s87992049">10.2 信号分子与受体 重点</a></li>
+  <li><a href="#s66045875">10.3 细胞表面受体的主要类型 必考</a></li>
+  <li><a href="#s51020879">10.4 G蛋白偶联受体信号通路 必考</a></li>
+  <li><a href="#s53150549">10.5 第二信使 必考</a></li>
+  <li><a href="#s88174141">10.6 酶联受体信号通路 重点</a></li>
+</ul>
+</div>
+
+<h2 id="s85799311">十、细胞信号转导</h2>
+
+<h3 id="s89394872">10.1 细胞通讯方式 <span class="tag-key">重点</span></h3>
+<table>
+  <tr><th>方式</th><th>特点</th><th>举例</th></tr>
+  <tr><td><span class="kp">内分泌</span></td><td>激素经血液远距离运输</td><td>胰岛素</td></tr>
+  <tr><td><span class="kp">旁分泌</span></td><td>信号分子作用于邻近细胞</td><td>神经递质、生长因子</td></tr>
+  <tr><td><span class="kp">自分泌</span></td><td>信号分子作用于自身</td><td>某些生长因子</td></tr>
+  <tr><td><span class="kp">突触传递</span></td><td>神经元之间通过突触</td><td>神经递质</td></tr>
+  <tr><td><span class="kp">接触依赖</span></td><td>膜结合信号分子</td><td>Delta-Notch</td></tr>
+</table>
+
+<h3 id="s87992049">10.2 信号分子与受体 <span class="tag-key">重点</span></h3>
+<p><span class="kp">信号分子（配体）</span><span class="exp">——传递信息的化学物质，可以是蛋白质、肽、氨基酸、核苷酸、脂质、气体（NO）等。</span></p>
+<p><strong>受体类型</strong>：</p>
+<ul>
+  <li><span class="kp">胞内受体</span><span class="exp">——位于胞质或核内，配体为脂溶性小分子（如类固醇激素）</span></li>
+  <li><span class="kp">细胞表面受体</span><span class="exp">——位于质膜上，配体为水溶性信号分子</span></li>
+</ul>
+
+<h3 id="s66045875">10.3 细胞表面受体的主要类型 <span class="tag-must">必考</span></h3>
+<table>
+  <tr><th>类型</th><th>特点</th><th>举例</th></tr>
+  <tr><td><span class="kp">离子通道偶联受体</span></td><td>配体门控离子通道</td><td>乙酰胆碱受体</td></tr>
+  <tr><td><span class="kp">G蛋白偶联受体（GPCR）</span></td><td>7次跨膜，激活G蛋白</td><td>肾上腺素受体</td></tr>
+  <tr><td><span class="kp">酶联受体</span></td><td>自身有酶活性或结合酶</td><td>受体酪氨酸激酶（RTK）</td></tr>
+</table>
+
+<h3 id="s51020879">10.4 G蛋白偶联受体信号通路 <span class="tag-must">必考</span></h3>
+<p><strong>基本过程</strong>：</p>
+<ol>
+  <li>配体与GPCR结合</li>
+  <li>GPCR激活G蛋白（G蛋白$\alpha$亚基上的GDP被GTP替换）</li>
+  <li>G蛋白$\alpha$亚基（和$\beta\gamma$二聚体）激活下游效应器</li>
+  <li>效应器产生第二信使</li>
+  <li>$\alpha$亚基GTP酶活性水解GTP，信号终止</li>
+</ol>
+
+<h4>cAMP-PKA通路</h4>
+<p>激素 --&gt; GPCR --&gt; Gs蛋白 --&gt; 腺苷酸环化酶（AC）--&gt; cAMP升高 --&gt; PKA活化 --&gt; 磷酸化靶蛋白</p>
+
+<h4>磷脂酰肌醇通路</h4>
+<p>信号 --&gt; GPCR --&gt; Gq蛋白 --&gt; 磷脂酶C（PLC）--&gt; PIP₂分解为IP₃和DAG --&gt; IP₃促进Ca²⁺释放，DAG激活PKC</p>
+
+<h3 id="s53150549">10.5 第二信使 <span class="tag-must">必考</span></h3>
+<table>
+  <tr><th>第二信使</th><th>来源</th><th>作用</th></tr>
+  <tr><td>cAMP</td><td>ATP经AC催化</td><td>激活PKA</td></tr>
+  <tr><td>IP₃</td><td>PIP₂水解</td><td>促进内质网释放Ca²⁺</td></tr>
+  <tr><td>DAG</td><td>PIP₂水解</td><td>激活PKC</td></tr>
+  <tr><td>Ca²⁺</td><td>ER释放或胞外流入</td><td>激活多种钙结合蛋白</td></tr>
+  <tr><td>cGMP</td><td>GTP经GC催化</td><td>激活PKG等</td></tr>
+</table>
+
+<h3 id="s88174141">10.6 酶联受体信号通路 <span class="tag-key">重点</span></h3>
+<p><span class="kp">受体酪氨酸激酶（RTK）-Ras-MAPK通路</span>：</p>
+<ol>
+  <li>配体结合 --&gt; RTK二聚化 --&gt; 自身磷酸化</li>
+  <li>Grb2-SOS复合物结合磷酸化RTK</li>
+  <li>SOS激活Ras（GDP --&gt; GTP）</li>
+  <li>Ras-GTP激活MAPK级联反应（Raf --&gt; MEK --&gt; ERK）</li>
+  <li>ERK进入细胞核，磷酸化转录因子，调控基因表达</li>
+</ol>
+<blockquote>易错：Ras蛋白是分子开关蛋白，Ras-GTP为活性状态，Ras-GDP为非活性状态。Ras突变（持续激活）是多种癌症的重要原因。</blockquote>
+
+
+
+</body>
+</html>

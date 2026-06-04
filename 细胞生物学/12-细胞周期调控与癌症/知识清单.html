@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>第十二章 细胞周期调控与癌症</title>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\(', '\)']],
+    displayMath: [['$$', '$$'], ['\[', '\]']]
+  }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"></script>
+<style>
+/* === ExamPass Shared Styles === */
+/* Paper-like warm background, clean typography, responsive */
+
+:root {
+  --paper: #fdf6e3;
+  --paper-dark: #f5ecd7;
+  --ink: #2c2c2c;
+  --ink-light: #555;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --divider: #d6c8a8;
+  --card-bg: #fef9ef;
+  --card-border: #e8dcc8;
+  --correct: #22c55e;
+  --correct-bg: #f0fdf4;
+  --wrong: #ef4444;
+  --wrong-bg: #fef2f2;
+  --tag-bg: #fef3c7;
+  --tag-text: #92400e;
+  --radius: 6px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Microsoft YaHei", "Noto Sans SC", "SimSun", sans-serif;
+  font-size: 12pt; line-height: 1.75; color: var(--ink);
+  max-width: 860px; margin: auto; padding: 24px 20px 60px;
+  background: var(--paper);
+}
+
+@media print {
+  body { font-size: 10.5pt; background: #fff; }
+  .no-print { display: none !important; }
+  h1, h2, h3 { page-break-after: avoid; }
+}
+
+/* ── Header ── */
+#exampass-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 6px 0; margin-bottom: 0;
+}
+.header-brand { font-size: 1.2em; font-weight: 700; color: #1a1a2e; letter-spacing: 0.3px; }
+.header-url  { font-size: 0.78em; color: #999; }
+.header-divider { border: none; border-top: 2px solid var(--divider); margin: 4px 0 20px 0; }
+
+/* ── Typography ── */
+h1 { font-size: 1.55em; text-align: center; border-bottom: 2px solid var(--divider); padding-bottom: 8px; margin-top: 0; }
+h2 { font-size: 1.25em; border-bottom: 1px solid var(--divider); padding-bottom: 4px; margin-top: 28px; }
+h3 { font-size: 1.08em; margin-top: 20px; color: var(--ink); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Tables ── */
+table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 0.95em; }
+td, th { border: 1px solid var(--card-border); padding: 5px 9px; text-align: left; }
+th { background: var(--paper-dark); font-weight: 700; }
+
+/* ── Knowledge point vs explanation ── */
+.kp { font-weight: 700; color: var(--ink); }           /* key point: bold dark */
+.exp { font-weight: 400; color: var(--ink-light); }    /* explanation: lighter */
+.exp em, .exp strong { color: var(--ink); }             /* emphasis inside explanation */
+
+/* ── Block elements ── */
+blockquote {
+  border-left: 3px solid #c0392b; background: #fef9ef;
+  padding: 6px 14px; margin: 10px 0; font-size: 0.95em;
+}
+code { background: #f0ede0; padding: 2px 5px; border-radius: 3px; font-size: 0.92em; }
+pre { background: #f0ede0; padding: 10px; border-radius: var(--radius); overflow-x: auto; }
+
+/* ── TOC ── */
+div.toc {
+  background: var(--card-bg); padding: 14px 18px;
+  border: 1px solid var(--card-border); border-radius: var(--radius); margin-bottom: 22px;
+}
+div.toc ul { padding-left: 18px; }
+div.toc li { margin: 3px 0; font-size: 0.95em; }
+
+/* ── Priority tags ── */
+.tag-must   { background: #fee2e2; color: #991b1b; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-key    { background: #fef3c7; color: #92400e; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-freq   { background: #dbeafe; color: #1e40af; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+.tag-info   { background: #f0fdf4; color: #166534; padding: 1px 6px; border-radius: 3px; font-size: 0.82em; font-weight: 600; }
+
+
+</style>
+</head>
+<body>
+
+<header id="exampass-header">
+  <div class="header-left"><span class="header-brand">ExamPass Assistant</span></div>
+  <div class="header-right"><span class="header-url">github.com/WUBING2023/ExamPass-Assistant</span></div>
+</header>
+<hr class="header-divider">
+
+<h1>第十二章 细胞周期调控与癌症</h1>
+<div class="toc">
+<h2>目录</h2>
+<ul>
+<li><a href="#s24526475">十二、细胞周期调控与癌症</a></li>
+  <li><a href="#s20240095">12.1 细胞周期调控因子 必考</a></li>
+  <li><a href="#s56734744">12.2 细胞周期检验点 必考</a></li>
+  <li><a href="#s20471336">12.3 癌细胞的特征 必考</a></li>
+  <li><a href="#s88886716">12.4 癌基因与抑癌基因 必考</a></li>
+</ul>
+</div>
+
+<h2 id="s24526475">十二、细胞周期调控与癌症</h2>
+
+<h3 id="s20240095">12.1 细胞周期调控因子 <span class="tag-must">必考</span></h3>
+<p><span class="kp">MPF（成熟促进因子/M期促进因子）</span><span class="exp">——由周期蛋白B（Cyclin B）和CDK1（Cdc2）组成的蛋白激酶复合物，驱动细胞从G₂期进入M期。</span></p>
+
+<p><strong>核心调控因子</strong>：</p>
+<ul>
+  <li><span class="kp">周期蛋白（Cyclin）</span><span class="exp">——浓度随细胞周期波动，周期性合成与降解</span></li>
+  <li><span class="kp">周期蛋白依赖性激酶（CDK）</span><span class="exp">——浓度恒定，活性受周期蛋白调控</span></li>
+</ul>
+
+<table>
+  <tr><th>周期蛋白</th><th>结合的CDK</th><th>作用时相</th></tr>
+  <tr><td>Cyclin D</td><td>CDK4/6</td><td>G₁期</td></tr>
+  <tr><td>Cyclin E</td><td>CDK2</td><td>G₁/S转换</td></tr>
+  <tr><td>Cyclin A</td><td>CDK2/CDK1</td><td>S期和G₂/M转换</td></tr>
+  <tr><td>Cyclin B</td><td>CDK1</td><td>G₂/M转换</td></tr>
+</table>
+
+<h3 id="s56734744">12.2 细胞周期检验点 <span class="tag-must">必考</span></h3>
+<p><span class="kp">检验点（Checkpoint）</span><span class="exp">——细胞周期中的监控机制，确保上一阶段完成后再进入下一阶段。</span></p>
+<table>
+  <tr><th>检验点</th><th>检查内容</th></tr>
+  <tr><td><span class="kp">G₁/S检验点（限制点/Restriction point）</span></td><td>细胞大小、营养条件、生长因子、DNA是否损伤</td></tr>
+  <tr><td><span class="kp">G₂/M检验点</span></td><td>DNA复制是否完成、是否有损伤、细胞大小</td></tr>
+  <tr><td><span class="kp">M期检验点（纺锤体检验点）</span></td><td>染色体是否都正确连接到纺锤体上</td></tr>
+</table>
+<blockquote>易错：G₁/S检验点也叫限制点（restriction point），通过此点后细胞通常不再依赖生长因子即可完成整个周期。</blockquote>
+
+<h3 id="s20471336">12.3 癌细胞的特征 <span class="tag-must">必考</span></h3>
+<ul>
+  <li><span class="kp">无限增殖</span><span class="exp">——摆脱正常增殖限制</span></li>
+  <li><span class="kp">接触抑制丧失</span><span class="exp">——不因细胞密度增加而停止分裂</span></li>
+  <li><span class="kp">锚定依赖性丧失</span><span class="exp">——不需要贴壁即可生长</span></li>
+  <li><span class="kp">侵袭和转移</span><span class="exp">——侵入周围组织并远处转移</span></li>
+  <li><span class="kp">基因组不稳定性</span><span class="exp">——突变率高</span></li>
+</ul>
+
+<h3 id="s88886716">12.4 癌基因与抑癌基因 <span class="tag-must">必考</span></h3>
+<table>
+  <tr><th></th><th>原癌基因/癌基因</th><th>抑癌基因</th></tr>
+  <tr><td>功能</td><td>促进细胞增殖</td><td>抑制细胞增殖</td></tr>
+  <tr><td>突变效应</td><td>功能获得（gain-of-function）</td><td>功能丧失（loss-of-function）</td></tr>
+  <tr><td>举例</td><td>Ras、Myc、Src</td><td>p53、Rb、BRCA1</td></tr>
+  <tr><td>激活方式</td><td>点突变、扩增、重排</td><td>缺失、突变、甲基化沉默</td></tr>
+</table>
+<p><span class="kp">p53</span><span class="exp">——「基因组的守护者」，是最重要的抑癌基因之一。在DNA损伤时p53被激活，诱导p21表达，p21抑制CDK活性，使细胞周期阻滞在G₁期，为DNA修复争取时间。若损伤严重，p53则诱导细胞凋亡。</span></p>
+<p><span class="kp">Rb蛋白</span><span class="exp">——视网膜母细胞瘤蛋白，调控G₁/S转换。低磷酸化Rb结合E2F抑制转录；高磷酸化Rb释放E2F，促进S期基因转录。</span></p>
+<blockquote>易错：原癌基因是正常基因，突变后成为癌基因。癌基因是显性突变（一个等位基因突变即可），抑癌基因是隐性突变（需要两个等位基因都失活）。</blockquote>
+
+
+
+</body>
+</html>
