@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>细胞生物学 知识图谱</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "Microsoft YaHei", sans-serif; background: #1a1a2e; color: #e0e0e0; min-height: 100vh; overflow-x: hidden; }
+.header { text-align: center; padding: 30px 20px 10px; }
+.header h1 { font-size: 1.8em; color: #f0d78c; }
+.header p { color: #999; font-size: 0.9em; margin-top: 6px; }
+.legend { display: flex; justify-content: center; gap: 24px; padding: 10px; flex-wrap: wrap; font-size: 0.8em; }
+.legend span { display: flex; align-items: center; gap: 6px; }
+.legend .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.graph { position: relative; width: 100%; max-width: 1100px; margin: 20px auto; padding: 20px; }
+/* SVG connections */
+.connections { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+/* Node grid */
+.nodes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; position: relative; z-index: 2; }
+/* Special rows */
+.row-3 { grid-template-columns: repeat(3, 1fr); }
+.node { background: #16213e; border: 1px solid #334; border-radius: 10px; padding: 14px 12px; text-align: center; transition: all 0.3s; cursor: pointer; position: relative; }
+.node:hover { transform: translateY(-3px); box-shadow: 0 6px 24px rgba(240, 215, 140, 0.15); border-color: #f0d78c; }
+.node .num { font-size: 0.7em; color: #888; }
+.node .title { font-size: 0.95em; font-weight: bold; color: #f0d78c; margin: 4px 0; }
+.node .tags { display: flex; gap: 4px; justify-content: center; flex-wrap: wrap; margin-top: 6px; }
+.tag { font-size: 0.65em; padding: 2px 6px; border-radius: 3px; }
+.tag-must { background: #c0392b33; color: #e74c3c; border: 1px solid #c0392b66; }
+.tag-key { background: #e67e2233; color: #f39c12; border: 1px solid #e67e2266; }
+.tag-freq { background: #2980b933; color: #3498db; border: 1px solid #2980b966; }
+.tag-info { background: #7f8c8d33; color: #95a5a6; border: 1px solid #7f8c8d66; }
+/* Arrows between sections */
+.section-label { grid-column: 1 / -1; text-align: center; padding: 16px 0 8px; font-size: 0.75em; color: #666; letter-spacing: 4px; text-transform: uppercase; }
+.flow-arrow { grid-column: 1 / -1; text-align: center; color: #f0d78c55; font-size: 1.4em; padding: 4px 0; }
+/* Roadmap */
+.roadmap { max-width: 1100px; margin: 40px auto; padding: 20px; }
+.roadmap h2 { color: #f0d78c; text-align: center; margin-bottom: 20px; font-size: 1.3em; }
+.roadmap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.phase { background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #334; }
+.phase h3 { color: #f0d78c; font-size: 1em; margin-bottom: 12px; }
+.phase ul { list-style: none; line-height: 1.8; font-size: 0.85em; }
+.phase li::before { content: "▸ "; color: #f0d78c; }
+.phase.ph1 { border-top: 3px solid #3498db; }
+.phase.ph2 { border-top: 3px solid #f39c12; }
+.phase.ph3 { border-top: 3px solid #e74c3c; }
+
+@media (max-width: 768px) {
+  .nodes { grid-template-columns: repeat(2, 1fr); }
+  .roadmap-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>细胞生物学 知识图谱</h1>
+  <p>翟中和《细胞生物学》第5版 · 新疆大学考研</p>
+</div>
+
+<div class="legend">
+  <span><span class="dot" style="background:#e74c3c"></span> 必考</span>
+  <span><span class="dot" style="background:#f39c12"></span> 重点</span>
+  <span><span class="dot" style="background:#3498db"></span> 高频</span>
+  <span><span class="dot" style="background:#95a5a6"></span> 了解</span>
+</div>
+
+<div class="graph">
+  <div class="nodes">
+
+    <!-- Phase 1: Foundation -->
+    <div class="section-label">第 一 层 ： 基 础 认 知</div>
+
+    <div class="node" onclick="location='01-绪论/知识清单.html'">
+      <div class="num">第1章</div>
+      <div class="title">绪论</div>
+      <div class="tags"><span class="tag tag-must">必考</span><span class="tag tag-key">重点</span></div>
+    </div>
+
+    <div class="node" onclick="location='02-细胞统一性与多样性/知识清单.html'">
+      <div class="num">第2章</div>
+      <div class="title">细胞统一性与多样性</div>
+      <div class="tags"><span class="tag tag-key">重点</span><span class="tag tag-freq">高频</span></div>
+    </div>
+
+    <div class="node" onclick="location='03-细胞生物学研究方法/知识清单.html'">
+      <div class="num">第3章</div>
+      <div class="title">研究方法</div>
+      <div class="tags"><span class="tag tag-must">必考</span><span class="tag tag-key">重点</span></div>
+    </div>
+
+    <!-- Phase 2: Structure -->
+    <div class="section-label">第 二 层 ： 结 构 与 功 能</div>
+
+    <div class="node" onclick="location='04-细胞质膜/知识清单.html'">
+      <div class="num">第4章</div>
+      <div class="title">细胞质膜</div>
+      <div class="tags"><span class="tag tag-must">必考</span><span class="tag tag-key">重点</span></div>
+    </div>
+
+    <div class="node" onclick="location='05-内膜系统与蛋白质分选/知识清单.html'">
+      <div class="num">第5章</div>
+      <div class="title">内膜系统与蛋白质分选</div>
+      <div class="tags"><span class="tag tag-must">必考</span></div>
+    </div>
+
+    <div class="node" onclick="location='06-线粒体与叶绿体/知识清单.html'">
+      <div class="num">第6章</div>
+      <div class="title">线粒体与叶绿体</div>
+      <div class="tags"><span class="tag tag-must">必考</span><span class="tag tag-key">重点</span></div>
+    </div>
+
+    <div class="node" onclick="location='07-细胞骨架/知识清单.html'">
+      <div class="num">第7章</div>
+      <div class="title">细胞骨架</div>
+      <div class="tags"><span class="tag tag-must">必考</span><span class="tag tag-key">重点</span></div>
+    </div>
+
+    <div class="node" onclick="location='15-细胞连接与细胞黏着/知识清单.html'">
+      <div class="num">第15章</div>
+      <div class="title">细胞连接与细胞黏着</div>
+      <div class="tags"><span class="tag tag-must">必考</span><span class="tag tag-freq">高频</span></div>
+    </div>
+
+    <!-- Phase 3: Genetic Info -->
+    <div class="section-label">第 三 层 ： 遗 传 信 息</div>
+
+    <div class="node" onclick="location='08-细胞核与染色体/知识清单.html'">
+      <div class="num">第8章</div>
+      <div class="title">细胞核与染色体</div>
+      <div class="tags"><span class="tag tag-must">必考</span></div>
+    </div>
+
+    <div class="node" onclick="location='09-核糖体与蛋白质合成/知识清单.html'">
+      <div class="num">第9章</div>
+      <div class="title">核糖体与蛋白质合成</div>
+      <div class="tags"><span class="tag tag-key">重点</span><span class="tag tag-freq">高频</span></div>
+    </div>
+
+    <!-- Phase 4: Regulation -->
+    <div class="section-label">第 四 层 ： 调 控 与 信 号</div>
+
+    <div class="node" onclick="location='10-细胞信号转导/知识清单.html'">
+      <div class="num">第10章</div>
+      <div class="title">细胞信号转导</div>
+      <div class="tags"><span class="tag tag-must">必考</span></div>
+    </div>
+
+    <div class="node" onclick="location='11-细胞周期与细胞分裂/知识清单.html'">
+      <div class="num">第11章</div>
+      <div class="title">细胞周期与细胞分裂</div>
+      <div class="tags"><span class="tag tag-must">必考</span></div>
+    </div>
+
+    <div class="node" onclick="location='12-细胞周期调控与癌症/知识清单.html'">
+      <div class="num">第12章</div>
+      <div class="title">周期调控与癌症</div>
+      <div class="tags"><span class="tag tag-must">必考</span></div>
+    </div>
+
+    <!-- Phase 5: Life Cycle -->
+    <div class="section-label">第 五 层 ： 细 胞 命 运</div>
+
+    <div class="node" onclick="location='13-细胞分化与干细胞/知识清单.html'">
+      <div class="num">第13章</div>
+      <div class="title">细胞分化与干细胞</div>
+      <div class="tags"><span class="tag tag-must">必考</span><span class="tag tag-key">重点</span></div>
+    </div>
+
+    <div class="node" onclick="location='14-细胞衰老与凋亡/知识清单.html'">
+      <div class="num">第14章</div>
+      <div class="title">细胞衰老与凋亡</div>
+      <div class="tags"><span class="tag tag-must">必考</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Roadmap -->
+<div class="roadmap">
+  <h2>学习路线图</h2>
+  <div class="roadmap-grid">
+    <div class="phase ph1">
+      <h3>第一阶段：基础认知（1-3章）</h3>
+      <ul>
+        <li>细胞学说 → 三大核心内容</li>
+        <li>原核 vs 真核 → 对比表格</li>
+        <li>病毒 → 非细胞形态生命体</li>
+        <li>显微镜 → TEM vs SEM</li>
+        <li>研究方法 → 差速离心、密度梯度离心</li>
+      </ul>
+    </div>
+    <div class="phase ph2">
+      <h3>第二阶段：结构与功能（4-9、15章）</h3>
+      <ul>
+        <li>质膜 → 流动镶嵌模型、物质运输</li>
+        <li>内膜系统 → ER→高尔基→溶酶体</li>
+        <li>线粒体/叶绿体 → 氧化磷酸化、内共生</li>
+        <li>细胞骨架 → 微丝/微管/中间纤维 + 马达蛋白</li>
+        <li>细胞核 → 核小体、染色体、NLS</li>
+        <li>核糖体 → 翻译过程、核酶</li>
+      </ul>
+    </div>
+    <div class="phase ph3">
+      <h3>第三阶段：调控与命运（10-14章）</h3>
+      <ul>
+        <li>信号转导 → GPCR、RTK-Ras-MAPK</li>
+        <li>第二信使 → cAMP、IP₃、Ca²⁺</li>
+        <li>细胞周期 → G₁/S/G₂/M、有丝vs减数</li>
+        <li>周期调控 → MPF、检验点、p53、癌基因</li>
+        <li>细胞分化 → 全能性、干细胞、管家基因</li>
+        <li>细胞凋亡 → Caspase、凋亡vs坏死</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Cross-chapter connections -->
+<div style="max-width:1100px;margin:20px auto;padding:20px;">
+  <h2 style="color:#f0d78c;text-align:center;margin-bottom:20px;font-size:1.3em;">跨章节核心线索</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
+    <div class="node" style="text-align:left;padding:16px;">
+      <div class="title" style="font-size:0.9em;">蛋白质的旅程</div>
+      <p style="font-size:0.75em;color:#aaa;margin-top:6px;line-height:1.6;">
+        核糖体合成 → 信号假说 → rER加工 → 高尔基体修饰 → 囊泡运输 → 胞吐/溶酶体/质膜
+        <br>（第5章 + 第9章 + 第4章）
+      </p>
+    </div>
+    <div class="node" style="text-align:left;padding:16px;">
+      <div class="title" style="font-size:0.9em;">信号传递链</div>
+      <p style="font-size:0.75em;color:#aaa;margin-top:6px;line-height:1.6;">
+        信号分子 → 受体 → G蛋白/Ras → 第二信使 → 激酶级联 → 基因表达 → 细胞增殖/分化/凋亡
+        <br>（第10章 + 第12章 + 第13章 + 第14章）
+      </p>
+    </div>
+    <div class="node" style="text-align:left;padding:16px;">
+      <div class="title" style="font-size:0.9em;">能量与细胞器起源</div>
+      <p style="font-size:0.75em;color:#aaa;margin-top:6px;line-height:1.6;">
+        糖酵解 → 三羧酸循环 → 氧化磷酸化 → ATP → 主动运输/肌肉收缩/信号转导
+        <br>（第6章 + 第4章 + 第7章 + 第10章）
+      </p>
+    </div>
+    <div class="node" style="text-align:left;padding:16px;">
+      <div class="title" style="font-size:0.9em;">细胞周期全景</div>
+      <p style="font-size:0.75em;color:#aaa;margin-top:6px;line-height:1.6;">
+        信号刺激 → Cyclin-CDK激活 → 通过检验点 → DNA复制 → 有丝分裂 → 胞质分裂
+        <br>→ 异常 → p53阻滞 → 修复or凋亡（第11章 + 第12章 + 第14章）
+      </p>
+    </div>
+  </div>
+</div>
+
+<p style="text-align:center;color:#555;padding:40px;font-size:0.8em;">点击任意章节节点可跳转到对应知识清单</p>
+
+</body>
+</html>
