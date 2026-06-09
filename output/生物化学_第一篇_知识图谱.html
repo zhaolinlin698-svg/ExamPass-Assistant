@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>生物化学第一篇 — 知识图谱</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+mermaid.initialize({
+  startOnLoad: true,
+  theme: 'default',
+  securityLevel: 'loose',
+  flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis' },
+  themeVariables: {
+    primaryColor: '#e8f0fe',
+    primaryBorderColor: '#1a73e8',
+    secondaryColor: '#fff3e0',
+    secondaryBorderColor: '#e65100',
+    tertiaryColor: '#e8f5e9',
+    tertiaryBorderColor: '#2e7d32',
+    lineColor: '#546e7a'
+  }
+});
+</script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'Microsoft YaHei', sans-serif; background: #f5f6fa; color: #333; }
+  .header { background: linear-gradient(135deg, #1a237e, #283593); color: #fff; padding: 30px; text-align: center; }
+  .header h1 { font-size: 1.8em; margin-bottom: 8px; }
+  .header p { opacity: 0.85; font-size: 1em; }
+  .nav { display: flex; justify-content: center; gap: 12px; padding: 16px; background: #fff; border-bottom: 1px solid #e0e0e0; position: sticky; top: 0; z-index: 10; }
+  .nav a { padding: 8px 20px; border-radius: 20px; text-decoration: none; color: #1a237e; font-weight: 500; transition: 0.2s; }
+  .nav a:hover, .nav a.active { background: #1a237e; color: #fff; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+  section { display: none; }
+  section.active { display: block; }
+  .card { background: #fff; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .card h2 { font-size: 1.3em; color: #1a237e; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e8eaf6; }
+  .card h3 { font-size: 1.1em; color: #283593; margin: 20px 0 12px; }
+  .mermaid { text-align: center; margin: 16px 0; }
+  .legend { display: flex; gap: 24px; flex-wrap: wrap; padding: 12px 0; font-size: 0.9em; }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-dot { width: 14px; height: 14px; border-radius: 3px; border: 1.5px solid; }
+  .legend-dot.foundation { background: #e8f0fe; border-color: #1a73e8; }
+  .legend-dot.structure { background: #fff3e0; border-color: #e65100; }
+  .legend-dot.function { background: #e8f5e9; border-color: #2e7d32; }
+  .legend-dot.energy { background: #fce4ec; border-color: #c62828; }
+  .legend-dot.regulation { background: #f3e5f5; border-color: #7b1fa2; }
+  @media (max-width: 768px) { .container { padding: 12px; } .card { padding: 16px; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>生物化学原理（第四版）— 第一篇 结构生物化学 知识图谱</h1>
+  <p>杨荣武 主编 | 考研备考 · 深度学习模式</p>
+</div>
+
+<nav class="nav">
+  <a href="#relation" class="active" onclick="switchTab(event, 'relation')">章节知识关系图</a>
+  <a href="#mindmap" onclick="switchTab(event, 'mindmap')">核心概念思维导图</a>
+  <a href="#pathway" onclick="switchTab(event, 'pathway')">代谢通路串联图</a>
+</nav>
+
+<div class="container">
+
+<!-- ============ 图表一：章节知识关系图 ============ -->
+<section id="relation" class="active">
+
+<div class="card">
+  <h2>第一篇 结构生物化学 — 章节知识关系图</h2>
+  <p style="color:#666;margin-bottom:16px">展示18章之间的逻辑依赖关系：从原子→小分子→大分子→超分子→功能。箭头表示「学习该章前应先理解」的依赖关系。</p>
+  <div class="legend">
+    <span class="legend-item"><span class="legend-dot foundation"></span> 基础层</span>
+    <span class="legend-item"><span class="legend-dot structure"></span> 结构层</span>
+    <span class="legend-item"><span class="legend-dot function"></span> 功能层</span>
+    <span class="legend-item"><span class="legend-dot energy"></span> 能量层</span>
+    <span class="legend-item"><span class="legend-dot regulation"></span> 调控层</span>
+  </div>
+  <div class="mermaid">
+graph TB
+    %% 基础层
+    CH1["第1章<br/>绪论<br/><small>化学基础·弱相互作用</small>"]
+    CH16["第16章<br/>生物能学<br/><small>热力学·ATP·偶联反应</small>"]
+
+    %% 结构层
+    CH2["第2章<br/>氨基酸<br/><small>20种·分类·pI</small>"]
+    CH3["第3章<br/>蛋白质一级结构<br/><small>序列·Edman降解</small>"]
+    CH4["第4章<br/>蛋白质三维结构<br/><small>α-螺旋·β-折叠·结构域</small>"]
+    CH5["第5章<br/>蛋白质功能与进化<br/><small>Hb·Mb·别构效应</small>"]
+    CH6["第6章<br/>核酸<br/><small>DNA双螺旋·RNA</small>"]
+    CH7["第7章<br/>糖类<br/><small>单糖·多糖·糖蛋白</small>"]
+    CH8["第8章<br/>脂类与生物膜<br/><small>磷脂·流动镶嵌</small>"]
+
+    %% 功能层
+    CH9["第9章<br/>维生素与辅酶<br/><small>TPP·NAD·CoA·PLP</small>"]
+    CH10["第10章<br/>酶学导论<br/><small>活性中心·专一性</small>"]
+    CH11["第11章<br/>酶动力学<br/><small>M-M方程·抑制剂</small>"]
+    CH12["第12章<br/>酶作用机制<br/><small>催化三联体·过渡态</small>"]
+    CH13["第13章<br/>酶调节<br/><small>别构·共价·同工酶</small>"]
+    CH14["第14章<br/>激素与信号转导<br/><small>GPCR·RTK·第二信使</small>"]
+    CH15["第15章<br/>生物膜与运输<br/><small>Na-K泵·通道蛋白</small>"]
+
+    %% 能量层
+    CH17["第17章<br/>生物氧化<br/><small>呼吸链·氧化磷酸化</small>"]
+    CH18["第18章<br/>光合作用<br/><small>PSI/II·Calvin循环</small>"]
+
+    %% 依赖关系
+    CH1 --> CH2
+    CH1 --> CH16
+    CH2 --> CH3
+    CH3 --> CH4
+    CH4 --> CH5
+    CH4 --> CH10
+    CH5 --> CH13
+    CH10 --> CH11
+    CH11 --> CH12
+    CH12 --> CH13
+    CH8 --> CH15
+    CH14 --> CH15
+    CH9 --> CH10
+    CH9 --> CH12
+    CH6 --> CH4
+    CH16 --> CH17
+    CH16 --> CH18
+    CH17 --> CH18
+    CH15 --> CH17
+    CH13 --> CH14
+
+    %% 跨层连接
+    CH5 -.-> CH14
+    CH4 -.-> CH15
+    CH7 -.-> CH14
+    CH8 -.-> CH14
+
+    %% 颜色
+    classDef foundation fill:#e8f0fe,stroke:#1a73e8,stroke-width:2px
+    classDef structure fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    classDef function fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    classDef energy fill:#fce4ec,stroke:#c62828,stroke-width:2px
+    classDef regulation fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+
+    class CH1,CH16 foundation
+    class CH2,CH3,CH4,CH6,CH7,CH8 structure
+    class CH5,CH9,CH10,CH11,CH12,CH13,CH14 function
+    class CH17,CH18 energy
+    class CH15 regulation
+  </div>
+</div>
+
+<div class="card">
+  <h2>考研命题跨章节关联热力图</h2>
+  <p style="color:#666;margin-bottom:16px">横轴和纵轴为章节号，颜色越深表示两章内容在真题中越常交叉命题。</p>
+  <div class="mermaid">
+graph LR
+    subgraph 高频交叉命题
+        A["蛋白质+酶<br/>Ch4-5 交叉 Ch10-13<br/><small>★★★ 别构调节·抑制剂·同工酶</small>"]
+        B["核酸+蛋白质<br/>Ch6 交叉 Ch4-5<br/><small>★★★ DNA结合蛋白·核小体</small>"]
+        C["酶+信号转导<br/>Ch13 交叉 Ch14<br/><small>★★★ 磷酸化级联·PKA</small>"]
+    end
+    subgraph 中频交叉命题
+        D["脂类+膜运输<br/>Ch8 交叉 Ch15<br/><small>★★ 膜流动性·转运蛋白</small>"]
+        E["维生素+酶机制<br/>Ch9 交叉 Ch12<br/><small>★★ 辅酶催化机理</small>"]
+        F["生物能学+生物氧化<br/>Ch16 交叉 Ch17<br/><small>★★ 化学渗透假说</small>"]
+    end
+    subgraph 基础贯穿
+        G["弱相互作用 贯穿 Ch1-18<br/><small>★ 所有大分子结构均涉及</small>"]
+    end
+    style A fill:#ffcdd2,stroke:#c62828
+    style B fill:#ffcdd2,stroke:#c62828
+    style C fill:#ffcdd2,stroke:#c62828
+    style D fill:#fff9c4,stroke:#f9a825
+    style E fill:#fff9c4,stroke:#f9a825
+    style F fill:#fff9c4,stroke:#f9a825
+    style G fill:#e8eaf6,stroke:#3949ab
+  </div>
+</div>
+
+</section>
+
+<!-- ============ 图表二：核心概念思维导图 ============ -->
+<section id="mindmap">
+
+<div class="card">
+  <h2>主题一：氨基酸 → 蛋白质（第2-5章）</h2>
+  <div class="mermaid">
+mindmap
+  root((氨基酸与蛋白质))
+    氨基酸基础
+      20种标准氨基酸
+        非极性::icon(fa fa-circle)
+          Gly Ala Val Leu Ile
+          Pro Phe Trp Met
+        极性不带电
+          Ser Thr Cys Tyr
+          Asn Gln
+        酸性
+          Asp Glu
+        碱性
+          Lys Arg His
+      pI等电点
+      肽键 部分双键 反式
+    蛋白质结构层次
+      一级结构 序列
+        Edman降解法
+        Sanger 胰岛素
+      二级结构
+        α-螺旋 3.6残基/圈 i→i+4
+        β-折叠 平行/反平行
+        β-转角
+        Ramachandran图
+      超二级结构与结构域
+      三级结构
+        疏水核心 主要驱动力
+        二硫键
+        分子伴侣 GroEL/GroES
+      四级结构
+        血红蛋白 α₂β₂
+        协同效应
+    蛋白质功能
+      氧合曲线
+        Mb 双曲线
+        Hb S形曲线 正协同
+      Bohr效应
+      2,3-BPG调节
+      别构效应 MWC vs KNF
+      IgG抗体结构
+      镰刀形细胞贫血
+        Glu6→Val
+        HbS聚合
+    分离纯化
+      盐析
+      透析
+      层析 离子交换/分子筛/亲和
+      电泳 SDS-PAGE
+      超速离心
+  </div>
+</div>
+
+<div class="card">
+  <h2>主题二：核酸（第6章）</h2>
+  <div class="mermaid">
+mindmap
+  root((核酸))
+    核苷酸组成
+      碱基
+        嘌呤 A G
+        嘧啶 C T U
+      戊糖 核糖/脱氧核糖
+      磷酸
+    DNA
+      双螺旋模型 Watson-Crick
+        反平行双链
+        A=T 两个氢键
+        G≡C 三个氢键
+        大沟 小沟
+        B-DNA参数
+          螺距 3.4nm
+          10.5bp/圈
+          直径 2nm
+      Chargaff规则
+      变性与复性
+        增色效应
+        Tm值 GC含量
+        Cot曲线
+      超螺旋 拓扑异构酶
+    RNA
+      mRNA 密码子
+      tRNA
+        三叶草结构
+        倒L型
+        反密码子
+        3'端CCA
+      rRNA 核糖体
+    化学性质
+      酸/碱水解差异
+      紫外吸收 260nm
+  </div>
+</div>
+
+<div class="card">
+  <h2>主题三：糖类与脂类（第7-8章）</h2>
+  <div class="mermaid">
+mindmap
+  root((糖类与脂类))
+    糖类
+      单糖
+        醛糖/酮糖
+        D/L型
+        吡喃糖/呋喃糖
+        α/β异头碳
+        还原糖概念
+      二糖
+        麦芽糖 α-1,4
+        蔗糖 α,β-1,2
+        乳糖 β-1,4
+      多糖
+        淀粉 直链α-1,4/支链α-1,6
+        糖原 更多分支
+        纤维素 β-1,4 不可消化
+      糖缀合物
+        糖蛋白
+        蛋白聚糖
+    脂类
+      脂肪酸
+        饱和/不饱和
+        ω命名法
+        必需脂肪酸 亚油酸/亚麻酸
+      三酰甘油 储能
+      甘油磷脂
+        磷脂酰胆碱 PC
+        磷脂酰乙醇胺 PE
+        磷脂酰丝氨酸 PS
+      鞘脂
+      胆固醇 环戊烷多氢菲
+    生物膜
+      流动镶嵌模型
+      膜脂运动
+        侧向扩散
+        翻转 慢
+        旋转
+      相变温度 Tm
+        与饱和度关系
+        与链长关系
+      膜蛋白
+        整合蛋白
+        外周蛋白
+        脂锚定蛋白
+  </div>
+</div>
+
+<div class="card">
+  <h2>主题四：维生素与辅酶（第9章）</h2>
+  <div class="mermaid">
+mindmap
+  root((维生素与辅酶))
+    水溶性维生素
+      B族
+        B₁ 硫胺素 → TPP 脱羧
+        B₂ 核黄素 → FAD/FMN 氧化还原
+        B₃ 烟酸 → NAD⁺/NADP⁺ 脱氢
+        B₅ 泛酸 → CoA 酰基转移
+        B₆ 吡哆醇 → PLP 转氨/脱羧
+        B₇ 生物素 → 羧化辅基 CO₂转移
+        B₉ 叶酸 → THF 一碳单位
+        B₁₂ 钴胺素 → 辅酶B₁₂ 变位
+      C 抗坏血酸
+        抗氧化
+        羟化辅因子
+    脂溶性维生素
+      A 视黄醇 → 视色素
+      D → 钙磷代谢
+      E 生育酚 → 抗氧化
+      K → γ-羧化辅因子
+    缺乏症速查
+      脚气病 B₁
+      糙皮病 B₃
+      恶性贫血 B₁₂
+      坏血病 C
+      夜盲症 A
+      佝偻病 D
+  </div>
+</div>
+
+<div class="card">
+  <h2>主题五：酶学（第10-13章）</h2>
+  <div class="mermaid">
+mindmap
+  root((酶学))
+    酶学导论 Ch10
+      酶的本质 蛋白质/RNA
+      活性中心 结合+催化基团
+      专一性 绝对/相对/立体
+      六大酶类
+        氧化还原酶
+        转移酶
+        水解酶
+        裂合酶
+        异构酶
+        连接酶
+      辅酶 vs 辅基
+      活力单位 IU/kat
+      核酶 Cech Altman
+    酶动力学 Ch11
+      M-M方程
+        稳态假设
+        v₀ = Vmax[S]/(Km+[S])
+        Km Vmax kcat kcat/Km
+      Lineweaver-Burk双倒数
+      pH/温度影响
+      三种可逆抑制
+        竞争性 Vmax不变 Km↑
+        非竞争性 Vmax↓ Km不变
+        反竞争性 Vmax↓ Km↓
+      磺胺类 竞争性抑制
+    酶作用机制 Ch12
+      过渡态稳定化
+      催化机制
+        邻近效应 定向效应
+        酸碱催化
+        共价催化
+        金属离子催化
+      催化三联体 Ser-His-Asp
+      溶菌酶 酸碱+应变
+      碳酸酐酶 Zn²⁺
+    酶调节 Ch13
+      别构调节
+        S形曲线
+        ATCase范例
+      共价修饰
+        磷酸化/去磷酸化
+        酶原激活 胰蛋白酶原
+        级联放大 10⁶-10⁸
+      同工酶 LDH H₄~M₄
+        心梗诊断 LDH翻转
+  </div>
+</div>
+
+<div class="card">
+  <h2>主题六：信号转导与膜运输（第14-15章）</h2>
+  <div class="mermaid">
+mindmap
+  root((信号与运输))
+    激素与信号转导 Ch14
+      激素分类 水溶/脂溶
+      GPCR通路
+        G蛋白 Gα-Gβγ
+        GTP/GDP交换
+        cAMP通路
+          Gαs → AC → cAMP → PKA
+        IP₃/DAG通路
+          PIP₂ → PLC → IP₃+Ca²⁺+DAG+PKC
+      RTK通路
+        自磷酸化
+        Ras → Raf → MEK → ERK
+      第二信使
+        cAMP cGMP
+        IP₃ DAG
+        Ca²⁺
+      脂溶性激素 核受体
+    生物膜与运输 Ch15
+      被动运输
+        简单扩散
+        协助扩散 GLUT
+      主动运输
+        初级 Na⁺-K⁺ ATP酶
+          3Na⁺出/2K⁺进
+        次级 Na⁺/葡萄糖同向
+      离子通道
+        电压门控
+        配体门控
+        机械门控
+      胞吞/胞吐
+  </div>
+</div>
+
+<div class="card">
+  <h2>主题七：生物能量学（第16-18章）</h2>
+  <div class="mermaid">
+mindmap
+  root((生物能量学))
+    生物能学 Ch16
+      ΔG=ΔH-TΔS
+      ΔG°' = -RT ln Keq
+      ATP
+        腺苷-三磷酸
+        高能磷酸键 磷酸基团转移势能
+        ΔG°' = -30.5 kJ/mol
+      其他高能化合物
+        PEP -61.9
+        1,3-BPG -49.4
+        磷酸肌酸 -43.1
+      偶联反应
+      能荷 EC
+    生物氧化 Ch17
+      呼吸链
+        复合体I NADH脱氢酶
+        复合体II 琥珀酸脱氢酶
+        复合体III Cyt bc₁
+        复合体IV Cyt c氧化酶
+        CoQ Cyt c 流动载体
+      抑制剂
+        鱼藤酮 → I
+        抗霉素A → III
+        CN⁻/CO → IV
+      化学渗透假说 Mitchell
+        H⁺梯度
+        ATP合酶 F₁+F₀
+      P/O比
+        NADH ≈ 2.5
+        FADH₂ ≈ 1.5
+      解偶联剂 DNP/UCP1
+    光合作用 Ch18
+      光反应 类囊体膜
+        光合色素 叶绿素a/b
+        PSII P680
+        PSI P700
+        Z方案
+        水的光解 OEC Mn₄Ca
+      暗反应 基质 Calvin
+        羧化 RuBisCO
+        还原 G3P
+        再生 RuBP
+      C3/C4比较
+      光合 vs 呼吸对比
+  </div>
+</div>
+
+</section>
+
+<!-- ============ 图表三：代谢通路串联图 ============ -->
+<section id="pathway">
+
+<div class="card">
+  <h2>代谢网络全景图（第一篇→第二篇衔接）</h2>
+  <p style="color:#666;margin-bottom:16px">从结构生物化学过渡到代谢生物化学，展示主要代谢通路之间的物质和能量连接关系。糖类、脂类、蛋白质三大代谢通过共同中间物交汇。</p>
+  <div class="mermaid">
+graph TB
+    subgraph 糖代谢
+        GLU["葡萄糖<br/>Glucose"]
+        G6P["葡萄糖-6-磷酸<br/>G-6-P"]
+        F6P["果糖-6-磷酸"]
+        FBP["果糖-1,6-二磷酸"]
+        G3P["甘油醛-3-磷酸"]
+        PEP["PEP"]
+        PYR["丙酮酸<br/>Pyruvate"]
+        LAC["乳酸<br/>Lactate"]
+        PPP["磷酸戊糖途径<br/>PPP<br/><small>→ NADPH + 核糖-5-P</small>"]
+        GLYCOGEN["糖原<br/>Glycogen"]
+    end
+
+    subgraph 脂代谢
+        TAG["三酰甘油<br/>TAG"]
+        FA["脂肪酸<br/>Fatty Acid"]
+        FACoA["脂酰-CoA"]
+        GLYCEROL["甘油"]
+        KB["酮体<br/>Ketone Bodies"]
+    end
+
+    subgraph 蛋白质代谢
+        PROTEIN["蛋白质"]
+        AA["氨基酸<br/>Amino Acids"]
+        NH3["NH₃<br/>尿素循环"]
+    end
+
+    subgraph 中心代谢
+        AcCoA["乙酰-CoA<br/>Acetyl-CoA"]
+        OAA["草酰乙酸<br/>OAA"]
+        CIT["柠檬酸<br/>Citrate"]
+        AKG["α-酮戊二酸<br/>α-KG"]
+        SucCoA["琥珀酰-CoA"]
+    end
+
+    subgraph 氧化磷酸化
+        NADH["NADH"]
+        FADH2["FADH₂"]
+        ETC["呼吸链<br/>ETC"]
+        ATP["ATP"]
+        O2["O₂"]
+        H2O["H₂O"]
+    end
+
+    subgraph 光合作用
+        LIGHT["光能<br/>hν"]
+        H2O_PHOTO["H₂O"]
+        O2_PHOTO["O₂"]
+        NADPH_PHOTO["NADPH"]
+        CO2_PHOTO["CO₂"]
+        G3P_PHOTO["G3P"]
+    end
+
+    %% 糖代谢连接
+    GLU --> G6P
+    G6P --> GLYCOGEN
+    G6P --> PPP
+    G6P --> F6P
+    F6P --> FBP
+    FBP --> G3P
+    G3P --> PEP
+    PEP --> PYR
+    PYR --> LAC
+    PYR --> AcCoA
+
+    %% 脂代谢连接
+    TAG --> FA
+    TAG --> GLYCEROL
+    FA --> FACoA
+    FACoA --> AcCoA
+    GLYCEROL --> G3P
+    AcCoA --> KB
+    AcCoA --> FA
+
+    %% 蛋白质代谢连接
+    PROTEIN --> AA
+    AA --> PYR
+    AA --> AcCoA
+    AA --> OAA
+    AA --> AKG
+    AA --> SucCoA
+    AA --> NH3
+
+    %% TCA循环
+    AcCoA --> CIT
+    OAA --> CIT
+    CIT --> AKG
+    AKG --> SucCoA
+    SucCoA --> OAA
+
+    %% 氧化磷酸化
+    TCA["TCA循环"] -.-> NADH
+    TCA -.-> FADH2
+    NADH --> ETC
+    FADH2 --> ETC
+    ETC --> ATP
+    O2 --> ETC
+    ETC --> H2O
+
+    %% 光合作用
+    LIGHT --> ETC
+    H2O_PHOTO --> ETC
+    ETC --> O2_PHOTO
+    ETC --> NADPH_PHOTO
+    NADPH_PHOTO --> G3P_PHOTO
+    CO2_PHOTO --> G3P_PHOTO
+    G3P_PHOTO --> GLU
+
+    %% 样式
+    classDef sugar fill:#e8f0fe,stroke:#1a73e8,stroke-width:2px
+    classDef lipid fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    classDef protein fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    classDef central fill:#fce4ec,stroke:#c62828,stroke-width:2px
+    classDef oxphos fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef photo fill:#e0f7fa,stroke:#00838f,stroke-width:2px
+    classDef energy fill:#fff9c4,stroke:#f9a825,stroke-width:2px
+
+    class GLU,G6P,F6P,FBP,G3P,PEP,PYR,LAC,PPP,GLYCOGEN sugar
+    class TAG,FA,FACoA,GLYCEROL,KB lipid
+    class PROTEIN,AA,NH3 protein
+    class AcCoA,OAA,CIT,AKG,SucCoA,TCA central
+    class NADH,FADH2,ETC,H2O oxphos
+    class LIGHT,H2O_PHOTO,O2_PHOTO,NADPH_PHOTO,CO2_PHOTO,G3P_PHOTO photo
+    class ATP,O2 energy
+  </div>
+</div>
+
+<div class="card">
+  <h2>能荷调控与代谢分支点</h2>
+  <p style="color:#666;margin-bottom:16px">细胞通过能荷(Energy Charge)感知能量状态，在ATP/ADP/AMP比例变化时切换合成代谢与分解代谢。</p>
+  <div class="mermaid">
+graph LR
+    subgraph 高能荷状态
+        H_ATP["ATP 充足"]
+        H_EC["EC ≈ 0.9"]
+        H_EFFECT["促进合成代谢<br/>糖原合成·脂肪酸合成<br/>蛋白质合成"]
+    end
+
+    subgraph 低能荷状态
+        L_AMP["AMP 积累"]
+        L_EC["EC &lt; 0.5"]
+        L_EFFECT["促进分解代谢<br/>糖酵解·TCA循环<br/>脂肪酸β-氧化"]
+    end
+
+    subgraph 关键调控酶
+        PFK1["PFK-1<br/>糖酵解限速酶"]
+        FBPase["果糖-1,6-二磷酸酶<br/>糖异生"]
+        PK["丙酮酸激酶"]
+        PDH["丙酮酸脱氢酶复合体"]
+        CS["柠檬酸合酶"]
+        ICDH["异柠檬酸脱氢酶"]
+    end
+
+    H_ATP --> H_EC
+    H_EC --> H_EFFECT
+    L_AMP --> L_EC
+    L_EC --> L_EFFECT
+
+    H_EC -.->|抑制| PFK1
+    H_EC -.->|抑制| PK
+    H_EC -.->|抑制| PDH
+    L_EC -.->|激活| PFK1
+    L_EC -.->|激活| PDH
+    L_EC -.->|激活| ICDH
+    L_EC -.->|激活| CS
+
+    style H_ATP fill:#c8e6c9,stroke:#2e7d32
+    style H_EC fill:#c8e6c9,stroke:#2e7d32
+    style H_EFFECT fill:#c8e6c9,stroke:#2e7d32
+    style L_AMP fill:#ffcdd2,stroke:#c62828
+    style L_EC fill:#ffcdd2,stroke:#c62828
+    style L_EFFECT fill:#ffcdd2,stroke:#c62828
+    style PFK1 fill:#fff9c4,stroke:#f9a825
+    style FBPase fill:#fff9c4,stroke:#f9a825
+    style PK fill:#fff9c4,stroke:#f9a825
+    style PDH fill:#fff9c4,stroke:#f9a825
+    style CS fill:#fff9c4,stroke:#f9a825
+    style ICDH fill:#fff9c4,stroke:#f9a825
+  </div>
+</div>
+
+<div class="card">
+  <h2>三大代谢交汇点 — 乙酰-CoA 与 TCA 循环</h2>
+  <div class="mermaid">
+graph TD
+    ACCOA["乙酰-CoA<br/><small>代谢枢纽</small>"]
+
+    subgraph 来源
+        S1["糖酵解<br/>→ 丙酮酸 → 乙酰-CoA"]
+        S2["脂肪酸β-氧化<br/>→ 乙酰-CoA"]
+        S3["氨基酸降解<br/>→ 乙酰-CoA"]
+        S4["酮体<br/>→ 乙酰-CoA"]
+    end
+
+    subgraph 去路
+        D1["TCA循环<br/>→ CO₂ + NADH + FADH₂"]
+        D2["脂肪酸合成<br/>→ 丙二酸单酰-CoA"]
+        D3["酮体生成<br/>肝线粒体"]
+        D4["胆固醇合成"]
+    end
+
+    subgraph TCA循环细节
+        T1["柠檬酸合酶<br/>OAA + 乙酰-CoA → 柠檬酸"]
+        T2["异柠檬酸脱氢酶<br/>限速酶·被ADP激活"]
+        T3["α-酮戊二酸脱氢酶<br/>类似PDH复合体"]
+        T4["琥珀酰-CoA合成酶<br/>底物水平磷酸化 → GTP"]
+        T5["琥珀酸脱氢酶<br/>复合体II·FAD→FADH₂"]
+        T6["延胡索酸酶"]
+        T7["苹果酸脱氢酶<br/>NAD⁺→NADH"]
+    end
+
+    S1 --> ACCOA
+    S2 --> ACCOA
+    S3 --> ACCOA
+    S4 --> ACCOA
+    ACCOA --> D1
+    ACCOA --> D2
+    ACCOA --> D3
+    ACCOA --> D4
+
+    D1 --> T1
+    T1 --> T2
+    T2 --> T3
+    T3 --> T4
+    T4 --> T5
+    T5 --> T6
+    T6 --> T7
+    T7 --> T1
+
+    style ACCOA fill:#ffcdd2,stroke:#c62828,stroke-width:3px
+    style S1 fill:#e8f0fe,stroke:#1a73e8
+    style S2 fill:#fff3e0,stroke:#e65100
+    style S3 fill:#e8f5e9,stroke:#2e7d32
+    style S4 fill:#f3e5f5,stroke:#7b1fa2
+    style D1 fill:#fce4ec,stroke:#c62828
+    style D2 fill:#fff9c4,stroke:#f9a825
+    style D3 fill:#e0f7fa,stroke:#00838f
+    style D4 fill:#f3e5f5,stroke:#7b1fa2
+  </div>
+</div>
+
+</section>
+
+</div>
+
+<script>
+function switchTab(evt, tabId) {
+  evt.preventDefault();
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  evt.target.classList.add('active');
+  window.location.hash = tabId;
+}
+
+// Handle initial hash
+const hash = window.location.hash.slice(1);
+if (hash && document.getElementById(hash)) {
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById(hash).classList.add('active');
+  document.querySelector(`.nav a[href="#${hash}"]`)?.classList.add('active');
+}
+</script>
+
+</body>
+</html>
